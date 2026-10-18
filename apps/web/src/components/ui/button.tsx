@@ -74,7 +74,7 @@ export function Button({
         {children}
         {loading && (
           <Spinner
-            className="pointer-events-none absolute"
+            className="pointer-events-none absolute inset-0 m-auto w-6 max-w-full"
             data-slot="button-loading-indicator"
           />
         )}

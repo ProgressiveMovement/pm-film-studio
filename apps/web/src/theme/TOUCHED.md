@@ -100,3 +100,9 @@ Not touched: components/task/**, constants/label-colors.ts, integration logos.
 - `.github/workflows/studio-image.yml`: added a smoke test before the push. Builds `Dockerfile.kaneo` into the local daemon as `studio-smoke:local` (load, no push), starts `postgres:16-alpine` plus the image on a throwaway docker network, waits up to 90 s for `/api/health` on port 5173, prints the last 50 log lines and fails on timeout. The existing build-and-push step then runs from the shared gha cache scope `studio`. No new actions; existing SHA pins, permissions and concurrency unchanged.
 - `.github/dependabot.yml`: upstream's file exists (npm weekly, github-actions weekly). Upstream entries are untouched; one entry appended: `github-actions`, directory `/`, target branch `theme/studio`, monthly, label `ci`.
 - Merge note: on an upstream merge, keep upstream's entries and ours side by side. The label `ci` must exist in the repo or Dependabot skips it with a warning.
+# TOUCHED b2
+- components/ui/spinner.tsx: width follows `size` (<=16 -> 24 px, >=24 -> 56 px, else 40 px), height stays 10 px.
+- components/ui/button.tsx: loading indicator only, `absolute inset-0 m-auto w-6 max-w-full` (centred, 24 px, no overflow).
+- components/ui/skeleton.tsx: unchanged; `cn` is twMerge, so caller h-/size-/rounded- win over h-2.5 rounded-full. `.shimmer-line` is in the components layer, below utilities.
+- components/ui/loading-skeleton.tsx: avatars `size-6 rounded-full`, icon block `size-16 rounded-2xl`.
+- components/task-chips/label-chips.tsx: light text is color-mix 70% label + foreground, dark keeps raw colour; border 40% raw, dot raw.

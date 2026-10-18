@@ -43,12 +43,12 @@ export function LabelChips({ task, workspaceId, max = 2 }: LabelChipsProps) {
             }
             className={cn(
               taskChipClass,
-              "max-w-36 border-[color-mix(in_srgb,var(--label-c)_40%,transparent)] text-[var(--label-c)] group-hover/labels:border-chip-border-hover group-hover/labels:bg-chip-hover group-data-popup-open/labels:border-chip-border-open group-data-popup-open/labels:bg-chip-open",
+              "max-w-36 border-[color-mix(in_srgb,var(--label-c)_40%,transparent)] text-[color:color-mix(in_oklab,var(--label-c)_70%,var(--foreground))] dark:text-[var(--label-c)] group-hover/labels:border-chip-border-hover group-hover/labels:bg-chip-hover group-data-popup-open/labels:border-chip-border-open group-data-popup-open/labels:bg-chip-open",
             )}
           >
             <span
               aria-hidden="true"
-              className="size-1.5 shrink-0 rounded-full bg-current"
+              className="size-1.5 shrink-0 rounded-full bg-[var(--label-c)]"
             />
             <span className="truncate">{label.name}</span>
           </span>

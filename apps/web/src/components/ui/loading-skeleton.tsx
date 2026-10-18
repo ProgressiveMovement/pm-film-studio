@@ -11,7 +11,7 @@ export function LoadingSkeleton({ className }: LoadingSkeletonProps) {
       <div className="w-64 bg-sidebar border-r border-border flex flex-col">
         <div className="p-3 border-b border-border">
           <div className="flex items-center gap-2">
-            <Skeleton className="w-8" />
+            <Skeleton className="size-6 rounded-full" />
             <div className="flex-1">
               <Skeleton className="w-20" />
             </div>
@@ -21,7 +21,7 @@ export function LoadingSkeleton({ className }: LoadingSkeletonProps) {
         <div className="flex-1 p-3 space-y-6">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <Skeleton className="w-6" />
+              <Skeleton className="size-6 rounded-full" />
               <div className="flex-1">
                 <Skeleton className="w-16" />
               </div>
@@ -61,7 +61,7 @@ export function LoadingSkeleton({ className }: LoadingSkeletonProps) {
 
         <div className="p-3 border-t border-border">
           <div className="flex items-center gap-2">
-            <Skeleton className="w-6" />
+            <Skeleton className="size-6 rounded-full" />
             <div className="flex-1">
               <Skeleton className="w-20" />
             </div>
@@ -72,14 +72,14 @@ export function LoadingSkeleton({ className }: LoadingSkeletonProps) {
       <div className="flex-1 flex flex-col bg-card border border-border rounded-md m-2">
         <div className="h-12 border-b border-border flex items-center px-4">
           <div className="flex items-center gap-2">
-            <Skeleton className="w-6" />
+            <Skeleton className="size-6 rounded-full" />
             <Skeleton className="w-32" />
           </div>
         </div>
 
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center space-y-4">
-            <Skeleton className="w-16 mx-auto" />
+            <Skeleton className="size-16 rounded-2xl mx-auto" />
             <div className="space-y-2">
               <Skeleton className="w-48 mx-auto" />
               <Skeleton className="w-64 mx-auto" />
