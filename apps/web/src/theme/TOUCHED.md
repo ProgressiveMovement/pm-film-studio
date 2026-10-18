@@ -106,3 +106,10 @@ Not touched: components/task/**, constants/label-colors.ts, integration logos.
 - components/ui/skeleton.tsx: unchanged; `cn` is twMerge, so caller h-/size-/rounded- win over h-2.5 rounded-full. `.shimmer-line` is in the components layer, below utilities.
 - components/ui/loading-skeleton.tsx: avatars `size-6 rounded-full`, icon block `size-16 rounded-2xl`.
 - components/task-chips/label-chips.tsx: light text is color-mix 70% label + foreground, dark keeps raw colour; border 40% raw, dot raw.
+# B1
+- ui/sheet.tsx: unchanged. The Sheet's own close is already `size-11 rounded-full hover:bg-[var(--row-hover)]`; task-sheet-header.tsx has no close button (only `pr-16` to clear it). Single close, 44 px.
+- hooks/use-is-mobile.ts (new): `useIsPhone`, matchMedia `(max-width: 639px)` via useSyncExternalStore, SSR snapshot false. Separate from hooks/use-mobile.ts (`useIsMobile`, 768 px, used by the sidebar).
+- task/task-details-sheet.tsx: `side={isPhone ? "bottom" : "right"}`, popup gets `max-h-[90vh]`; the content wrapper already scrolls (`min-h-0 flex-1 overflow-y-auto`).
+- index.html: title, meta title/description, og and twitter title/description, application-name and apple title now say Studio. Kept og:image, urls, canonical, keywords, manifest.
+- Not done: PageTitle (components/page-title.tsx) still defaults `suffix = "Kaneo"` at runtime; not an i18n key.
+- src/components/page-title.tsx: title suffix Studio.

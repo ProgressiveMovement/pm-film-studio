@@ -8,6 +8,7 @@ import {
 } from "react";
 import { AlertDialogCreateHandle } from "@/components/ui/alert-dialog";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { useIsPhone } from "@/hooks/use-is-mobile";
 import { TaskSheetHeader } from "./header/task-sheet-header";
 import { PropertiesRail } from "./properties/properties-rail";
 import TaskDeleteDialog from "./task-delete-dialog";
@@ -28,6 +29,7 @@ export default function TaskDetailsSheet({
   onClose,
 }: TaskDetailsSheetProps) {
   const navigate = useNavigate();
+  const isPhone = useIsPhone();
   const [currentTaskId, setCurrentTaskId] = useState<string | undefined>(
     taskId,
   );
@@ -67,11 +69,11 @@ export default function TaskDetailsSheet({
   return (
     <Sheet open={!!taskId} onOpenChange={(open) => !open && onClose()}>
       <SheetContent
-        side="right"
+        side={isPhone ? "bottom" : "right"}
         data-task-view
         data-shortcuts="allow"
         ref={popupRef}
-        className="gap-0 p-0"
+        className="max-h-[90vh] gap-0 p-0"
         // Focusing the first control would pop a tooltip over the actions
         // every time the sheet opens on touch; focus the popup itself.
         initialFocus={popupRef}
