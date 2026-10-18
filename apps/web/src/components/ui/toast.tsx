@@ -1,6 +1,7 @@
 "use client";
 
 import { Toast } from "@base-ui/react/toast";
+import type { ComponentType } from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { ToastShakeRoot } from "@/components/ui/toast-shake-root";
 import { cn } from "@/lib/cn";
@@ -12,6 +13,15 @@ const TONE: Record<string, string> = {
 };
 
 const toastManager = Toast.createToastManager();
+// DECISION: the provider timeout is one number, so per-tone defaults are set here on add():
+// error 6000 ms, loading persistent (0), the rest keep the provider's 2500. A caller's own timeout wins.
+const TONE_TIMEOUT: Record<string, number> = { error: 6000, loading: 0 };
+const addToast = toastManager.add.bind(toastManager);
+toastManager.add = ((options) =>
+  addToast({
+    ...options,
+    timeout: options.timeout ?? TONE_TIMEOUT[options.type as string],
+  })) as typeof toastManager.add;
 const anchoredToastManager = Toast.createToastManager();
 
 type ToastPosition =
@@ -62,7 +72,10 @@ function Toasts({ position = "bottom-center" }: { position: ToastPosition }) {
         data-slot="toast-viewport"
       >
         {toasts.map((toast) => {
-          const data = toast.data as { repeat?: number } | undefined;
+          const data = toast.data as
+            | { repeat?: number; icon?: ComponentType<{ className?: string }> }
+            | undefined;
+          const Icon = data?.icon;
           const tone = TONE[toast.type as string] ?? "";
 
           return (
@@ -124,6 +137,7 @@ function Toasts({ position = "bottom-center" }: { position: ToastPosition }) {
             >
               <Toast.Content className="pointer-events-auto flex items-center justify-between gap-1.5 overflow-hidden transition-opacity duration-250 data-behind:not-data-expanded:pointer-events-none data-behind:opacity-0 data-expanded:opacity-100">
                 <div className="flex gap-2">
+                  {Icon && <Icon className="mt-0.5 size-4 shrink-0" />}
                   <div className="flex flex-col gap-0.5">
                     <Toast.Title
                       className="font-sans font-normal tracking-normal"

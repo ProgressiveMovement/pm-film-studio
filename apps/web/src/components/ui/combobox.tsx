@@ -40,7 +40,7 @@ function ComboboxChipsInput({
   return (
     <ComboboxPrimitive.Input
       className={cn(
-        "min-w-12 flex-1 text-sm outline-none placeholder:text-[var(--color-faint)] [[data-slot=combobox-chip]+&]:ps-0.5",
+        "min-w-12 flex-1 text-base sm:text-sm outline-none placeholder:text-[var(--color-faint)] [[data-slot=combobox-chip]+&]:ps-0.5",
         sizeValue === "sm" ? "ps-1.5" : "ps-2",
         className,
       )}

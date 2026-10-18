@@ -85,3 +85,9 @@ Not touched: components/task/**, constants/label-colors.ts, integration logos.
 - theme/recipes.css: added .paper-sm
 - Open: common/layout.tsx and settings/settings-shell.tsx pass --sidebar-width: spacing*60 (240px); remove those to let the default apply.
 - src/components/common/layout.tsx, settings/settings-shell.tsx: dead --sidebar-width overrides removed (provider default 15.5 rem wins).
+- src/components/ui/input.tsx: inner input text-base sm:text-sm (iOS zoom).
+- src/components/ui/textarea.tsx: inner textarea text-base sm:text-sm (iOS zoom).
+- src/components/ui/number-field.tsx: inner input text-base sm:text-sm (iOS zoom).
+- src/components/ui/combobox.tsx: chips input text-base sm:text-sm (iOS zoom).
+- src/components/ui/toast.tsx: per-tone timeouts via toastManager.add (error 6000, loading 0, rest 2500); renders data.icon again.
+- src/components/ui/tabs.tsx: pill classes scoped to default variant (data-variant on list), no active fill; underline restored to Kaneo classes.

@@ -38,6 +38,7 @@ function TabsList({
         className,
       )}
       data-slot="tabs-list"
+      data-variant={variant}
       {...props}
     >
       {children}
@@ -58,7 +59,11 @@ function TabsTab({ className, ...props }: TabsPrimitive.Tab.Props) {
   return (
     <TabsPrimitive.Tab
       className={cn(
-        "pillnav-item [&_svg]:-mx-0.5 relative flex min-h-9 shrink-0 grow cursor-pointer items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-transparent px-3.5 font-medium text-[13px] outline-none transition-[color,background-color,box-shadow] hover:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring data-disabled:pointer-events-none data-[orientation=vertical]:w-full data-[orientation=vertical]:justify-start data-active:text-accent-foreground data-disabled:opacity-64 [&_svg:not([class*='size-'])]:size-4.5 sm:[&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+        "[&_svg]:-mx-0.5 relative flex shrink-0 grow cursor-pointer items-center justify-center gap-1.5 whitespace-nowrap border border-transparent font-medium outline-none transition-[color,background-color,box-shadow] hover:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring data-disabled:pointer-events-none data-[orientation=vertical]:w-full data-[orientation=vertical]:justify-start data-disabled:opacity-64 [&_svg:not([class*='size-'])]:size-4.5 sm:[&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+        // default: pill on the glass capsule, the sliding Indicator paints the accent
+        "in-data-[variant=default]:pillnav-item in-data-[variant=default]:min-h-9 in-data-[variant=default]:rounded-full in-data-[variant=default]:px-3.5 in-data-[variant=default]:text-[13px] in-data-[variant=default]:data-active:text-accent-foreground",
+        // underline: as Kaneo had it
+        "in-data-[variant=underline]:h-9 in-data-[variant=underline]:rounded-md in-data-[variant=underline]:px-[calc(--spacing(2.5)-1px)] in-data-[variant=underline]:text-base in-data-[variant=underline]:data-active:text-foreground sm:in-data-[variant=underline]:h-8 sm:in-data-[variant=underline]:text-sm',",
         className,
       )}
       data-slot="tabs-tab"
