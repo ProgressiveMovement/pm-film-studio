@@ -37,3 +37,12 @@
 - src/components/task/extensions/shiki-code-block.ts: default themeDark "studio", themeLight "studio-light" (Kaneo switches by html.dark class, kept)
 - src/components/task/extensions/mermaid-block.ts: theme "base" with themeVariables from tokens, Helvetica Neue; dark/light still chosen per render by isDarkTheme() and cache key
 - src/theme/overrides.css: svg.lucide stroke-width 1.6 (3f).
+# Touched in 3b.8 to 3b.11
+- components/ui/toast.tsx: paper strip, 13.5px, bottom centre forced, 2.5s timeout, ok/bad text colour, no icon (close button never existed).
+- components/ui/skeleton.tsx: shimmer-line h-2.5 rounded-full on transparent fill.
+- components/ui/spinner.tsx: 10px shimmer bar (w-10 h-2.5), props kept, size ignored.
+- components/ui/loading-skeleton.tsx: composes Skeleton bars with gaps.
+- components/ui/avatar.tsx: size-6, bg-accent, 10px semibold accent-foreground, root and fallback.
+- components/ui/tabs.tsx: default list is glass pillnav capsule, pillnav-item triggers, accent indicator; underline variant unchanged.
+- components/ui/toggle-group.tsx: group is glass pillnav capsule; items pillnav-item, data-pressed accent.
+- hooks/mutations/billing/use-billing-actions.ts: sonner replaced by "@/lib/toast".
