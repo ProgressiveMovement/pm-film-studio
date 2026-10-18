@@ -31,3 +31,11 @@ svg.lucide {
 [data-slot="combobox-chips"]:has(:focus-visible) {
   box-shadow: 0 0 0 2px var(--ring);
 }
+
+/* DECISION (completion pass, 18 Oct 2026): the locked token values stay. Faint
+   text and the tone colours pass 4.5:1 on every surface except the accent wash
+   (active pill, highlighted menu item, selected row), where they sit at 4.0 to
+   4.3. On those surfaces faint becomes muted (DECISIONS_LOCKED D), nowhere else. */
+:is(.bg-accent, [data-active="true"], [aria-current="page"], [data-highlighted], [data-selected="true"]) {
+  --color-faint: var(--muted-foreground);
+}

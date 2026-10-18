@@ -12,18 +12,18 @@ export type CalendarTask = PackableTask & {
 
 const STATUS_CLASSES: Record<string, string> = {
   "to-do":
-    "border-[var(--border)] bg-accent shadow-[inset_2px_0_0_var(--primary)] hover:bg-muted",
+    "border-[var(--border)] bg-card shadow-[inset_2px_0_0_var(--primary)] hover:bg-muted",
   "in-progress":
-    "border-[var(--border)] bg-accent shadow-[inset_2px_0_0_var(--primary)] hover:bg-muted",
+    "border-[var(--border)] bg-card shadow-[inset_2px_0_0_var(--primary)] hover:bg-muted",
   "in-review":
-    "border-[var(--border)] bg-accent shadow-[inset_2px_0_0_var(--warning)] hover:bg-muted",
-  done: "border-[var(--border)] bg-accent shadow-[inset_2px_0_0_var(--success)] hover:bg-muted",
+    "border-[var(--border)] bg-card shadow-[inset_2px_0_0_var(--warning)] hover:bg-muted",
+  done: "border-[var(--border)] bg-card shadow-[inset_2px_0_0_var(--success)] hover:bg-muted",
 };
 
 export function getCalendarTaskStatusClass(status: string): string {
   return (
     STATUS_CLASSES[status] ??
-    "border-[var(--border)] bg-accent shadow-[inset_2px_0_0_var(--primary)] hover:bg-muted"
+    "border-[var(--border)] bg-card shadow-[inset_2px_0_0_var(--primary)] hover:bg-muted"
   );
 }
 

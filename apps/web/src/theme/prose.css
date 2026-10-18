@@ -47,6 +47,9 @@
       margin: 0.75em 0;
       padding-inline-start: 1.25em;
     }
+    & li :is(ul, ol) {
+      margin: 0.25em 0 0;
+    }
     & li {
       margin: 0;
     }
@@ -60,7 +63,6 @@
       padding-inline-start: 0;
     }
     & li[data-type="taskItem"] {
-      align-items: center;
       gap: 0.5em;
     }
     & li[data-type="taskItem"] > :is(label, .kaneo-task-item-checkbox) {
@@ -71,7 +73,7 @@
       color: inherit;
       text-decoration-line: underline;
       text-decoration-thickness: 1px;
-      text-decoration-color: color-mix(in srgb, var(--color-faint) 40%, transparent);
+      text-decoration-color: color-mix(in srgb, var(--muted-foreground) 70%, transparent);
       text-underline-offset: 2px;
     }
     & a:hover {

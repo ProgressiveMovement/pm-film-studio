@@ -312,8 +312,8 @@ export function GanttTaskBar({
       <div
         style={{ gridColumn: `${lineStart} / ${lineEnd}` }}
         className={cn(
-          "group pointer-events-auto relative mx-1 flex min-h-[44px] min-w-0 items-stretch overflow-hidden rounded-md border border-l-2 border-[var(--border)] border-l-primary bg-accent text-left text-[12.5px] font-medium leading-none text-foreground transition-colors hover:border-[var(--edge-strong)] hover:border-l-primary sm:h-11 sm:min-h-0",
-          task.status === "done" && "opacity-50",
+          "group pointer-events-auto relative mx-1 flex min-h-[44px] min-w-0 items-stretch overflow-hidden rounded-md border border-l-2 border-[var(--border)] border-l-primary bg-card text-left text-[12.5px] font-medium leading-none text-foreground transition-colors hover:border-[var(--edge-strong)] hover:border-l-primary sm:h-11 sm:min-h-0",
+          task.status === "done" && "bg-muted text-muted-foreground",
         )}
       >
         {showResizeHandles && (

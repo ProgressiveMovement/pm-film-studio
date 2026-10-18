@@ -187,7 +187,7 @@ export function BulkBar({
     <div
       inert={hidden}
       className={cn(
-        "-translate-x-1/2 fixed bottom-6 left-1/2 z-50 transition-[translate,opacity,visibility] ease-out max-sm:right-4 max-sm:left-4 max-sm:translate-x-0",
+        "-translate-x-1/2 fixed bottom-6 max-sm:bottom-[calc(5.5rem+env(safe-area-inset-bottom))] left-1/2 z-50 transition-[translate,opacity,visibility] ease-out max-sm:right-4 max-sm:left-4 max-sm:translate-x-0",
         toolbarPresenceClass(hidden),
       )}
     >

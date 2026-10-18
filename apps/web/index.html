@@ -14,6 +14,19 @@
     } catch (e) {
       document.documentElement.classList.add("dark");
     }
+    // The page entrance (theme/recipes.css, .rise and .stagger) plays once per
+    // visit: 400 ms after the last entrance animation ends, html gets
+    // data-entered and later routes arrive in one frame.
+    (function () {
+      var timer;
+      document.addEventListener("animationend", function (e) {
+        if (e.animationName !== "studio-enter") return;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          document.documentElement.setAttribute("data-entered", "");
+        }, 400);
+      });
+    })();
   </script>
 
   <title>Studio</title>

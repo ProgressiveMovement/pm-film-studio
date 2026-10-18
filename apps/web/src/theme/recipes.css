@@ -153,6 +153,12 @@
   .stagger > * {
     animation: studio-enter 320ms var(--ease-out) backwards;
   }
+  /* The entrance plays once per visit. After it has ended, html carries
+     data-entered (set in index.html) and every later route arrives in one frame,
+     so tapping between Home, Inbox and a board never reads as lag. */
+  html[data-entered] :is(.rise, .stagger > *) {
+    animation: none;
+  }
   .stagger > :nth-child(1) { animation-delay: 0ms; }
   .stagger > :nth-child(2) { animation-delay: 40ms; }
   .stagger > :nth-child(3) { animation-delay: 80ms; }

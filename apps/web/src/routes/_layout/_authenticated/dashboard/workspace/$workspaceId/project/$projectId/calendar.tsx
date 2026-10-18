@@ -133,7 +133,7 @@ function RouteComponent() {
         title={t("tasks:calendar.pageTitle", { name: project?.name })}
         hideAppName
       />
-      <div className="rise flex h-full min-h-0 flex-col bg-background">
+      <div className="flex h-full min-h-0 flex-col bg-background">
         <CalendarToolbar
           visibleMonth={visibleMonth}
           onPreviousMonth={handlePreviousMonth}

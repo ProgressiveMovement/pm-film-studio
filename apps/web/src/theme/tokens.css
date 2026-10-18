@@ -58,11 +58,11 @@
   --input: rgba(0, 0, 0, 0.12);
   --ring: rgba(0, 0, 0, 0.45);
   --destructive: #d70015;
-  --destructive-foreground: #c40013;
+  --destructive-foreground: #d70015;
   --success: #26744a;
-  --success-foreground: #216a43;
+  --success-foreground: #26744a;
   --warning: #a65100;
-  --warning-foreground: #984a00;
+  --warning-foreground: #a65100;
   --info: #575756;
   --info-foreground: #575756;
 
@@ -121,7 +121,7 @@
   /* extra variables for recipes */
   --edge-strong: rgba(0, 0, 0, 0.18);
   --edge-soft: rgba(0, 0, 0, 0.08);
-  --color-faint: #636360;
+  --color-faint: #6b6b68;
   --glass-fill: rgba(255, 255, 255, 0.55);
   --glass-hero-fill: rgba(255, 255, 255, 0.35);
   --paper-fill: rgba(255, 255, 255, 0.72);
@@ -222,7 +222,7 @@
 
   --edge-strong: rgba(255, 255, 255, 0.35);
   --edge-soft: rgba(255, 255, 255, 0.1);
-  --color-faint: #929292;
+  --color-faint: #8a8a8a;
   --glass-fill: rgba(13, 13, 13, 0.55);
   --glass-hero-fill: rgba(0, 0, 0, 0.2);
   --paper-fill: rgba(0, 0, 0, 0.5);

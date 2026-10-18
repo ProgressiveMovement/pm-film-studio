@@ -1,11 +1,13 @@
 import { Link, useLocation, useParams } from "@tanstack/react-router";
 import { CalendarDays, CircleCheck, House, Inbox, Plus } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import useGetNotifications from "@/hooks/queries/notification/use-get-notifications";
 import useActiveWorkspace from "@/hooks/queries/workspace/use-active-workspace";
 import { useIsPhone } from "@/hooks/use-is-mobile";
 import { useWorkspacePermission } from "@/hooks/use-workspace-permission";
 import { cn } from "@/lib/cn";
+import { isEditableTarget } from "@/lib/shortcuts/registry";
 
 const item = "min-h-11 min-w-11 flex-1 justify-center px-0";
 
@@ -24,7 +26,20 @@ export function MobileTabBar() {
     select: (l) => l.pathname.replace(/\/+$/, ""),
   });
 
-  if (!isPhone || !workspace) return null;
+  // Hide the bar while a field has focus: the phone keyboard is up.
+  const [editing, setEditing] = useState(false);
+  useEffect(() => {
+    const on = (e: FocusEvent) => setEditing(isEditableTarget(e.target));
+    const off = () => setEditing(false);
+    document.addEventListener("focusin", on);
+    document.addEventListener("focusout", off);
+    return () => {
+      document.removeEventListener("focusin", on);
+      document.removeEventListener("focusout", off);
+    };
+  }, []);
+
+  if (!isPhone || !workspace || editing) return null;
 
   const home = `/dashboard/workspace/${workspace.id}`;
   const hasUnread = notifications.some((n) => !n.isRead);
@@ -74,13 +89,15 @@ export function MobileTabBar() {
                 active && "bg-accent text-accent-foreground",
               )}
             >
-              <Icon className="size-[18px]" aria-hidden />
-              {dot && (
-                <span
-                  data-testid="inbox-dot"
-                  className="size-1.5 rounded-full bg-success"
-                />
-              )}
+              <span className="relative">
+                <Icon className="size-[18px]" aria-hidden />
+                {dot && (
+                  <span
+                    data-testid="inbox-dot"
+                    className="absolute -top-0.5 -right-0.5 size-1.5 rounded-full bg-foreground"
+                  />
+                )}
+              </span>
             </Link>
           );
         })}
@@ -88,11 +105,9 @@ export function MobileTabBar() {
           <button
             type="button"
             aria-label={t("workspace:home.newTask")}
-            // Same path as the "C" shortcut, which the command palette owns.
+            // The command palette owns task creation and listens for this event.
             onClick={() =>
-              document.dispatchEvent(
-                new KeyboardEvent("keydown", { key: "c", bubbles: true }),
-              )
+              window.dispatchEvent(new CustomEvent("studio:create-task"))
             }
             className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"
           >

@@ -174,7 +174,7 @@ function RouteComponent() {
         title={`${project?.name} · ${viewMode === "board" ? t("tasks:view.board") : t("tasks:view.list")}`}
         hideAppName
       />
-      <div className="rise relative flex flex-col h-full min-h-0 overflow-hidden">
+      <div className="relative flex flex-col h-full min-h-0 overflow-hidden">
         {descriptionSearch.isLoading && (
           <p role="status" className="px-4 py-2 text-sm text-muted-foreground">
             {t("tasks:descriptionSearchLoading")}

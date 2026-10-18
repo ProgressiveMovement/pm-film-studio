@@ -63,6 +63,8 @@ function Toasts({ position = "bottom-center" }: { position: ToastPosition }) {
           // Vertical positioning
           "data-[position*=top]:top-(--toast-inset)",
           "data-[position*=bottom]:bottom-(--toast-inset)",
+          // Phones: clear the bottom tab bar.
+          "max-sm:data-[position*=bottom]:bottom-[calc(5.5rem+env(safe-area-inset-bottom))]",
           // Horizontal positioning
           "data-[position*=left]:left-(--toast-inset)",
           "data-[position*=right]:right-(--toast-inset)",

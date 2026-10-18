@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { addDays, format, isSameMonth, isToday } from "date-fns";
+import { addDays, format, isSameMonth, isToday, isWeekend } from "date-fns";
 import { Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   useCallback,
@@ -413,8 +413,9 @@ function RouteComponent() {
                         key={day.toISOString()}
                         ref={isCurrentDay ? todayCellRef : undefined}
                         className={cn(
-                          "border-r border-border px-0.5 py-2 text-center sm:px-1",
-                          isCurrentDay && "border-t-2 border-t-primary",
+                          "border-t-2 border-r border-border border-t-transparent px-0.5 py-2 text-center sm:px-1",
+                          isWeekend(day) && "bg-[var(--field-fill)]",
+                          isCurrentDay && "border-t-primary",
                         )}
                       >
                         <div className="h-4 text-[10px] font-medium text-muted-foreground">
@@ -453,6 +454,7 @@ function RouteComponent() {
                       key={`bg-line-${day.toISOString()}`}
                       className={cn(
                         "h-full min-h-0 border-r border-border",
+                        isWeekend(day) && "bg-[var(--field-fill)]",
                         isToday(day) && "border-l border-l-primary",
                       )}
                     />

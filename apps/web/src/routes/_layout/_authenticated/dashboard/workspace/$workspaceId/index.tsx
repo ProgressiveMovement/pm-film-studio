@@ -53,7 +53,7 @@ function RouteComponent() {
     <>
       <PageTitle title={t("workspace:home.pageTitle")} />
       <WorkspaceLayout title={t("workspace:home.pageTitle")}>
-        <div className="rise h-full overflow-y-auto">
+        <div className="h-full overflow-y-auto">
           <TrialExpiredCallout workspaceId={workspaceId} className="m-4" />
           <div className="stagger mx-auto flex w-full max-w-5xl flex-col gap-9 px-4 py-6 sm:px-6 sm:py-10 lg:px-10">
             <header className="flex items-end justify-between gap-4">

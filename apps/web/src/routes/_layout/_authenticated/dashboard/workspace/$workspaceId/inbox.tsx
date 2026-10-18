@@ -41,7 +41,7 @@ function RouteComponent() {
     <>
       <PageTitle title={t("notifications:inbox.pageTitle")} />
       <WorkspaceLayout title={t("notifications:inbox.pageTitle")}>
-        <div className="rise flex h-full min-h-0">
+        <div className="flex h-full min-h-0">
           {/* One pane at a time below lg: the list, or the opened notification. */}
           <div
             className={cn(
