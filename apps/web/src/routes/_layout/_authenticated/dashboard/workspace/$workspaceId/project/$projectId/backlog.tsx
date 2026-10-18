@@ -169,7 +169,7 @@ function RouteComponent() {
       <PageTitle
         title={t("tasks:backlog.pageTitle", { name: project?.name })}
       />
-      <div className="relative flex flex-col h-full min-h-0 overflow-hidden">
+      <div className="rise relative flex flex-col h-full min-h-0 overflow-hidden">
         <div className="flex-1 overflow-hidden bg-card h-full">
           {sortedProject ? (
             <BacklogListView

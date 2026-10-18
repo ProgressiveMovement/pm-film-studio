@@ -46,7 +46,7 @@ function RouteComponent() {
           ) : null
         }
       >
-        <div className="h-full overflow-y-auto">
+        <div className="rise h-full overflow-y-auto">
           {isLoading ? (
             <div className="flex flex-col px-4">
               {[1, 2, 3, 4].map((row) => (

@@ -25,7 +25,7 @@ export function SettingsShell({ children }: SettingsShellProps) {
   useLeaveSettingsOnEscape(leave);
 
   return (
-    <div className="flex w-full bg-background">
+    <div className="rise flex w-full bg-background">
       <SidebarProvider
         defaultOpen={sidebarDefaultOpen}
         style={{} as CSSProperties}

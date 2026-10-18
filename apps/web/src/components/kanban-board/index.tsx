@@ -323,7 +323,7 @@ function KanbanBoard({
             activeId === null && "snap-x snap-mandatory sm:snap-none",
           )}
         >
-          <div className="flex h-full min-w-max gap-4 px-4 py-4 md:px-5">
+          <div className="stagger flex h-full min-w-max gap-4 px-4 py-4 md:px-5">
             {(dragPreview.preview ?? project).columns.map((column) => (
               <div
                 key={column.id}

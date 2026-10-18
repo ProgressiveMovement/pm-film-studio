@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { addDays, format, isSameMonth, isToday, isWeekend } from "date-fns";
+import { addDays, format, isSameMonth, isToday } from "date-fns";
 import { Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   useCallback,
@@ -413,8 +413,8 @@ function RouteComponent() {
                         key={day.toISOString()}
                         ref={isCurrentDay ? todayCellRef : undefined}
                         className={cn(
-                          "border-r border-border/70 px-0.5 py-2 text-center sm:px-1",
-                          isWeekend(day) && "bg-muted/25",
+                          "border-r border-border px-0.5 py-2 text-center sm:px-1",
+                          isCurrentDay && "border-t-2 border-t-primary",
                         )}
                       >
                         <div className="h-4 text-[10px] font-medium text-muted-foreground">
@@ -422,9 +422,8 @@ function RouteComponent() {
                         </div>
                         <div
                           className={cn(
-                            "mx-auto flex size-6 items-center justify-center rounded-full text-xs font-medium",
-                            isCurrentDay &&
-                              "bg-primary text-primary-foreground",
+                            "mx-auto flex size-6 items-center justify-center text-xs tabular-nums",
+                            isCurrentDay && "font-semibold",
                           )}
                         >
                           {format(day, "d")}
@@ -453,8 +452,8 @@ function RouteComponent() {
                     <div
                       key={`bg-line-${day.toISOString()}`}
                       className={cn(
-                        "h-full min-h-0 border-r border-border/60",
-                        isWeekend(day) && "bg-muted/25",
+                        "h-full min-h-0 border-r border-border",
+                        isToday(day) && "border-l border-l-primary",
                       )}
                     />
                   ))}

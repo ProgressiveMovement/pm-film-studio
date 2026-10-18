@@ -40,9 +40,7 @@ export function MobileTabBar() {
       ? [
           {
             to: `${home}/project/${projectId}/calendar`,
-            label: t("navigation:sidebar.calendar", {
-              defaultValue: "Calendar",
-            }),
+            label: t("navigation:sidebar.calendar"),
             Icon: CalendarDays,
           },
         ]

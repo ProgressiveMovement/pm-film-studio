@@ -138,3 +138,84 @@ Not touched: components/task/**, constants/label-colors.ts, integration logos.
 - public/favicon.ico, favicon.svg, favicon-96x96.png, apple-touch-icon.png, web-app-manifest-192x192.png, web-app-manifest-512x512.png: PM mark on #0d0d0d, generated from Logo PM Film Production/SVG/PM_weiß.svg (mark at 70 percent of the square).
 - public/logo-dark.svg (ink mark for the light theme), public/logo-light.svg (white mark for the dark theme): the PM mark; components/common/logo.tsx alt Studio.
 - apps/web/nginx.kaneo.conf: application/manifest+json for .webmanifest.
+
+## Completion pass, 18 October 2026 (after Stage 4)
+
+
+Classes `rise` (page root) and `stagger` (children settle in 40 ms steps) from theme/recipes.css.
+Applied on each route's root element only, so it mounts once per navigation and does not replay on refetch.
+
+routes/_layout/_authenticated/dashboard/workspace/$workspaceId/
+- index.tsx (home): `rise` on the scroll root, `stagger` on the content column (greeting header, week strip, truncation note, up next / projects / activity grid)
+- my-tasks.tsx: `rise` on the scroll root
+- inbox.tsx: `rise` on the two-pane root
+- project/$projectId/board.tsx (board and list view): `rise` on the view root
+- project/$projectId/backlog.tsx: `rise` on the view root
+- project/$projectId/calendar.tsx: `rise` on the calendar root
+
+Not done:
+- Board lane stagger: the lane wrapper container lives in components/kanban-board/index.tsx (not column/index.tsx), which was out of scope. To add it, put `stagger` on its `flex h-full min-w-max gap-4` div.
+- Settings pages: roots are components/settings/* (out of scope); settings.tsx wraps SettingsShell.
+- Up next / projects / activity are inside one grid child, so they settle with the grid, not individually.
+
+
+Restyled in apps/web/src/components/ui, props, exports and data-slots unchanged:
+
+- table.tsx: hairline `--border` row separators, `row-hover`, header cells 12px uppercase tracking .06em `--color-faint` on `--field-fill`, cells `px-2.5 py-2`, selected row `--accent`, no zebra.
+- breadcrumb.tsx: 12.5px `--color-faint`, current page `--foreground`, faint 14px chevron, focus ring on links.
+- kbd.tsx: 11px hairline chip (`--chip-border`, `--field-fill`, `--chip-foreground`), `rounded-md px-1.5`.
+- switch.tsx: track 36x20, thumb 16px `bg-background`, `--input` off, `bg-primary` on, disabled 50.
+- checkbox.tsx: 16px, `--edge-strong` border, 4px radius, checked and indeterminate `bg-primary text-primary-foreground`.
+- checkbox-group.tsx: gap 8px, 13px text.
+- radio-group.tsx: 16px, `--edge-strong` border, dot `bg-primary`, gap 8px.
+- slider.tsx: 4px `--input` track, `--primary` range, 16px `bg-primary` thumb, 2px `--ring` focus ring.
+- progress.tsx, meter.tsx: 6px `--input` track, rounded-full `--primary` fill, label and value 12.5px muted.
+- circular-progress.tsx: `--input` track, `--primary` stroke (also when complete), stroke width 2.
+
+
+Files: pagination, accordion, alert, scroll-area, separator, toggle, input-otp,
+frame, timeline, collapsible, fieldset, group, input-group, label, menubar,
+preview-card. Props, variants, data-slots and exports unchanged.
+
+- pagination: own pill-nav classes replace buttonVariants (type import of Button kept for `size`); active `bg-accent`.
+- accordion: 13.5px triggers, `border-border` separators, 300ms `--ease-out` chevron and panel.
+- alert: opaque `bg-card` rounded-2xl p-4; tone only in title and icon text colour.
+- scroll-area: thumb `--color-faint`/40, ring 2px.
+- separator: unchanged (already 1px `bg-border`).
+- toggle: pill, pressed `bg-accent`, outline variant uses edge-soft and field fill.
+- input-otp: 40x44 slots, field recipe, active slot edge-strong, tabular 16px.
+- frame: opaque card, 25px outer and 16px inner radius.
+- timeline: 8px faint dots, `border` line, 12px faint dates, 13.5px items.
+- collapsible: no change (no palette colours present).
+- fieldset: gap 12px, legend 10.5px uppercase `--color-faint`.
+- group: gap 12px, text addon on field fill, `dark:` variants removed, separator `bg-border`.
+- input-group: field recipe, `dark:` variants and shadows removed, focus edge-strong, disabled 50.
+- label: 13px medium.
+- menubar: bar is `paper-sm`; popups and items already come from menu.tsx.
+- preview-card: `paper` popup (16px radius), p-3.
+
+
+Files: components/calendar/{calendar-toolbar,day-overflow-popover,month-agenda,month-grid}.tsx, components/gantt/gantt-task-bar.tsx.
+- Toolbar: month label 17px; prev/next/today stay Button outline (ghost pill). No view switcher exists in this file, so no glass pill nav was added.
+- Month grid: hairline var(--border) separators, no weekend fill, today = 2px primary top edge, weekday headers 11px uppercase tracking-[.09em] faint, day numbers 12.5px tabular, out-of-month faint at 60%.
+- Agenda: faint 10.5px uppercase date labels, 13.5px titles, hairline rows.
+- Overflow popover: 36px rounded-xl row-hover items, 13px.
+- Gantt bar: bg-accent, 2px primary left edge, 12.5px, hover edge-strong, done = opacity-50. No selected or milestone state exists in the bar.
+- NOT touched: gantt chart/grid/today line live in routes/.../project/$projectId/gantt.tsx (route file, other agent).
+
+
+- components/common/mobile-tab-bar.tsx (new): `MobileTabBar`, glass pillnav, phone only (useIsPhone, < 640 px).
+- components/common/layout.tsx: mounts the bar after SidebarInset; SidebarInset gets `max-sm:pb-24`.
+- components/common/mobile-tab-bar.test.tsx (new): one render test.
+
+Notes
+- Entries: Home, My tasks, Calendar (only while a project is open, the calendar is per project), Inbox (bg-success dot when a notification is unread), round New task button (hidden without create-task permission).
+- New task dispatches the "c" keydown on document, the same path as the shortcut; the command palette's createTask handler opens the modal.
+- Label key `navigation:sidebar.calendar` may not exist yet; it falls back to "Calendar".
+
+- apps/web/src/theme/prose.css: TipTap and ProseMirror rules (type scale, paper menus, tables, code, quotes), wins on specificity over Kaneo's editor block.
+- apps/web/src/theme/tokens.css: faint and the three light tone colours nudged so every text token reaches 4.5:1 on every surface.
+- routes gantt.tsx: hairline grid, today as a 2 px top edge in the header and a 1 px primary line in the body, weekend fill removed.
+- components/kanban-board/index.tsx: stagger on the lane container.
+- components/settings/settings-shell.tsx: rise on the shell root.
+- i18n/en-US.json: navigation.sidebar.calendar.
