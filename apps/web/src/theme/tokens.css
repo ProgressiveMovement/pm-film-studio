@@ -128,7 +128,7 @@
   --field-fill: rgba(0, 0, 0, 0.03);
   --field-fill-focus: rgba(0, 0, 0, 0.05);
   --row-hover: rgba(0, 0, 0, 0.04);
-  --scrim: rgba(0, 0, 0, 0.55);
+  --scrim: rgba(0, 0, 0, 0.35);
   --glow: drop-shadow(0 0 10px rgba(0, 0, 0, 0.18));
 
   --shadow-bar: inset 1px 1px 1px rgba(255, 255, 255, 0.9);
@@ -189,7 +189,7 @@
   --board-card-selected-border: rgba(255, 255, 255, 0.35);
   --board-card-focus: rgba(255, 255, 255, 0.6);
   --board-card-ring: rgba(255, 255, 255, 0.25);
-  --board-card-shadow: var(--shadow-glass);
+  --board-card-shadow: 0 2px 10px 6px rgba(0, 0, 0, 0.1); /* no inset highlight: it read as a bright outline */
   --board-card-done: rgba(22, 22, 22, 0.4);
   --board-card-done-border: rgba(255, 255, 255, 0.05);
   --board-id: #8a8a8a;

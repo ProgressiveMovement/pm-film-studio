@@ -1,1 +1,30 @@
-/* Empty until Stage 3. */
+/* Selector-level fixes that tokens cannot reach. Unlayered, so it beats utilities. */
+
+/* Inset main panel: the Bar inset highlight (shadow-sm mapping) drew a light
+   hairline on its left/top edge in dark. One hairline, --sidebar-border. */
+[data-slot="sidebar-inset"] {
+  border-color: var(--sidebar-border);
+  box-shadow: none;
+}
+
+/* Command palette footer hints */
+[data-slot="command-footer"],
+[data-slot="command-footer"] span,
+[data-slot="command-footer"] kbd {
+  color: var(--muted-foreground);
+}
+
+/* Scrim: one value for every overlay backdrop */
+[data-slot$="-backdrop"] {
+  background: var(--scrim);
+}
+
+/* Solid primary button: no inset glass highlight */
+[data-slot="button"].bg-primary {
+  box-shadow: none;
+}
+
+/* Settings danger-zone card: neutral border (red stays on text and button) */
+.border-destructive\/20 {
+  border-color: var(--border);
+}
