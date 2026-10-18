@@ -68,3 +68,7 @@ Rule: KANEO_STACK D10 (monochrome, signal colours as text/edge only).
 - components/onboarding/preview/preview-avatars.tsx: invitedColors (violet, cyan, emerald, amber, rose 700) replaced by the three monochrome tone pairs; removed the hardcoded `text-white` so the pair's text colour applies.
 - components/settings/notifications/channels/channels-section.tsx: Gotify icon `text-blue-500` to `text-muted-foreground`; ntfy icon `text-green-600` to `text-success-foreground`.
 Not touched: components/task/**, constants/label-colors.ts, integration logos.
+# Stage 3c2 leftovers
+- components/activity/comment-input.tsx: composer wrapped in `border-t border-[var(--border)] pt-3`, row `flex items-start gap-2.5`: user Avatar (24 px default, initials fallback), the existing bordered editor box (`flex-1`, attach button kept inside it), and a `<Button size="sm">` default (white pill) labelled Post (`activity:comment.post`, defaultValue "Post"; the key is not in i18n/*.json yet) with the existing tooltip. Handlers, props and editor wiring unchanged; the icon-only ArrowUp submit and its opacity/bg overrides are gone.
+- components/task/task-pull-requests/pull-request-status-icon.tsx: merged `text-violet-600` to `text-success-foreground`. Draft, open and closed already used tokens (draft muted, open success, closed destructive); left as is. Text colour only, no fill.
+- i18n/en/activity.json: comment.post key (Post) for the composer button.

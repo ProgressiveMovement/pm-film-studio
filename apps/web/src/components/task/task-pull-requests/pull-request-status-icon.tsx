@@ -3,7 +3,7 @@ import { cn } from "@/lib/cn";
 import type { PullRequestStatus } from "@/lib/pull-request";
 
 const statusClassName: Record<PullRequestStatus, string> = {
-  merged: "text-violet-600",
+  merged: "text-success-foreground",
   draft: "text-muted-foreground",
   open: "text-success-foreground",
   closed: "text-destructive-foreground",

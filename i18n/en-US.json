@@ -4601,5 +4601,8 @@
 		"permissions": {
 			"photos": "Kaneo uses your photos to attach images to tasks and comments, and for your profile photo."
 		}
+	},
+	"comment": {
+		"post": "Post"
 	}
 }
