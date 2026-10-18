@@ -46,11 +46,11 @@ const ListColumnSection = memo(function ListColumnSection({
   return (
     <div
       className={cn(
-        "border-b border-border/50 transition-colors duration-150 overflow-auto",
+        "border-b border-[var(--border)] transition-colors duration-150 overflow-auto",
         showDropIndicator && "border-l-4 border-l-ring bg-accent/35",
       )}
     >
-      <div className="flex items-center justify-between py-2 px-4 bg-muted/60 border-b border-border/50">
+      <div className="flex items-center justify-between py-2 px-4 bg-transparent border-b border-[var(--border)]">
         <button
           type="button"
           onClick={() => {

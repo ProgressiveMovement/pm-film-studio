@@ -54,7 +54,7 @@ export function PropertiesRail({
       aria-label={t("tasks:properties.title")}
       className={cn("flex flex-col gap-4 px-3 pt-4 pb-6", className)}
     >
-      <div className="flex flex-col gap-0.5">
+      <dl className="m-0 flex flex-col gap-0.5">
         <PropertyRow label={t("tasks:status.label")}>
           <TaskStatusPopover task={task}>
             <PropertyValue data-task-action="status" shortcutId="changeStatus">
@@ -158,7 +158,7 @@ export function PropertiesRail({
             </div>
           )}
         </PropertyRow>
-      </div>
+      </dl>
 
       <TaskCustomFieldRows taskId={taskId} projectId={projectId} />
     </aside>

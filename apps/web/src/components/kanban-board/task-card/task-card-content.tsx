@@ -129,22 +129,24 @@ function TaskCardContent({
             onPointerLeave={() => setIsPressed(false)}
             onPointerCancel={() => setIsPressed(false)}
             className={cn(
-              "group relative flex flex-col rounded-[10px] border p-3 transition-[background-color,border-color,box-shadow,scale] duration-150 ease-out",
+              "glass group relative flex flex-col rounded-2xl p-[14px_16px] transition-[background-color,border-color,opacity,scale] duration-150 ease-out",
               isPressed && "scale-[0.98]",
               disableDragDrop ? "cursor-default" : "cursor-move",
               taskIsCompleted
-                ? "border-board-card-done-border bg-board-card-done"
-                : "border-board-card-border bg-board-card shadow-board-card",
+                ? "border-[var(--board-card-done-border)] opacity-50"
+                : "border-[var(--board-card-border)]",
               isDragging
-                ? "border-board-card-border-hover bg-board-card shadow-[0_8px_24px_rgb(0_0_0/0.12)]"
-                : !isTaskFocused && "hover:border-board-card-border-hover",
+                ? "border-[var(--board-card-border-hover)]"
+                : !isTaskFocused &&
+                    "hover:border-[var(--board-card-border-hover)]",
               isTaskSelected &&
-                "border-board-card-selected-border bg-board-card-selected",
-              isTaskFocused && "border-board-card-focus",
+                "border-[var(--board-card-selected-border)] bg-[var(--board-card-selected)]",
+              isTaskFocused &&
+                "border-[var(--board-card-focus)] ring-1 ring-[var(--board-card-ring)]",
             )}
           >
             {showIdRow && (
-              <div className="flex h-4.5 items-center justify-between gap-2">
+              <div className="flex h-4.5 items-center gap-2">
                 <div className="flex min-w-0 items-center gap-1.5">
                   {isTaskSelected && (
                     <CheckboxMark checked className="size-3.5 shrink-0" />
@@ -154,8 +156,8 @@ function TaskCardContent({
                       className={cn(
                         "truncate font-mono text-[11px] leading-3.5",
                         taskIsCompleted
-                          ? "text-board-id-done"
-                          : "text-board-id",
+                          ? "text-[var(--board-id-done)]"
+                          : "text-[var(--board-id)]",
                       )}
                     >
                       {project?.slug}-{task.number}
@@ -163,28 +165,30 @@ function TaskCardContent({
                   )}
                 </div>
                 {showAssignees && (
-                  <AssigneeButton
-                    task={task}
-                    workspaceId={workspaceId}
-                    name={assignee?.user?.name ?? task.assigneeName}
-                    image={assignee?.user?.image}
-                    avatarFallbackClassName={cn(
-                      isTaskSelected && "bg-avatar-selected",
-                      taskIsCompleted &&
-                        "bg-avatar-done text-avatar-foreground-done",
-                    )}
-                  />
+                  <div className="ml-auto">
+                    <AssigneeButton
+                      task={task}
+                      workspaceId={workspaceId}
+                      name={assignee?.user?.name ?? task.assigneeName}
+                      image={assignee?.user?.image}
+                      avatarFallbackClassName={cn(
+                        isTaskSelected && "bg-avatar-selected",
+                        taskIsCompleted &&
+                          "bg-avatar-done text-avatar-foreground-done",
+                      )}
+                    />
+                  </div>
                 )}
               </div>
             )}
 
             <div
               className={cn(
-                "line-clamp-3 break-words text-[13px] leading-[18px]",
+                "line-clamp-3 break-words text-sm font-semibold leading-[1.35]",
                 showIdRow && "mt-1",
                 taskIsCompleted
-                  ? "text-board-title-done"
-                  : "font-medium text-board-title",
+                  ? "text-[var(--board-title-done)]"
+                  : "text-[var(--board-title)]",
               )}
             >
               {task.title}

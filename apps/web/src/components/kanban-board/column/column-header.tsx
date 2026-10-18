@@ -62,10 +62,10 @@ export function ColumnHeader({
         <span className="text-chip-icon">
           {getColumnIcon(column.id, column.isFinal, column.icon)}
         </span>
-        <span className="truncate font-medium text-[13px] text-board-title leading-5">
+        <span className="truncate text-[13px] font-medium leading-5 text-muted-foreground">
           {column.name}
         </span>
-        <span className="text-board-id text-xs tabular-nums">
+        <span className="text-[12.5px] text-[var(--color-faint)] tabular-nums">
           {column.tasks.length}
         </span>
       </div>
@@ -76,7 +76,7 @@ export function ColumnHeader({
             type="button"
             disabled={disableCollectionActions}
             onClick={() => setIsArchiveModalOpen(true)}
-            className="flex size-6 cursor-pointer items-center justify-center rounded-md text-chip-icon transition-colors hover:bg-chip-hover hover:text-board-title"
+            className="flex size-6 cursor-pointer items-center justify-center rounded-md text-chip-icon transition-colors hover:bg-chip-hover hover:text-[var(--board-title)]"
             title={t("tasks:listView.archiveAllTooltip")}
             aria-label={t("tasks:listView.archiveAllTooltip")}
           >
@@ -87,7 +87,7 @@ export function ColumnHeader({
           <button
             type="button"
             onClick={() => setIsTaskModalOpen(true)}
-            className="flex size-6 cursor-pointer items-center justify-center rounded-md text-chip-icon transition-colors hover:bg-chip-hover hover:text-board-title"
+            className="flex size-6 cursor-pointer items-center justify-center rounded-md text-chip-icon transition-colors hover:bg-chip-hover hover:text-[var(--board-title)]"
             title={t("tasks:kanban.addTask")}
           >
             <Plus className="size-3.5" />

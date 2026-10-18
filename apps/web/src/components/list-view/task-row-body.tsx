@@ -71,13 +71,15 @@ export function TaskRowBody({
         </TaskPriorityPopover>
       )}
       {showTaskNumbers && (
-        <span className="w-13 shrink-0 truncate font-mono text-muted-foreground text-xs">
+        <span className="w-13 shrink-0 truncate font-mono text-[11px] text-[var(--board-id)]">
           {projectSlug}-{task.number}
         </span>
       )}
 
       <div className="flex min-w-0 flex-1 items-center gap-2">
-        <span className="truncate text-foreground text-sm">{task.title}</span>
+        <span className="truncate text-sm font-semibold text-[var(--board-title)]">
+          {task.title}
+        </span>
         <div className="flex shrink-0 items-center gap-0.5">
           <SubtasksChip
             task={task}

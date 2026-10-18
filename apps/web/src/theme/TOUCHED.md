@@ -46,3 +46,18 @@
 - components/ui/tabs.tsx: default list is glass pillnav capsule, pillnav-item triggers, accent indicator; underline variant unchanged.
 - components/ui/toggle-group.tsx: group is glass pillnav capsule; items pillnav-item, data-pressed accent.
 - hooks/mutations/billing/use-billing-actions.ts: sonner replaced by "@/lib/toast".
+- src/components/kanban-board/task-card/task-card-content.tsx: glass card, board tokens, 14px 600 title, mono id, done opacity-50, avatar ml-auto, shadow-[ removed
+- src/components/kanban-board/column/index.tsx: lane transparent, hairline on image background, dark: and shadow removed
+- src/components/kanban-board/column/column-header.tsx: 13px muted header, 12.5px faint count
+- src/components/list-view/index.tsx: transparent list background
+- src/components/list-view/list-column-section.tsx: hairline separators, transparent section header
+- src/components/list-view/task-row.tsx: row-hover, hairline separators, token focus ring
+- src/components/list-view/task-row-body.tsx: id and title typography as cards
+- src/components/task/properties/properties-rail.tsx: metadata block is a dl
+- src/components/task/properties/property-row.tsx: dt 10.5px uppercase faint labels, dd 13.5px values
+- src/components/task/task-subtasks.tsx: checklist as inner hairline card
+- src/components/task/task-description.tsx: 14px / 1.625 muted description
+- src/components/task/task-activity.tsx: muted section heading
+- src/components/task/task-details-content.tsx: faint context line, hairline rule
+- src/components/task/task-title.tsx: 20px title
+- src/components/task/task-pull-requests/pull-request-status-icon.tsx: dark: variant removed

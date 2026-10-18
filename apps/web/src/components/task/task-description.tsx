@@ -1233,7 +1233,7 @@ export default function TaskDescription({ taskId }: TaskDescriptionProps) {
       data-task-action="description"
       aria-label={t("tasks:detail.editor.ariaLabel")}
       className={cn(
-        "kaneo-tiptap-shell group relative",
+        "kaneo-tiptap-shell group relative text-sm leading-[1.625] text-muted-foreground",
         isDragActive && "is-drag-active",
       )}
       onDragEnter={handleShellDragEnter}

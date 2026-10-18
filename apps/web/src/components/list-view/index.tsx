@@ -285,7 +285,7 @@ function ListView({
       onDragEnd={handleDragEnd}
       modifiers={[snapCenterToCursor]}
     >
-      <div className="w-full h-full overflow-auto bg-muted/20">
+      <div className="w-full h-full overflow-auto bg-transparent">
         <div className="divide-y divide-border/50">
           {project.columns.map((column) => (
             <ListColumnSection

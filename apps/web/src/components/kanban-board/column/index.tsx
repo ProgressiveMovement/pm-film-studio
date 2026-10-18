@@ -37,24 +37,24 @@ export const columnVariants = cva(
       {
         isDropzoneOver: false,
         backgroundImage: false,
-        class: "bg-board-lane",
+        class: "bg-transparent",
       },
       {
         isDropzoneOver: true,
         backgroundImage: false,
-        class: "bg-board-lane ring-2 ring-board-card-ring",
+        class: "bg-transparent ring-2 ring-[var(--board-card-ring)]",
       },
       {
         isDropzoneOver: false,
         backgroundImage: true,
         class:
-          "border border-border/70 bg-background shadow-md before:bg-muted before:dark:bg-card",
+          "border border-[var(--border)] bg-transparent before:bg-transparent",
       },
       {
         isDropzoneOver: true,
         backgroundImage: true,
         class:
-          "border border-border/70 bg-background ring-2 ring-focus/60 before:bg-accent/60",
+          "border border-[var(--border)] bg-transparent ring-2 ring-[var(--board-card-ring)] before:bg-accent/60",
       },
     ],
   },

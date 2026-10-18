@@ -19,22 +19,22 @@ export function PropertyRow({
         align === "start" ? "items-start" : "items-center",
       )}
     >
-      <span
+      <dt
         className={cn(
-          "w-21 shrink-0 truncate pl-2 text-muted-foreground text-xs",
+          "w-21 shrink-0 truncate pl-2 text-[10.5px] font-semibold uppercase tracking-[.09em] text-[var(--color-faint)]",
           align === "start" && "flex h-8 items-center",
         )}
       >
         {label}
-      </span>
-      <div
+      </dt>
+      <dd
         className={cn(
-          "flex min-w-0 flex-1 items-center",
+          "m-0 flex min-w-0 flex-1 items-center text-[13.5px]",
           align === "start" && "py-px",
         )}
       >
         {children}
-      </div>
+      </dd>
     </div>
   );
 }

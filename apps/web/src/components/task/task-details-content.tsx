@@ -52,7 +52,7 @@ export default function TaskDetailsContent({
         {parentTask && (
           <button
             type="button"
-            className="flex w-fit min-w-0 items-center gap-1.5 rounded-sm text-muted-foreground text-xs outline-none transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+            className="flex w-fit min-w-0 items-center gap-1.5 rounded-sm text-[12px] text-[var(--color-faint)] outline-none transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
             onClick={() =>
               navigate({
                 to: "/dashboard/workspace/$workspaceId/project/$projectId/task/$taskId",
@@ -103,7 +103,7 @@ export default function TaskDetailsContent({
       <TaskActivity
         taskId={taskId}
         projectId={projectId}
-        className="mt-8 border-border border-t pt-6"
+        className="mt-8 border-[var(--border)] border-t pt-6"
       />
     </div>
   );

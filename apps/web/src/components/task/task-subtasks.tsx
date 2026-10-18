@@ -321,7 +321,7 @@ export default function TaskSubtasks({
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions -- keyboard nav managed via document listener */}
         <div
           ref={containerRef}
-          className="flex flex-col"
+          className="flex flex-col rounded-2xl border border-[var(--border)] px-3.5 text-[13.5px] empty:hidden [&>*]:border-b [&>*]:border-[var(--border)] [&>*:last-child]:border-b-0"
           onMouseDown={() => {
             if (focusedIndex === -1 && !hasSelection) {
               setFocusedIndex(0);
