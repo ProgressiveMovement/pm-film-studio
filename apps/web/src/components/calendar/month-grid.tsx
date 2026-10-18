@@ -1,4 +1,4 @@
-import { format, isSameMonth, isToday, isWeekend } from "date-fns";
+import { format, isSameMonth, isToday } from "date-fns";
 import { type JSX, useMemo } from "react";
 import { cn } from "@/lib/cn";
 import { formatDate } from "@/lib/format";
@@ -31,11 +31,11 @@ export default function MonthGrid({
 
   return (
     <div className="flex min-h-0 flex-1 flex-col overflow-auto overscroll-x-contain">
-      <div className="sticky top-0 z-20 grid grid-cols-7 border-b border-border bg-background/95 backdrop-blur">
+      <div className="sticky top-0 z-20 grid grid-cols-7 border-b border-[var(--border)] bg-background/95 backdrop-blur">
         {weekdayTemplate.map((day) => (
           <div
             key={`weekday-${day.toISOString()}`}
-            className="border-r border-border/60 px-1 py-2 text-center text-[11px] font-medium uppercase tracking-wide text-muted-foreground"
+            className="border-r border-[var(--border)] px-1 py-2 text-center text-[11px] font-medium uppercase tracking-[.09em] text-[var(--color-faint)]"
           >
             {formatDate(day, { weekday: "short" })}
           </div>
@@ -49,7 +49,7 @@ export default function MonthGrid({
           return (
             <div
               key={`week-${week[0].toISOString()}`}
-              className="relative grid min-h-24 flex-1 grid-cols-7 border-b border-border/70 sm:min-h-28"
+              className="relative grid min-h-24 flex-1 grid-cols-7 border-b border-[var(--border)] sm:min-h-28"
               style={{
                 // Row 1 carries the date numbers, then one row per lane, then a
                 // trailing row for the per-day overflow hint.
@@ -61,8 +61,8 @@ export default function MonthGrid({
                   key={`cell-${day.toISOString()}`}
                   style={{ gridColumn: dayIndex + 1, gridRow: "1 / -1" }}
                   className={cn(
-                    "min-w-0 border-r border-border/60",
-                    isWeekend(day) && "bg-muted/25",
+                    "min-w-0 border-r border-[var(--border)]",
+                    isToday(day) && "border-t-2 border-t-primary",
                   )}
                 />
               ))}
@@ -75,10 +75,10 @@ export default function MonthGrid({
                 >
                   <span
                     className={cn(
-                      "flex size-5 items-center justify-center rounded-full text-[11px] font-medium",
+                      "flex size-6 items-center justify-center rounded-full text-[12.5px] font-medium tabular-nums text-foreground",
                       !isSameMonth(day, visibleMonth) &&
-                        "text-muted-foreground/60",
-                      isToday(day) && "bg-primary text-primary-foreground",
+                        "text-[var(--color-faint)] opacity-60",
+                      isToday(day) && "font-semibold",
                     )}
                   >
                     {format(day, "d")}

@@ -311,7 +311,10 @@ export function GanttTaskBar({
     >
       <div
         style={{ gridColumn: `${lineStart} / ${lineEnd}` }}
-        className="group pointer-events-auto relative mx-1 flex min-h-[44px] min-w-0 items-stretch overflow-hidden rounded-md border border-primary/25 bg-background text-left text-sm font-medium leading-none text-foreground shadow-sm transition-colors hover:border-primary/40 sm:h-11 sm:min-h-0"
+        className={cn(
+          "group pointer-events-auto relative mx-1 flex min-h-[44px] min-w-0 items-stretch overflow-hidden rounded-md border border-l-2 border-[var(--border)] border-l-primary bg-accent text-left text-[12.5px] font-medium leading-none text-foreground transition-colors hover:border-[var(--edge-strong)] hover:border-l-primary sm:h-11 sm:min-h-0",
+          task.status === "done" && "opacity-50",
+        )}
       >
         {showResizeHandles && (
           <button
@@ -320,7 +323,7 @@ export function GanttTaskBar({
             disabled={!startIsVisible}
             onPointerDown={handleResizeLeftPointerDown}
             className={cn(
-              "relative z-20 shrink-0 cursor-ew-resize touch-none border-r border-primary/15 bg-primary/8 hover:bg-primary/18",
+              "relative z-20 shrink-0 cursor-ew-resize touch-none border-r border-[var(--border)] hover:bg-accent",
               "min-h-[44px] w-6 sm:min-h-0 sm:w-2",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1",
             )}
@@ -338,7 +341,6 @@ export function GanttTaskBar({
             }
           }}
         >
-          <div className="absolute inset-0 z-0 bg-primary/12 transition-colors group-hover:bg-primary/18" />
           <span
             className={cn(
               "relative z-10 block truncate",
@@ -355,7 +357,7 @@ export function GanttTaskBar({
             disabled={!endIsVisible}
             onPointerDown={handleResizeRightPointerDown}
             className={cn(
-              "relative z-20 shrink-0 cursor-ew-resize touch-none border-l border-primary/15 bg-primary/8 hover:bg-primary/18",
+              "relative z-20 shrink-0 cursor-ew-resize touch-none border-l border-[var(--border)] hover:bg-accent",
               "min-h-[44px] w-6 sm:min-h-0 sm:w-2",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1",
             )}
@@ -366,7 +368,7 @@ export function GanttTaskBar({
         <span
           aria-hidden="true"
           style={{ gridColumn: `${lineEnd} / ${trackCount + 1}` }}
-          className="min-w-0 truncate pl-1 text-xs font-medium text-foreground/80"
+          className="min-w-0 truncate pl-1 text-xs font-medium text-muted-foreground"
         >
           {task.title}
         </span>

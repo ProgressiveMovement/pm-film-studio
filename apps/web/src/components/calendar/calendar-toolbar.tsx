@@ -20,12 +20,12 @@ export default function CalendarToolbar({
   const { t } = useTranslation();
 
   return (
-    <div className="border-b border-border/80 px-3 py-2 sm:px-4">
+    <div className="border-b border-border px-3 py-2 sm:px-4">
       <div className="flex items-center justify-between gap-3">
         <div className="flex min-w-0 items-center gap-2">
           <h1 className="sr-only">{t("tasks:calendar.title")}</h1>
           <span
-            className="truncate text-sm font-semibold text-foreground"
+            className="truncate text-[17px] font-semibold tracking-[-0.01em] text-foreground"
             data-testid="calendar-month-label"
           >
             {formatDate(visibleMonth, { month: "long", year: "numeric" })}

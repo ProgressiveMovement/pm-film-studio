@@ -60,15 +60,15 @@ export default function MonthAgenda({
           <li
             key={day.toISOString()}
             ref={index === anchorIndex ? anchorRef : undefined}
-            className="border-b border-border/70"
+            className="border-b border-border"
           >
             <h3
               className={cn(
-                "sticky top-0 z-10 flex items-baseline gap-2 bg-background/95 px-4 pt-3 pb-1.5 text-xs font-medium text-muted-foreground backdrop-blur",
+                "sticky top-0 z-10 flex items-baseline gap-2 bg-background/95 px-4 pt-3 pb-1.5 text-[10.5px] font-medium uppercase tracking-[.09em] text-[var(--color-faint)] backdrop-blur",
                 isCurrentDay && "text-foreground",
               )}
             >
-              <span className="text-sm font-semibold tabular-nums">
+              <span className="text-[13.5px] font-semibold tabular-nums text-foreground">
                 {formatDate(day, { day: "numeric" })}
               </span>
               <span>
@@ -95,14 +95,14 @@ export default function MonthAgenda({
                       })}
                       data-task-status={task.status}
                       className={cn(
-                        "flex min-h-11 w-full flex-col justify-center gap-0.5 rounded-md border px-3 py-2 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                        "flex min-h-11 w-full flex-col justify-center gap-0.5 rounded-xl border px-3 py-2 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                         getCalendarTaskStatusClass(task.status),
                       )}
                     >
-                      <span className="text-sm font-medium text-foreground">
+                      <span className="text-[13.5px] font-medium text-foreground">
                         {task.title}
                       </span>
-                      <span className="text-xs text-muted-foreground">
+                      <span className="text-xs text-[var(--color-faint)]">
                         {taskKey ? `${taskKey} · ${range}` : range}
                       </span>
                     </button>
