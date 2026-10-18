@@ -13,3 +13,22 @@
 - src/components/ui/context-menu.tsx: content `paper`, items as menu, destructive no fill, same entrance.
 - src/components/ui/select.tsx: popup `paper` (inner bordered panel dropped), items as menu, same entrance.
 - src/components/ui/command.tsx: dialog popup `paper` max-w-xl, viewport top 12vh, input text-base, panel border/bg removed, items min-h-9 rounded-xl px-3.5, footer hairline kept.
+- src/components/ui/input.tsx: wrapper restyled to the .field look (edge-soft border, field fill, 14 px text, faint placeholder, edge-strong + stronger fill on focus); no red border or ring for invalid.
+- src/components/ui/textarea.tsx: same wrapper as input, textarea text-sm with faint placeholder.
+- src/components/ui/number-field.tsx: group restyled to the .field look (focus-within edge-strong), input placeholder faint; invalid styles removed.
+- src/components/ui/combobox.tsx: chips container and chips input restyled to the .field look (combobox input itself inherits from input.tsx); invalid styles removed.
+- src/components/ui/autocomplete.tsx: no change needed, its input renders input.tsx.
+- src/components/ui/field.tsx: FieldError is now text-[12.5px] text-destructive.
+- src/components/ui/badge.tsx: all variants hairline pill (rounded-full, chip vars); destructive text only; status variants keep tint
+- src/components/task-chips/task-chip-class.ts: shared chip class is now the hairline pill (11px, chip vars, hover/open states)
+- src/components/task-chips/label-chips.tsx: label colour via --label-c; text and 40% border from it, transparent fill, bg-current dot
+- src/components/task-chips/due-date-chip.tsx: overdue/soon/done as text colour only (destructive/warning/success foreground)
+- src/components/task-chips/checklist-chip.tsx: no-hover override uses chip var border
+- src/components/task-chips/priority-chip.tsx: unchanged in source (inherits taskChipClass)
+- src/components/task-chips/subtasks-chip.tsx: unchanged in source (inherits taskChipClass)
+- src/components/task-chips/assignee-button.tsx: unchanged (avatar ring already on chip vars)
+- src/components/ui/sidebar.tsx: width 15.5rem, inner border-r, group label and menu button restyle, paper on mobile popup
+- src/components/app-sidebar.tsx: glowing 7px dot beside the workspace switcher
+- src/components/nav-main.tsx: item height class min-h-9
+- src/components/nav-projects.tsx: 6px dot instead of project icon, min-h-9, faint uppercase group label
+- src/components/nav-secondary.tsx: item height class min-h-9

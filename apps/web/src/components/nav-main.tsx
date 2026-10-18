@@ -90,7 +90,7 @@ export function NavMain() {
                 tooltip={item.title}
                 isActive={pathname === item.url}
                 size="default"
-                className="h-8 text-sm"
+                className="min-h-9"
                 onClick={() => navigate({ to: item.url })}
               >
                 <item.icon aria-hidden="true" />

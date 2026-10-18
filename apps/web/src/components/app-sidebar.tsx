@@ -35,7 +35,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       {...props}
     >
       <SidebarHeader className="pt-1 pb-1.5">
-        <WorkspaceSwitcher />
+        <div className="flex items-center gap-2 pl-2">
+          <span
+            aria-hidden="true"
+            className="size-[7px] shrink-0 rounded-full bg-primary [filter:var(--glow)]"
+          />
+          <WorkspaceSwitcher />
+        </div>
       </SidebarHeader>
       <SidebarContent className="overflow-hidden gap-1 py-1">
         <NavMain />
