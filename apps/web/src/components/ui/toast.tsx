@@ -1,28 +1,18 @@
 "use client";
 
 import { Toast } from "@base-ui/react/toast";
-import {
-  CircleAlertIcon,
-  CircleCheckIcon,
-  InfoIcon,
-  LoaderCircleIcon,
-  TriangleAlertIcon,
-} from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { ToastShakeRoot } from "@/components/ui/toast-shake-root";
 import { cn } from "@/lib/cn";
-import type { ToastIcon } from "@/lib/toast";
+
+// DECISION: tone is text colour only, no icon or close button (E1 "Toast and loading").
+const TONE: Record<string, string> = {
+  error: "text-destructive-foreground",
+  success: "text-success-foreground",
+};
 
 const toastManager = Toast.createToastManager();
 const anchoredToastManager = Toast.createToastManager();
-
-const TOAST_ICONS = {
-  error: CircleAlertIcon,
-  info: InfoIcon,
-  loading: LoaderCircleIcon,
-  success: CircleCheckIcon,
-  warning: TriangleAlertIcon,
-} as const;
 
 type ToastPosition =
   | "top-left"
@@ -38,18 +28,20 @@ interface ToastProviderProps extends Toast.Provider.Props {
 
 function ToastProvider({
   children,
-  position = "bottom-right",
+  position: _position,
   ...props
 }: ToastProviderProps) {
+  // DECISION: the house toast always sits bottom centre; the prop is kept so call sites compile.
+  const position: ToastPosition = "bottom-center";
   return (
-    <Toast.Provider toastManager={toastManager} {...props}>
+    <Toast.Provider timeout={2500} toastManager={toastManager} {...props}>
       {children}
       <Toasts position={position} />
     </Toast.Provider>
   );
 }
 
-function Toasts({ position = "bottom-right" }: { position: ToastPosition }) {
+function Toasts({ position = "bottom-center" }: { position: ToastPosition }) {
   const { toasts } = Toast.useToastManager();
   const isTop = position.startsWith("top");
 
@@ -70,20 +62,15 @@ function Toasts({ position = "bottom-right" }: { position: ToastPosition }) {
         data-slot="toast-viewport"
       >
         {toasts.map((toast) => {
-          const data = toast.data as
-            | { icon?: ToastIcon; repeat?: number }
-            | undefined;
-          const Icon =
-            data?.icon ??
-            (toast.type
-              ? TOAST_ICONS[toast.type as keyof typeof TOAST_ICONS]
-              : null);
+          const data = toast.data as { repeat?: number } | undefined;
+          const tone = TONE[toast.type as string] ?? "";
 
           return (
             <ToastShakeRoot
               shakeKey={data?.repeat}
               className={cn(
-                "absolute z-[calc(9999-var(--toast-index))] h-(--toast-calc-height) w-full select-none rounded-lg border bg-popover not-dark:bg-clip-padding text-popover-foreground shadow-lg/5 [transition:transform_.3s_var(--ease-out),opacity_.3s_var(--ease-out),height_.15s_var(--ease-out)] before:pointer-events-none before:absolute before:inset-0 before:rounded-[calc(var(--radius-lg)-1px)] before:shadow-[0_1px_--theme(--color-black/4%)] dark:before:shadow-[0_-1px_--theme(--color-white/6%)]",
+                "paper absolute z-[calc(9999-var(--toast-index))] h-(--toast-calc-height) w-full select-none px-4 py-2.5 text-[13.5px] text-foreground [transition:transform_.3s_var(--ease-out),opacity_.3s_var(--ease-out),height_.15s_var(--ease-out)]",
+                tone,
                 // Base positioning using data-position
                 "data-[position*=right]:right-0 data-[position*=right]:left-auto",
                 "data-[position*=left]:right-auto data-[position*=left]:left-0",
@@ -135,30 +122,15 @@ function Toasts({ position = "bottom-right" }: { position: ToastPosition }) {
               }
               toast={toast}
             >
-              <Toast.Content className="pointer-events-auto flex items-center justify-between gap-1.5 overflow-hidden px-3.5 py-3 text-sm transition-opacity duration-250 data-behind:not-data-expanded:pointer-events-none data-behind:opacity-0 data-expanded:opacity-100">
+              <Toast.Content className="pointer-events-auto flex items-center justify-between gap-1.5 overflow-hidden transition-opacity duration-250 data-behind:not-data-expanded:pointer-events-none data-behind:opacity-0 data-expanded:opacity-100">
                 <div className="flex gap-2">
-                  {Icon && (
-                    <div
-                      className="[&>svg]:h-lh [&>svg]:w-4 [&_svg]:pointer-events-none [&_svg]:shrink-0"
-                      data-slot="toast-icon"
-                    >
-                      <Icon
-                        className={cn(
-                          data?.icon
-                            ? "text-muted-foreground"
-                            : "in-data-[type=loading]:animate-spin in-data-[type=error]:text-destructive in-data-[type=info]:text-info in-data-[type=success]:text-success in-data-[type=warning]:text-warning in-data-[type=loading]:opacity-80",
-                        )}
-                      />
-                    </div>
-                  )}
-
                   <div className="flex flex-col gap-0.5">
                     <Toast.Title
                       className="font-sans font-normal tracking-normal"
                       data-slot="toast-title"
                     />
                     <Toast.Description
-                      className="text-muted-foreground"
+                      className="opacity-80"
                       data-slot="toast-description"
                     />
                   </div>
@@ -199,9 +171,6 @@ function AnchoredToasts() {
         data-slot="toast-viewport-anchored"
       >
         {toasts.map((toast) => {
-          const Icon = toast.type
-            ? TOAST_ICONS[toast.type as keyof typeof TOAST_ICONS]
-            : null;
           const tooltipStyle =
             (toast.data as { tooltipStyle?: boolean })?.tooltipStyle ?? false;
           const positionerProps = toast.positionerProps;
@@ -238,15 +207,6 @@ function AnchoredToasts() {
                 ) : (
                   <Toast.Content className="pointer-events-auto flex items-center justify-between gap-1.5 overflow-hidden px-3.5 py-3 text-sm">
                     <div className="flex gap-2">
-                      {Icon && (
-                        <div
-                          className="[&>svg]:h-lh [&>svg]:w-4 [&_svg]:pointer-events-none [&_svg]:shrink-0"
-                          data-slot="toast-icon"
-                        >
-                          <Icon className="in-data-[type=loading]:animate-spin in-data-[type=error]:text-destructive in-data-[type=info]:text-info in-data-[type=success]:text-success in-data-[type=warning]:text-warning in-data-[type=loading]:opacity-80" />
-                        </div>
-                      )}
-
                       <div className="flex flex-col gap-0.5">
                         <Toast.Title
                           className="font-sans font-normal tracking-normal"
