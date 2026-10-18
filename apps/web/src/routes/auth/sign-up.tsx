@@ -59,6 +59,7 @@ function SignUp() {
   const { data: config, isLoading: isConfigLoading } = useGetConfig();
   const {
     data: instanceStatus,
+    isLoading: isInstanceStatusLoading,
     isError: isInstanceStatusError,
     error: instanceStatusError,
   } = useInstanceStatus();
@@ -114,7 +115,12 @@ function SignUp() {
 
   // DECISION: registration is closed on this instance. Only an invitation or
   // the first-admin setup opens the form. The server flag is untouched.
-  if (!invitationId && !isInstanceAdminSetup && !isConfigLoading) {
+  if (
+    !invitationId &&
+    !isInstanceAdminSetup &&
+    !isConfigLoading &&
+    !isInstanceStatusLoading
+  ) {
     return (
       <>
         <PageTitle title={t("auth:signUp.pageTitle")} />

@@ -1,13 +1,18 @@
 import type { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 import { Card } from "../ui/card";
 import { AuthLegalFooter } from "./auth-legal-footer";
 
 export function AuthWordmark() {
+  const { t } = useTranslation();
   return (
     <div className="flex items-center justify-center gap-2">
-      <span className="size-[7px] rounded-full bg-primary [filter:var(--glow)]" />
+      <span
+        aria-hidden="true"
+        className="size-[7px] rounded-full bg-primary [filter:var(--glow)]"
+      />
       <span className="font-semibold text-[17px] tracking-[-0.02em]">
-        Studio
+        {t("common:appName")}
       </span>
     </div>
   );

@@ -134,3 +134,4 @@ Not touched: components/task/**, constants/label-colors.ts, integration logos.
 - routes/auth/captcha-flow.test.tsx: sign-up cases run with an invitationId; closed-message test added.
 - i18n wanted: "Sign-up is closed on this Studio. Ask Julian for an invitation." is hard-coded in sign-up.tsx (key e.g. auth:signUp.closed).
 - i18n/en-US.json: auth.signUp.closed.
+- src/components/settings/nav/settings-nav-group.tsx: data-[active=true] (presence variant lit every item). routes/auth/sign-up.tsx: closed branch waits for the instance-status query. components/auth/auth-page.tsx: dot aria-hidden, name from common:appName. components/import/import-not-allowed.tsx: no card classes on the glass Empty. i18n/en-US.json: signUp.closed wording, billing.disabled neutral.

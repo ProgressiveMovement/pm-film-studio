@@ -239,7 +239,7 @@
 			"backToLogin": "Back to login"
 		},
 		"signUp": {
-			"closed": "Sign-up is closed on this Studio. Ask Julian for an invitation.",
+			"closed": "Sign-up is closed on this Studio. Ask your administrator for an invitation.",
 			"pageTitle": "Create Account",
 			"registrationDisabledAlert": "Registration is currently disabled. If you were invited, enter the email address that received the invitation to create your account.",
 			"continueAsGuest": "Continue as guest",
@@ -2183,7 +2183,7 @@
 		"billing": {
 			"pageTitle": "Billing",
 			"subtitle": "Your plan for {{workspace}}.",
-			"disabled": "Billing isn't enabled on this instance. Self-hosted Kaneo includes every feature, free forever.",
+			"disabled": "Billing isn't enabled on this instance.",
 			"currentPlan": {
 				"title": "Current plan"
 			},
