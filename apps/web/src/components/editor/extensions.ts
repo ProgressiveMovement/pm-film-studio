@@ -47,8 +47,8 @@ export function createEditorExtensions({
       highlighter,
       resolveLanguage,
       detectLanguage: detectCodeLanguage,
-      themeDark: "github-dark",
-      themeLight: "github-light",
+      themeDark: "studio",
+      themeLight: "studio-light",
     }),
     mermaidErrorKey
       ? MermaidBlock.configure({ errorKey: mermaidErrorKey })

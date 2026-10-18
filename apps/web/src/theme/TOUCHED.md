@@ -73,3 +73,6 @@ Not touched: components/task/**, constants/label-colors.ts, integration logos.
 - components/task/task-pull-requests/pull-request-status-icon.tsx: merged `text-violet-600` to `text-success-foreground`. Draft, open and closed already used tokens (draft muted, open success, closed destructive); left as is. Text colour only, no fill.
 - i18n/en/activity.json: comment.post key (Post) for the composer button.
 - src/components/calendar/calendar-task-bar.test.tsx: status colour assertions follow the 3d sweep (signal edge instead of tinted fill).
+- src/components/editor/extensions.ts: shiki themes studio / studio-light (the shared editor named the removed github themes).
+- src/components/ui/dialog.tsx, sheet.tsx: header sm:px-9 sm:pt-9 so the panel's pb-3 wins at 640px and up.
+- src/theme/overrides.css: focus ring (2 px --ring) on input, textarea, number field and combobox chips wrappers.

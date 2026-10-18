@@ -28,3 +28,11 @@
 svg.lucide {
   stroke-width: 1.6;
 }
+
+/* Fields: a visible focus ring on top of the edge-strong border (WCAG 2.4.7) */
+[data-slot="input"]:has(:focus-visible),
+[data-slot="textarea"]:has(:focus-visible),
+[data-slot="number-field-group"]:has(:focus-visible),
+[data-slot="combobox-chips"]:has(:focus-visible) {
+  box-shadow: 0 0 0 2px var(--ring);
+}
