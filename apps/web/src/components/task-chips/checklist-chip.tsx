@@ -30,7 +30,7 @@ export function ChecklistChip({ task, className }: ChecklistChipProps) {
       title={label}
       className={cn(
         taskChipClass,
-        "cursor-default tabular-nums hover:border-chip-border hover:bg-transparent",
+        "cursor-default tabular-nums hover:border-[var(--chip-border)] hover:bg-transparent",
         className,
       )}
     >

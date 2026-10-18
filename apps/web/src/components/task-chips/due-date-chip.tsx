@@ -20,6 +20,11 @@ export function DueDateChip({ task, isCompleted = false }: DueDateChipProps) {
 
   const relative = getRelativeDueDate(task.dueDate);
   const overdue = relative.kind === "overdue" && !isCompleted;
+  const soon =
+    !isCompleted &&
+    (relative.kind === "today" ||
+      relative.kind === "tomorrow" ||
+      relative.kind === "soon");
 
   return (
     <TaskDueDatePopover task={task}>
@@ -28,10 +33,17 @@ export function DueDateChip({ task, isCompleted = false }: DueDateChipProps) {
         title={t("tasks:due.fullDate", {
           date: formatDateMedium(task.dueDate),
         })}
-        className={cn(taskChipClass, overdue && "font-medium text-due-overdue")}
+        className={cn(
+          taskChipClass,
+          overdue && "font-medium text-destructive-foreground",
+          soon && "text-warning-foreground",
+          isCompleted && "text-success-foreground",
+        )}
         {...stopCardEvents}
       >
-        <Calendar className={cn(!overdue && "text-chip-icon")} />
+        <Calendar
+          className={cn(!overdue && !soon && !isCompleted && "text-chip-icon")}
+        />
         {formatRelativeDueDate(relative, task.dueDate, t)}
       </button>
     </TaskDueDatePopover>

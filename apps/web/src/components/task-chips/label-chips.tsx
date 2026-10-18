@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { useTranslation } from "react-i18next";
 import TaskLabelsPopover from "@/components/task/task-labels-popover";
 import { cn } from "@/lib/cn";
@@ -37,15 +38,17 @@ export function LabelChips({ task, workspaceId, max = 2 }: LabelChipsProps) {
         {visible.map((label) => (
           <span
             key={label.id}
+            style={
+              { "--label-c": resolveLabelColor(label.color) } as CSSProperties
+            }
             className={cn(
               taskChipClass,
-              "max-w-36 gap-1.5 group-hover/labels:border-chip-border-hover group-hover/labels:bg-chip-hover group-data-popup-open/labels:border-chip-border-open group-data-popup-open/labels:bg-chip-open",
+              "max-w-36 border-[color-mix(in_srgb,var(--label-c)_40%,transparent)] text-[var(--label-c)] group-hover/labels:border-chip-border-hover group-hover/labels:bg-chip-hover group-data-popup-open/labels:border-chip-border-open group-data-popup-open/labels:bg-chip-open",
             )}
           >
             <span
               aria-hidden="true"
-              className="size-1.5 shrink-0 rounded-full"
-              style={{ backgroundColor: resolveLabelColor(label.color) }}
+              className="size-1.5 shrink-0 rounded-full bg-current"
             />
             <span className="truncate">{label.name}</span>
           </span>
