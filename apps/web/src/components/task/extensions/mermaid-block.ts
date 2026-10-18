@@ -73,11 +73,26 @@ async function renderMermaid(code: string, dark: boolean) {
   const theme = dark ? "dark" : "default";
 
   if (initializedTheme !== theme) {
+    // Studio tokens (D12): colours come from theme/tokens.css values.
+    const edge = dark ? "#222222" : "rgba(0,0,0,.1)";
+    const surface = dark ? "#1c1c1c" : "#eeeeec";
+    const ink = dark ? "#f5f5f5" : "#171717";
     mermaid.initialize({
       startOnLoad: false,
       securityLevel: "strict",
-      theme,
-      fontFamily: "inherit",
+      theme: "base",
+      themeVariables: {
+        darkMode: dark,
+        background: "transparent",
+        primaryColor: surface,
+        primaryTextColor: ink,
+        primaryBorderColor: edge,
+        lineColor: dark ? "#a3a3a3" : "#575756",
+        secondaryColor: surface,
+        tertiaryColor: "transparent",
+        fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+      },
+      fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
       htmlLabels: false,
       flowchart: { htmlLabels: false },
     });

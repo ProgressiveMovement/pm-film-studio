@@ -114,8 +114,8 @@ export const ShikiCodeBlock = Extension.create<ShikiCodeBlockOptions>({
       highlighter: null,
       resolveLanguage: (language: string) => language,
       detectLanguage: () => null,
-      themeDark: "github-dark",
-      themeLight: "github-light",
+      themeDark: "studio",
+      themeLight: "studio-light",
     };
   },
 

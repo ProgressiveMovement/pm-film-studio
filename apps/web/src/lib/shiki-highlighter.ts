@@ -1,5 +1,6 @@
 import { createHighlighter, type Highlighter } from "shiki";
 import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
+import studioThemes from "@/theme/shiki-studio.json";
 
 let shikiHighlighterPromise: Promise<Highlighter> | null = null;
 
@@ -48,7 +49,8 @@ const RELOAD_FLAG = "shiki_chunk_reload_attempted";
 export function getSharedShikiHighlighter() {
   if (!shikiHighlighterPromise) {
     shikiHighlighterPromise = createHighlighter({
-      themes: ["github-dark", "github-light"],
+      // Monochrome code (D12): ink, muted, faint only.
+      themes: [studioThemes.studio, studioThemes["studio-light"]] as never[],
       langs: [...SHIKI_LANGUAGES],
       // The default oniguruma engine runs on WebAssembly, which Chrome
       // enterprise policies (e.g. JavaScriptJitDisabled) can disable. With

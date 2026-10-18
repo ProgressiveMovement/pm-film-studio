@@ -32,3 +32,7 @@
 - src/components/nav-main.tsx: item height class min-h-9
 - src/components/nav-projects.tsx: 6px dot instead of project icon, min-h-9, faint uppercase group label
 - src/components/nav-secondary.tsx: item height class min-h-9
+- src/theme/shiki-studio.json: new, themes "studio" (dark) and "studio-light" keyed in one file; ink/muted/faint only, keywords and storage bold
+- src/lib/shiki-highlighter.ts: registers the two studio themes instead of github-dark/github-light
+- src/components/task/extensions/shiki-code-block.ts: default themeDark "studio", themeLight "studio-light" (Kaneo switches by html.dark class, kept)
+- src/components/task/extensions/mermaid-block.ts: theme "base" with themeVariables from tokens, Helvetica Neue; dark/light still chosen per render by isDarkTheme() and cache key
