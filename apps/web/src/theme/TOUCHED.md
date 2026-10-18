@@ -91,3 +91,7 @@ Not touched: components/task/**, constants/label-colors.ts, integration logos.
 - src/components/ui/combobox.tsx: chips input text-base sm:text-sm (iOS zoom).
 - src/components/ui/toast.tsx: per-tone timeouts via toastManager.add (error 6000, loading 0, rest 2500); renders data.icon again.
 - src/components/ui/tabs.tsx: pill classes scoped to default variant (data-variant on list), no active fill; underline restored to Kaneo classes.
+# P3 task detail drawer (C2)
+- components/task/task-details-sheet.tsx: already a Sheet; dropped the 4xl width overrides and `[&>button]:hidden` so the Sheet's own 34 rem popup and its 44 px round close button apply (below 640 px the Sheet's max-w rule gives near full width). Two-column layout removed: one scrolling column, content then the PropertiesRail inside the `properties` slot (after the title), as a two-column dl from sm up, then description, subtasks, activity and composer. PropertyChips no longer mounted here (file kept). initialFocus now targets the popup (was the removed header close button). URL wiring, shortcuts, delete dialog and open-full-page unchanged.
+- components/task/header/task-sheet-header.tsx: own close button, `onClose` and `closeButtonRef` props removed; header 72 px with `pr-16` clearing the Sheet's close button; project name 12 px faint.
+- Not done: no bottom-sheet switch on mobile (no useIsMobile outside ui/sidebar, which is off limits); the mobile drawer stays a right panel `calc(100vw - 1.5rem)` wide.
