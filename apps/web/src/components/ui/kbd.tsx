@@ -4,17 +4,20 @@ import type * as React from "react";
 import { cn } from "@/lib/cn";
 
 const kbdVariants = cva(
-  "pointer-events-none inline-flex select-none items-center justify-center border font-medium font-sans data-highlighted:border-foreground/26 data-highlighted:bg-foreground/16 data-highlighted:font-semibold data-highlighted:text-foreground [&_svg:not([class*='size-'])]:size-3",
+  "pointer-events-none inline-flex select-none items-center justify-center border font-medium font-sans data-highlighted:border-[var(--edge-strong)] data-highlighted:bg-[var(--accent)] data-highlighted:font-semibold data-highlighted:text-foreground [&_svg:not([class*='size-'])]:size-3",
   {
     variants: {
       size: {
-        sm: "h-[18px] min-w-[18px] rounded-[4px] px-1 text-[11px]",
-        md: "h-5 min-w-5 rounded-[5px] px-[5px] text-xs",
+        sm: "h-[18px] min-w-[18px] rounded-md px-1.5 text-[11px]",
+        md: "h-5 min-w-5 rounded-md px-1.5 text-[11px]",
       },
       tone: {
-        default: "border-foreground/10 bg-foreground/6 text-foreground/85",
-        tooltip: "border-foreground/12 bg-foreground/8 text-foreground/85",
-        muted: "border-foreground/8 bg-foreground/4 text-muted-foreground",
+        default:
+          "border-[var(--chip-border)] bg-[var(--field-fill)] text-[var(--chip-foreground)]",
+        tooltip:
+          "border-[var(--chip-border)] bg-[var(--field-fill)] text-[var(--chip-foreground)]",
+        muted:
+          "border-[var(--edge-soft)] bg-[var(--field-fill)] text-[var(--chip-muted)]",
       },
     },
     defaultVariants: { size: "sm", tone: "default" },

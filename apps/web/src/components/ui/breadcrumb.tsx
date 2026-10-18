@@ -22,7 +22,7 @@ function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol">) {
   return (
     <ol
       className={cn(
-        "wrap-break-word flex flex-wrap items-center gap-1.5 text-muted-foreground text-sm sm:gap-2.5",
+        "wrap-break-word flex flex-wrap items-center gap-1.5 text-[12.5px] text-[var(--color-faint)] sm:gap-2.5",
         className,
       )}
       data-slot="breadcrumb-list"
@@ -47,7 +47,10 @@ function BreadcrumbLink({
   ...props
 }: useRender.ComponentProps<"a">) {
   const defaultProps = {
-    className: cn("transition-colors hover:text-foreground", className),
+    className: cn(
+      "rounded-sm outline-none transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring",
+      className,
+    ),
     "data-slot": "breadcrumb-link",
   };
 
@@ -80,7 +83,7 @@ function BreadcrumbSeparator({
   return (
     <li
       aria-hidden="true"
-      className={cn("opacity-80 [&>svg]:size-4", className)}
+      className={cn("text-[var(--color-faint)] [&>svg]:size-3.5", className)}
       data-slot="breadcrumb-separator"
       role="presentation"
       {...props}

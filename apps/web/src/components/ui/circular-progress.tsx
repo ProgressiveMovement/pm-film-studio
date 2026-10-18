@@ -30,7 +30,7 @@ export default function CircularProgress({
         fill="none"
         stroke="currentColor"
         strokeWidth={strokeWidth}
-        className="text-border"
+        className="text-[var(--input)]"
       />
       {total > 0 && (
         <circle
@@ -43,9 +43,7 @@ export default function CircularProgress({
           strokeDasharray={circumference}
           strokeDashoffset={offset}
           strokeLinecap="round"
-          className={
-            completed === total ? "text-success-foreground" : "text-primary"
-          }
+          className="text-primary"
           style={{ transition: "stroke-dashoffset 0.2s var(--ease-out)" }}
         />
       )}
