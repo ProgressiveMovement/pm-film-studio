@@ -3,10 +3,7 @@ import { cn } from "@/lib/cn";
 function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
-      className={cn(
-        "animate-skeleton rounded-sm motion-reduce:animate-none [--skeleton-highlight:--alpha(var(--color-white)/64%)] [background:linear-gradient(120deg,transparent_40%,var(--skeleton-highlight),transparent_60%)_var(--color-muted)_0_0/200%_100%_fixed] dark:[--skeleton-highlight:--alpha(var(--color-white)/4%)]",
-        className,
-      )}
+      className={cn("shimmer-line h-2.5 rounded-full", className)}
       data-slot="skeleton"
       {...props}
     />
