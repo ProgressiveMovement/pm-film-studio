@@ -113,3 +113,4 @@ Not touched: components/task/**, constants/label-colors.ts, integration logos.
 - index.html: title, meta title/description, og and twitter title/description, application-name and apple title now say Studio. Kept og:image, urls, canonical, keywords, manifest.
 - Not done: PageTitle (components/page-title.tsx) still defaults `suffix = "Kaneo"` at runtime; not an i18n key.
 - src/components/page-title.tsx: title suffix Studio.
+- src/components/ui/sheet.tsx: close keeps 44 px at sm and up (sm:size-11 beats the icon variant's sm:size-8).

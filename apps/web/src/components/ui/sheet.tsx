@@ -95,7 +95,7 @@ function SheetPopup({
           {showCloseButton && (
             <SheetPrimitive.Close
               aria-label={i18n.t("common:actions.close")}
-              className="absolute end-4 top-4 size-11 rounded-full hover:bg-[var(--row-hover)]"
+              className="absolute end-4 top-4 size-11 rounded-full hover:bg-[var(--row-hover)] sm:size-11"
               render={<Button size="icon" variant="ghost" />}
             >
               <XIcon />
