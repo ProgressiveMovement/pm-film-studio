@@ -36,3 +36,4 @@
 - src/lib/shiki-highlighter.ts: registers the two studio themes instead of github-dark/github-light
 - src/components/task/extensions/shiki-code-block.ts: default themeDark "studio", themeLight "studio-light" (Kaneo switches by html.dark class, kept)
 - src/components/task/extensions/mermaid-block.ts: theme "base" with themeVariables from tokens, Helvetica Neue; dark/light still chosen per render by isDarkTheme() and cache key
+- src/theme/overrides.css: svg.lucide stroke-width 1.6 (3f).

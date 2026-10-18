@@ -23,3 +23,8 @@
 .border-destructive\/20 {
   border-color: var(--border);
 }
+
+/* Stage 3f: one stroke weight for every Lucide icon */
+svg.lucide {
+  stroke-width: 1.6;
+}
