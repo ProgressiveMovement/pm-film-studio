@@ -27,7 +27,7 @@ export function ProjectScopeToggle({
   return (
     <nav
       aria-label={t("tasks:view.heading")}
-      className="flex h-7 shrink-0 items-center gap-0.5 rounded-lg border border-border/80 bg-background p-0.5 dark:bg-input/32"
+      className="flex h-7 max-sm:h-11 shrink-0 items-center gap-0.5 rounded-lg border border-border/80 bg-background p-0.5 dark:bg-input/32"
     >
       <ProjectScopeLink
         view={tasksView}

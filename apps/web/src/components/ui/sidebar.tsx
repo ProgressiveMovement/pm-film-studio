@@ -259,7 +259,7 @@ function SidebarTrigger({
 
   return (
     <Button
-      className={cn("size-7", className)}
+      className={cn("size-7 max-sm:size-10", className)}
       data-sidebar="trigger"
       data-slot="sidebar-trigger"
       onClick={(event) => {

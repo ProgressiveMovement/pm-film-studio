@@ -157,7 +157,7 @@ export default function CommentCard({
               <div className="flex cursor-pointer items-center gap-2">
                 <Avatar className="size-5">
                   <AvatarImage src={user?.image ?? ""} alt={user?.name || ""} />
-                  <AvatarFallback className="bg-muted font-semibold text-[9px]">
+                  <AvatarFallback className="bg-muted font-semibold text-[10px]">
                     {getInitials(user?.name)}
                   </AvatarFallback>
                 </Avatar>

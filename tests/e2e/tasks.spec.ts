@@ -54,7 +54,7 @@ async function createProject(page: Page) {
     .getByPlaceholder("Project name", { exact: true })
     .fill("Browser project");
   await page
-    .getByRole("button", { name: "Create Project", exact: true })
+    .getByRole("button", { name: "Create project", exact: true })
     .click();
   await expect(page).toHaveURL(/\/project\/[^/]+\/board$/);
   await expect(
@@ -66,7 +66,7 @@ async function createProject(page: Page) {
 async function createTask(page: Page, title: string) {
   await page.getByTitle("Add task", { exact: true }).first().click();
   await page.getByPlaceholder("Task title", { exact: true }).fill(title);
-  await page.getByRole("button", { name: "Create Task", exact: true }).click();
+  await page.getByRole("button", { name: "Create task", exact: true }).click();
   // The modal's title field also matches the text until the dialog closes.
   await expect(
     page.getByPlaceholder("Task title", { exact: true }),

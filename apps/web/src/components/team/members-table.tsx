@@ -423,7 +423,7 @@ function MembersTable({ workspaceId, invitations, users }: Props) {
                       <Badge
                         variant="outline"
                         size="sm"
-                        className="font-mono text-[9px] uppercase tracking-wider"
+                        className="font-mono text-[10px] uppercase tracking-wider"
                       >
                         {t("team:invitations.pendingBadge", {
                           defaultValue: "pending",

@@ -76,7 +76,7 @@ export function ColumnHeader({
             type="button"
             disabled={disableCollectionActions}
             onClick={() => setIsArchiveModalOpen(true)}
-            className="flex size-6 cursor-pointer items-center justify-center rounded-md text-chip-icon transition-colors hover:bg-chip-hover hover:text-[var(--board-title)]"
+            className="flex size-6 max-sm:size-10 cursor-pointer items-center justify-center rounded-md text-chip-icon transition-colors hover:bg-chip-hover hover:text-[var(--board-title)]"
             title={t("tasks:listView.archiveAllTooltip")}
             aria-label={t("tasks:listView.archiveAllTooltip")}
           >
@@ -87,7 +87,7 @@ export function ColumnHeader({
           <button
             type="button"
             onClick={() => setIsTaskModalOpen(true)}
-            className="flex size-6 cursor-pointer items-center justify-center rounded-md text-chip-icon transition-colors hover:bg-chip-hover hover:text-[var(--board-title)]"
+            className="flex size-6 max-sm:size-10 cursor-pointer items-center justify-center rounded-md text-chip-icon transition-colors hover:bg-chip-hover hover:text-[var(--board-title)]"
             title={t("tasks:kanban.addTask")}
           >
             <Plus className="size-3.5" />

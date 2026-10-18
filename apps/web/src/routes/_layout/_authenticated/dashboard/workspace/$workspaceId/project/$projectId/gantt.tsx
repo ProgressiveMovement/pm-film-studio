@@ -303,7 +303,7 @@ function RouteComponent() {
                   }}
                 />
                 <span className="hidden text-xs text-muted-foreground sm:inline">
-                  – {format(timeline.rangeEnd, "MMM d, yyyy")}
+                  · {format(timeline.rangeEnd, "MMM d, yyyy")}
                 </span>
                 <Button
                   variant="outline"

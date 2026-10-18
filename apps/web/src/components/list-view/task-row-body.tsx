@@ -117,7 +117,7 @@ export function TaskRowBody({
           workspaceId={workspaceId}
           name={assigneeName}
           image={assigneeImage}
-          avatarClassName="size-5.5 text-[9px]"
+          avatarClassName="size-5.5 text-[10px]"
         />
       )}
     </>

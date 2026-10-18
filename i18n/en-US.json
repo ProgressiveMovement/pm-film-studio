@@ -55,8 +55,8 @@
 			"description": "The page crashed unexpectedly. Refreshing usually fixes it.",
 			"troubleshooting": "Troubleshooting steps:",
 			"tryAgain": "Try again",
-			"viewDeploymentGuide": "View Deployment Guide",
-			"refreshPage": "Refresh Page",
+			"viewDeploymentGuide": "View deployment guide",
+			"refreshPage": "Refresh page",
 			"messages": {
 				"cors": "Unable to connect to the server. This might be due to CORS configuration issues.",
 				"network": "Network error. Please check your internet connection and try again.",
@@ -91,7 +91,7 @@
 				"projectName": "Project name",
 				"keyLabel": "Key:",
 				"keyHint": "Used for ticket IDs (e.g., {{example}}-123)",
-				"createButton": "Create Project",
+				"createButton": "Create project",
 				"successToast": "Project created",
 				"errorToast": "Failed to create project"
 			},
@@ -101,14 +101,14 @@
 				"description": "Create a new workspace by providing a name for your workspace.",
 				"namePlaceholder": "Workspace name",
 				"descriptionPlaceholder": "Add description...",
-				"createButton": "Create Workspace",
+				"createButton": "Create workspace",
 				"successToast": "Workspace created",
 				"errorToast": "Failed to create workspace"
 			},
 			"createTask": {
 				"breadcrumbTask": "TASK",
 				"selectProject": "Select project",
-				"title": "New Task",
+				"title": "New task",
 				"description": "Create a new task by providing a title, description, and other details.",
 				"statusLoadError": "Project statuses couldn’t be loaded.",
 				"taskTitlePlaceholder": "Task title",
@@ -135,7 +135,7 @@
 				"labelCreated": "Label created",
 				"labelCreateError": "Failed to create label",
 				"createMore": "Create more",
-				"createButton": "Create Task",
+				"createButton": "Create task",
 				"discardTitle": "Discard task?",
 				"discardDescription": "Your unsaved task details will be lost.",
 				"discardButton": "Discard task",
@@ -1203,7 +1203,7 @@
 						"description": "Can delete workspace"
 					},
 					"manage_settings": {
-						"label": "Manage Settings",
+						"label": "Manage settings",
 						"description": "Can manage workspace settings"
 					}
 				},
@@ -2395,8 +2395,8 @@
 			"invitePeople": "Invite people"
 		},
 		"projectList": {
-			"viewProject": "View Project",
-			"shareProject": "Share Project",
+			"viewProject": "View project",
+			"shareProject": "Share project",
 			"projectSettings": "Project settings",
 			"linkCopied": "Project link copied to clipboard",
 			"addProject": "Add project",
@@ -2439,7 +2439,7 @@
 		"page": {
 			"projectsTitle": "Projects",
 			"settingsTitle": "Settings",
-			"backToWorkspace": "Back to Workspace",
+			"backToWorkspace": "Back to workspace",
 			"settingsWorkspaceTab": "Workspace"
 		},
 		"projectSettings": {
@@ -3068,7 +3068,7 @@
 			}
 		},
 		"calendar": {
-			"pageTitle": "{{name}} – Calendar",
+			"pageTitle": "{{name}} · Calendar",
 			"title": "Calendar",
 			"previousMonth": "Previous month",
 			"nextMonth": "Next month",
@@ -3083,7 +3083,7 @@
 		},
 		"gantt": {
 			"searchPlaceholder": "Search scheduled tickets...",
-			"pageTitle": "{{name}} – Gantt",
+			"pageTitle": "{{name}} · Gantt",
 			"title": "Gantt Timeline",
 			"jumpToToday": "Jump to today",
 			"hideTasks": "Hide tasks",

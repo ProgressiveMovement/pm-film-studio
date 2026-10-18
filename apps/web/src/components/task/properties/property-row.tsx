@@ -4,12 +4,14 @@ import { cn } from "@/lib/cn";
 type PropertyRowProps = {
   label: string;
   align?: "center" | "start";
+  className?: string;
   children: ReactNode;
 };
 
 export function PropertyRow({
   label,
   align = "center",
+  className,
   children,
 }: PropertyRowProps) {
   return (
@@ -17,6 +19,7 @@ export function PropertyRow({
       className={cn(
         "flex min-h-8 min-w-0",
         align === "start" ? "items-start" : "items-center",
+        className,
       )}
     >
       <dt

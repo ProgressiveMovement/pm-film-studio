@@ -112,7 +112,10 @@ export function PropertiesRail({
           </TaskLabelsPopover>
         </PropertyRow>
 
-        <PropertyRow label={t("tasks:properties.dates")}>
+        <PropertyRow
+          label={t("tasks:properties.dates")}
+          className="sm:col-span-2"
+        >
           <div className="flex min-w-0 items-center gap-0.5">
             <TaskStartDatePopover task={task}>
               <PropertyValue className="flex-none">
