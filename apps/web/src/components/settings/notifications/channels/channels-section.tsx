@@ -39,7 +39,7 @@ export function ChannelsSection({ preferences }: ChannelsSectionProps) {
           channel="gotify"
           description={t("settings:notificationsPage.gotifyDescription")}
           detail={getUrlHost(preferences.gotifyServerUrl)}
-          icon={<BellIcon className="text-blue-500" />}
+          icon={<BellIcon className="text-muted-foreground" />}
           name={t("settings:notificationsPage.gotifyTitle")}
           onOpenChange={panelToggle("gotify")}
           open={openChannel === "gotify"}
@@ -54,7 +54,7 @@ export function ChannelsSection({ preferences }: ChannelsSectionProps) {
           channel="ntfy"
           description={t("settings:notificationsPage.ntfyDescription")}
           detail={getUrlHost(preferences.ntfyServerUrl)}
-          icon={<SquareTerminalIcon className="text-green-600" />}
+          icon={<SquareTerminalIcon className="text-success-foreground" />}
           name={t("settings:notificationsPage.ntfyTitle")}
           onOpenChange={panelToggle("ntfy")}
           open={openChannel === "ntfy"}

@@ -61,3 +61,10 @@
 - src/components/task/task-details-content.tsx: faint context line, hairline rule
 - src/components/task/task-title.tsx: 20px title
 - src/components/task/task-pull-requests/pull-request-status-icon.tsx: dark: variant removed
+# Stage 3d colour sweep
+Rule: KANEO_STACK D10 (monochrome, signal colours as text/edge only).
+- components/team/members-table.tsx: AVATAR_TONES (rose, amber, sky, emerald, violet, indigo tinted pairs) replaced by `bg-accent text-accent-foreground`, `bg-muted text-foreground`, `bg-primary text-primary-foreground`.
+- components/calendar/calendar-task-bar.tsx: STATUS_CLASSES blue/amber/emerald fills and borders (and the slate to-do) replaced by `bg-accent`, `border-[var(--border)]`, hover `bg-muted`, plus a 2 px inset left edge (`shadow-[inset_2px_0_0_...]`): `--primary` for to-do, in-progress and the fallback, `--warning` for in-review, `--success` for done. Segments that continue from a previous week drop the edge (`shadow-none`).
+- components/onboarding/preview/preview-avatars.tsx: invitedColors (violet, cyan, emerald, amber, rose 700) replaced by the three monochrome tone pairs; removed the hardcoded `text-white` so the pair's text colour applies.
+- components/settings/notifications/channels/channels-section.tsx: Gotify icon `text-blue-500` to `text-muted-foreground`; ntfy icon `text-green-600` to `text-success-foreground`.
+Not touched: components/task/**, constants/label-colors.ts, integration logos.

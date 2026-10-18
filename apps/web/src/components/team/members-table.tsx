@@ -71,16 +71,13 @@ type Props = {
   users: WorkspaceUser[];
 };
 
-// Stable per-user pastel for the avatar fallback. Picks one of a curated set
-// of Tailwind tone pairs from a cheap string hash so the same user keeps the
+// Stable per-user monochrome tone for the avatar fallback. Picks one of a curated set
+// of tonal pairs from a cheap string hash so the same user keeps the
 // same color across re-renders without server-side state.
 const AVATAR_TONES = [
-  "bg-rose-500/15 text-rose-600 dark:text-rose-300",
-  "bg-amber-500/15 text-amber-600 dark:text-amber-300",
-  "bg-sky-500/15 text-sky-600 dark:text-sky-300",
-  "bg-emerald-500/15 text-emerald-600 dark:text-emerald-300",
-  "bg-violet-500/15 text-violet-600 dark:text-violet-300",
-  "bg-indigo-500/15 text-indigo-600 dark:text-indigo-300",
+  "bg-accent text-accent-foreground",
+  "bg-muted text-foreground",
+  "bg-primary text-primary-foreground",
 ] as const;
 
 // Names that are NOT "truly custom": viewer/member/admin are seeded as

@@ -12,18 +12,18 @@ export type CalendarTask = PackableTask & {
 
 const STATUS_CLASSES: Record<string, string> = {
   "to-do":
-    "border-slate-500/35 bg-slate-500/15 hover:border-slate-500/50 hover:bg-slate-500/20",
+    "border-[var(--border)] bg-accent shadow-[inset_2px_0_0_var(--primary)] hover:bg-muted",
   "in-progress":
-    "border-blue-500/35 bg-blue-500/15 hover:border-blue-500/50 hover:bg-blue-500/20",
+    "border-[var(--border)] bg-accent shadow-[inset_2px_0_0_var(--primary)] hover:bg-muted",
   "in-review":
-    "border-amber-500/40 bg-amber-500/15 hover:border-amber-500/55 hover:bg-amber-500/20",
-  done: "border-emerald-500/35 bg-emerald-500/15 hover:border-emerald-500/50 hover:bg-emerald-500/20",
+    "border-[var(--border)] bg-accent shadow-[inset_2px_0_0_var(--warning)] hover:bg-muted",
+  done: "border-[var(--border)] bg-accent shadow-[inset_2px_0_0_var(--success)] hover:bg-muted",
 };
 
 export function getCalendarTaskStatusClass(status: string): string {
   return (
     STATUS_CLASSES[status] ??
-    "border-primary/25 bg-primary/12 hover:border-primary/40 hover:bg-primary/18"
+    "border-[var(--border)] bg-accent shadow-[inset_2px_0_0_var(--primary)] hover:bg-muted"
   );
 }
 
@@ -81,7 +81,9 @@ export default function CalendarTaskBar({
         getCalendarTaskStatusClass(task.status),
         // Bars that run past a week edge lose their cap there so the two halves
         // read as one continuous span across rows.
-        continuesBefore ? "rounded-l-none border-l-0" : "ml-1 rounded-l-md",
+        continuesBefore
+          ? "rounded-l-none border-l-0 shadow-none"
+          : "ml-1 rounded-l-md",
         continuesAfter ? "rounded-r-none border-r-0" : "mr-1 rounded-r-md",
       )}
     >

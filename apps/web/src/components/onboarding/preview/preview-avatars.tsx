@@ -1,11 +1,9 @@
 import { cn } from "@/lib/cn";
 
 const invitedColors = [
-  "bg-violet-700",
-  "bg-cyan-700",
-  "bg-emerald-700",
-  "bg-amber-700",
-  "bg-rose-700",
+  "bg-accent text-accent-foreground",
+  "bg-muted text-foreground",
+  "bg-primary text-primary-foreground",
 ];
 
 type PreviewAvatarsProps = {
@@ -36,10 +34,7 @@ export function PreviewAvatars({
         {ownerInitial}
       </span>
       {invited.map((person) => (
-        <span
-          key={person.id}
-          className={cn(avatar, "text-white", person.color)}
-        >
+        <span key={person.id} className={cn(avatar, person.color)}>
           {person.initial}
         </span>
       ))}
