@@ -1,1 +1,187 @@
-/* Empty until Stage 3. */
+/* Studio recipes (Stage 3a), from studio.css. Kaneo variable names.
+   Layer order: index.css line 364 imports this file before Kaneo's own
+   `@layer components` block (line ~400). Both are in the `components` layer
+   and the layer order itself is fixed by Tailwind (theme, base, components,
+   utilities), so on equal specificity Kaneo's component rules come later
+   and win; utilities beat both. Recipes are opt-in classes, so no clash. */
+@layer components {
+  .glass {
+    background: var(--glass-fill);
+    border: 0.5px solid var(--edge-soft);
+    border-radius: 25px;
+    box-shadow: var(--shadow-glass);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+  }
+  @media (pointer: coarse) {
+    .glass {
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+  }
+  .glass-hero {
+    background: var(--glass-hero-fill);
+    border-color: var(--edge-strong);
+  }
+
+  .paper {
+    background: var(--paper-fill);
+    border: 0.5px solid var(--edge-soft);
+    border-radius: 16px;
+    box-shadow: var(--shadow-menu);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+  }
+  /* Distortion only here, only where backdrop-filter accepts url(). */
+  @supports (backdrop-filter: url(#x)) {
+    .paper {
+      backdrop-filter: url(#glass-distortion) blur(15px);
+    }
+  }
+
+  .pillnav {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    border-radius: 9999px;
+    font-size: 13px;
+  }
+  .pillnav-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 36px;
+    padding: 0 14px;
+    border-radius: 9999px;
+    color: var(--muted-foreground);
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .pillnav-item:is([data-active], [aria-current], .is-active) {
+    background: var(--accent);
+    color: var(--foreground);
+  }
+
+  .btn-light,
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 36px;
+    padding: 0 20px;
+    border-radius: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: -0.01em;
+  }
+  .btn-light {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border: 0;
+  }
+  .btn-ghost {
+    background: var(--secondary);
+    color: var(--muted-foreground);
+    border: 0.5px solid var(--edge-soft);
+    font-weight: 500;
+  }
+
+  .field {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid var(--edge-soft);
+    background: var(--field-fill);
+    padding: 7px 11px;
+    font-size: 14px;
+    color: var(--foreground);
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+  }
+  .field::placeholder {
+    color: var(--color-faint);
+  }
+  .field:focus {
+    outline: none;
+    border-color: var(--edge-strong);
+    background: var(--field-fill-focus);
+  }
+
+  .row-hover:hover {
+    background: var(--row-hover);
+  }
+
+  .shimmer-line {
+    position: relative;
+    overflow: hidden;
+    height: 10px;
+    border-radius: 9999px;
+    background: transparent;
+  }
+  .shimmer-line::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--row-hover),
+      var(--accent),
+      var(--row-hover),
+      transparent
+    );
+    transform: translateX(-100%);
+    animation: studio-shimmer 2.2s linear infinite;
+  }
+
+  .pulse-dot {
+    animation: studio-pulse 2.5s ease-in-out infinite;
+  }
+
+  .u-reveal,
+  .rise,
+  .stagger > * {
+    animation: studio-enter 320ms var(--ease-out) backwards;
+  }
+  .stagger > :nth-child(1) { animation-delay: 0ms; }
+  .stagger > :nth-child(2) { animation-delay: 40ms; }
+  .stagger > :nth-child(3) { animation-delay: 80ms; }
+  .stagger > :nth-child(4) { animation-delay: 120ms; }
+  .stagger > :nth-child(5) { animation-delay: 160ms; }
+  .stagger > :nth-child(6) { animation-delay: 200ms; }
+  .stagger > :nth-child(7) { animation-delay: 240ms; }
+  .stagger > :nth-child(8) { animation-delay: 280ms; }
+
+  @keyframes studio-enter {
+    from {
+      opacity: 0;
+      transform: translateY(14px) scale(0.985);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes studio-shimmer {
+    to {
+      transform: translateX(100%);
+    }
+  }
+  @keyframes studio-pulse {
+    50% {
+      opacity: 0.35;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .u-reveal,
+    .rise,
+    .stagger > *,
+    .shimmer-line::after,
+    .pulse-dot {
+      animation: none;
+    }
+  }
+}
