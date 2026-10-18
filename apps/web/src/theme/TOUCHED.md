@@ -137,3 +137,4 @@ Not touched: components/task/**, constants/label-colors.ts, integration logos.
 - src/components/settings/nav/settings-nav-group.tsx: data-[active=true] (presence variant lit every item). routes/auth/sign-up.tsx: closed branch waits for the instance-status query. components/auth/auth-page.tsx: dot aria-hidden, name from common:appName. components/import/import-not-allowed.tsx: no card classes on the glass Empty. i18n/en-US.json: signUp.closed wording, billing.disabled neutral.
 - public/favicon.ico, favicon.svg, favicon-96x96.png, apple-touch-icon.png, web-app-manifest-192x192.png, web-app-manifest-512x512.png: PM mark on #0d0d0d, generated from Logo PM Film Production/SVG/PM_weiß.svg (mark at 70 percent of the square).
 - public/logo-dark.svg (ink mark for the light theme), public/logo-light.svg (white mark for the dark theme): the PM mark; components/common/logo.tsx alt Studio.
+- apps/web/nginx.kaneo.conf: application/manifest+json for .webmanifest.
