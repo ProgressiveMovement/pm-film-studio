@@ -120,3 +120,10 @@ Not touched: components/task/**, constants/label-colors.ts, integration logos.
 - components/common/project-unavailable.tsx: action uses default pill (outline variant dropped).
 - components/onboarding/preview/preview-column.tsx, preview-skeleton-column.tsx, preview-task-card.tsx: glass columns, hairline rows (--edge-soft 0.5px, --field-fill).
 - Reported, not changed: create-workspace-modal.tsx has no hard-coded strings, but i18n key `common:modals.createWorkspace.breadcrumbKaneo` carries Kaneo wording; its inputs are `unstyled` (large title style), not `.field`.
+# Stage 4c: settings pages (components/settings only)
+- settings-card.tsx: opaque card, `rounded-[25px] border border-[var(--edge-soft)] bg-card`, no glass, no shadow. Danger tone keeps its red text (set by children) and now uses the same neutral border; `border-destructive/20` removed and `data-tone={tone}` added. The `.border-destructive\/20` rule in theme/overrides.css is therefore no longer needed and can be deleted (left in place, not in my scope).
+- nav/settings-nav-group.tsx, settings-nav-projects.tsx, settings-nav-project.tsx, settings-sidebar-header.tsx: items `min-h-9 rounded-xl px-3.5 text-[13px] font-medium`, active `bg-sidebar-accent text-sidebar-accent-foreground`, group labels `text-[10.5px] uppercase tracking-[.09em] text-[var(--color-faint)] font-semibold`.
+- preferences/default-view-row.tsx, labels/label-pill.tsx, api-keys/api-key-expiry-toggle.tsx: `bg-background ... dark:bg-input/32` replaced by `bg-[var(--field-fill)]` (token switches by theme).
+- notifications/workspaces/workspace-rule-projects.tsx: `dark:data-pressed:bg-input` dropped, `data-pressed:bg-input` for both themes.
+- Not changed: settings-shell.tsx (its `shadow-sm/5` is a utility, not an arbitrary value; inset frame left as is), integrations brand logos.
+- src/theme/overrides.css: danger-card override removed (SettingsCard carries data-tone and a neutral border itself).

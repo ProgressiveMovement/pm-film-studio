@@ -19,7 +19,7 @@ export function SettingsSidebarHeader({ onLeave }: SettingsSidebarHeaderProps) {
       <SidebarMenu>
         <SidebarMenuItem>
           <SidebarMenuButton
-            className="h-8 text-sm font-medium text-sidebar-accent-foreground"
+            className="min-h-9 rounded-xl px-3.5 font-medium text-[13px] text-sidebar-accent-foreground"
             disabled={!onLeave}
             onClick={onLeave}
             aria-label={t("navigation:page.backToWorkspace")}

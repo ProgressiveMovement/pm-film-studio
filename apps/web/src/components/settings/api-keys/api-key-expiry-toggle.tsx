@@ -29,7 +29,7 @@ export function ApiKeyExpiryToggle({
         if (isApiKeyExpiration(next)) onChange(next);
       }}
       disabled={disabled}
-      className="h-9 w-full rounded-lg border border-input bg-background p-0.5 sm:h-8 dark:bg-input/32"
+      className="h-9 w-full rounded-lg border border-input bg-[var(--field-fill)] p-0.5 sm:h-8"
     >
       {API_KEY_EXPIRATIONS.map((option) => (
         <ToggleGroupItem

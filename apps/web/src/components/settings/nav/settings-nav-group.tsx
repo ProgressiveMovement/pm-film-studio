@@ -17,7 +17,7 @@ type SettingsNavGroupProps = {
 export function SettingsNavGroup({ group, pathname }: SettingsNavGroupProps) {
   return (
     <SidebarGroup className="gap-0.5 px-2 py-1.5">
-      <SidebarGroupLabel className="h-7 truncate text-sidebar-foreground/70">
+      <SidebarGroupLabel className="h-7 truncate font-semibold text-[10.5px] text-[var(--color-faint)] uppercase tracking-[.09em]">
         {group.label}
       </SidebarGroupLabel>
       <SidebarGroupContent>
@@ -26,7 +26,7 @@ export function SettingsNavGroup({ group, pathname }: SettingsNavGroupProps) {
             <SidebarMenuItem key={link.id}>
               <SidebarMenuButton
                 isActive={pathname === link.to}
-                className="h-8 text-sm"
+                className="min-h-9 rounded-xl px-3.5 font-medium text-[13px] data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground"
                 render={<Link to={link.to} />}
               >
                 <link.icon aria-hidden="true" />

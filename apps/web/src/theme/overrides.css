@@ -19,11 +19,6 @@
   background: var(--scrim);
 }
 
-/* Settings danger-zone card: neutral border (red stays on text and button) */
-.border-destructive\/20 {
-  border-color: var(--border);
-}
-
 /* Stage 3f: one stroke weight for every Lucide icon */
 svg.lucide {
   stroke-width: 1.6;

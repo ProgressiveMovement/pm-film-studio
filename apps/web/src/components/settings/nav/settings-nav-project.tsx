@@ -31,7 +31,7 @@ export function SettingsNavProject({
     <SidebarMenuItem>
       <SidebarMenuButton
         aria-expanded={open}
-        className="h-8 text-sm aria-expanded:font-medium aria-expanded:text-sidebar-accent-foreground"
+        className="min-h-9 rounded-xl px-3.5 font-medium text-[13px] aria-expanded:font-medium aria-expanded:text-sidebar-accent-foreground"
         onClick={() => setOpen((current) => !current)}
       >
         <project.icon aria-hidden="true" />

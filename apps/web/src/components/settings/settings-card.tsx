@@ -12,9 +12,9 @@ export function SettingsCard({
 }: SettingsCardProps) {
   return (
     <div
+      data-tone={tone}
       className={cn(
-        "divide-y divide-border overflow-hidden rounded-xl border bg-card",
-        tone === "danger" ? "border-destructive/20" : "border-border",
+        "divide-y divide-border overflow-hidden rounded-[25px] border border-[var(--edge-soft)] bg-card",
         className,
       )}
       {...props}
