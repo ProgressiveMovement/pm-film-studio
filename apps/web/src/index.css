@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "@fontsource-variable/geist";
 @import "@fontsource-variable/geist-mono";
 
 input:-webkit-autofill,
@@ -362,12 +361,17 @@ input:-webkit-autofill:active {
   --avatar-unassigned-foreground: #8a8a8a;
 }
 
+@import "./theme/index.css";
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background font-sans text-foreground antialiased;
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.5;
   }
   h1,
   h2,
@@ -375,7 +379,8 @@ input:-webkit-autofill:active {
   h4,
   h5,
   h6 {
-    @apply font-heading font-semibold tracking-tight;
+    @apply font-heading font-semibold;
+    letter-spacing: -0.02em;
   }
 
   * {

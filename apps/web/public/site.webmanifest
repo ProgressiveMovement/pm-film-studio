@@ -1,6 +1,6 @@
 {
-  "name": "Kaneo",
-  "short_name": "Kaneo",
+  "name": "Studio",
+  "short_name": "Studio",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#141414",
+  "theme_color": "#0d0d0d",
   "background_color": "#141414",
   "display": "standalone"
 }
