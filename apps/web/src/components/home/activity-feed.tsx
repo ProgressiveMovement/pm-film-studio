@@ -39,7 +39,7 @@ export function ActivityFeed({ workspaceId }: ActivityFeedProps) {
           {t("workspace:home.activity.loadError")}
         </p>
       ) : !activities?.length ? (
-        <p className="py-6 text-muted-foreground text-sm">
+        <p className="glass px-5 py-7 text-center text-muted-foreground text-sm">
           {t("workspace:home.activity.empty")}
         </p>
       ) : (

@@ -25,7 +25,7 @@ export function PreviewTaskCard({
         duration: 0.35,
         ease: [0.23, 1, 0.32, 1],
       }}
-      className="flex flex-col gap-2.5 rounded-lg border border-border bg-background p-3 shadow-xs/5"
+      className="flex flex-col gap-2.5 rounded-[10px] border-[0.5px] border-[var(--edge-soft)] bg-[var(--field-fill)] p-3"
     >
       <span className="font-mono text-[11px] text-muted-foreground">
         {ticket}

@@ -136,8 +136,8 @@ export function InboxList({
 
       <div className="min-h-0 flex-1 overflow-y-auto pb-3">
         {groups.length === 0 ? (
-          <div className="flex flex-col items-center gap-1 px-6 py-16 text-center">
-            <Inbox className="mb-1 size-5 text-muted-foreground/50" />
+          <div className="glass mx-3 mt-3 flex flex-col items-center gap-1 px-5 py-7 text-center">
+            <Inbox className="mb-1 size-4 text-muted-foreground" />
             <p className="text-muted-foreground text-sm">
               {notifications.length === 0
                 ? t("notifications:emptyTitle")

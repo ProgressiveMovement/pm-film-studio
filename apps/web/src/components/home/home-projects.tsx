@@ -49,19 +49,19 @@ export function HomeProjects({
           {t("workspace:home.projects.loadError")}
         </p>
       ) : !projects?.length ? (
-        <div className="flex flex-col items-start gap-3 rounded-lg border border-border bg-card p-5">
+        <div className="glass flex flex-col items-center gap-3 px-5 py-7 text-center">
           <div className="flex flex-col gap-1">
             <p className="font-medium text-foreground text-sm">
               {t("workspace:projects.emptyTitle")}
             </p>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-[13px] text-muted-foreground">
               {onCreateProject
                 ? t("workspace:projects.emptyDescription")
                 : t("workspace:projects.emptyDescriptionReadOnly")}
             </p>
           </div>
           {onCreateProject ? (
-            <Button size="sm" variant="outline" onClick={onCreateProject}>
+            <Button size="sm" onClick={onCreateProject}>
               <Plus />
               {t("workspace:projects.createProject")}
             </Button>

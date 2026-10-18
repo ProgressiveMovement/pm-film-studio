@@ -43,7 +43,6 @@ export default function ProjectUnavailable({ reason, workspaceId }: Props) {
       </EmptyHeader>
       <EmptyContent>
         <Button
-          variant="outline"
           render={
             <Link
               to="/dashboard/workspace/$workspaceId"

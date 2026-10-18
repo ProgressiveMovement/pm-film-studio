@@ -114,3 +114,9 @@ Not touched: components/task/**, constants/label-colors.ts, integration logos.
 - Not done: PageTitle (components/page-title.tsx) still defaults `suffix = "Kaneo"` at runtime; not an i18n key.
 - src/components/page-title.tsx: title suffix Studio.
 - src/components/ui/sheet.tsx: close keeps 44 px at sm and up (sm:size-11 beats the icon variant's sm:size-8).
+# Stage 4b touched files
+- components/ui/empty.tsx: Empty is now `.glass`, px-5 py-7, centred 14px muted; media icon is a plain 16px muted icon (stacked-card illustration removed); title 14px foreground, description 13px muted.
+- components/home/home-projects.tsx, activity-feed.tsx, up-next.tsx, components/inbox/inbox-list.tsx: hand-rolled empty states now glass boxes; the one action is the default pill button.
+- components/common/project-unavailable.tsx: action uses default pill (outline variant dropped).
+- components/onboarding/preview/preview-column.tsx, preview-skeleton-column.tsx, preview-task-card.tsx: glass columns, hairline rows (--edge-soft 0.5px, --field-fill).
+- Reported, not changed: create-workspace-modal.tsx has no hard-coded strings, but i18n key `common:modals.createWorkspace.breadcrumbKaneo` carries Kaneo wording; its inputs are `unstyled` (large title style), not `.field`.
