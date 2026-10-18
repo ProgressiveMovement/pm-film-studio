@@ -123,3 +123,58 @@ Format: `line: key: before -> after`. Line numbers are of the file before the sw
 ## Final count
 
 `grep -c "Kaneo" i18n/en-US.json` = 64 (before: 111)
+
+## Tone pass
+
+44 strings changed in i18n/en-US.json (no keys or placeholders touched). Format: line: key: before -> after.
+
+- 95: successToast: "Project created successfully" -> "Project created"
+- 105: successToast: "Workspace created successfully" -> "Workspace created"
+- 118: successCreated: "Task created successfully" -> "Task created"
+- 119: successUpdated: "Task updated successfully" -> "Task updated"
+- 255: password: "Add your name, email, and a password to get started." -> "Add your name, email, and a password."
+- 271: resendSuccess: "New verification code sent!" -> "New verification code sent."
+- 298: acceptSuccess: "Invitation accepted! Welcome to the team." -> "Invitation accepted. Welcome to the team."
+- 453: subtitle: "Please enter your name to get started" -> "Enter your name to continue"
+- 458: welcome: "Welcome, {{name}}!" -> "Welcome, {{name}}."
+- 461: updateSuccess: "Profile updated successfully" -> "Profile updated"
+- 1063: toastDeleted: "Workspace deleted successfully" -> "Workspace deleted"
+- 1628: toastDeleted: "Project deleted successfully" -> "Project deleted"
+- 1642: toastMoved: "Project moved successfully" -> "Project moved"
+- 1643: toastMovedWithUnassigned: "Project moved successfully. {{taskCount}} task(s) were unassigned." -> "Project moved. {{taskCount}} task(s) were unassigned."
+- 1803: updated: "GitHub integration updated successfully" -> "GitHub integration updated"
+- 1805: removed: "GitHub integration removed successfully" -> "GitHub integration removed"
+- 1807: issuesImported: "Issues imported successfully" -> "Issues imported"
+- 1848: issuesImported: "Issues imported successfully" -> "Issues imported"
+- 1882: issuesImported: "Issues imported successfully" -> "Issues imported"
+- 1917: saved: "Slack integration saved successfully" -> "Slack integration saved"
+- 1922: removed: "Slack integration removed successfully" -> "Slack integration removed"
+- 1935: saved: "Discord integration saved successfully" -> "Discord integration saved"
+- 1940: removed: "Discord integration removed successfully" -> "Discord integration removed"
+- 1953: saved: "Mattermost integration saved successfully" -> "Mattermost integration saved"
+- 1958: removed: "Mattermost integration removed successfully" -> "Mattermost integration removed"
+- 1972: saved: "Generic webhook integration saved successfully" -> "Generic webhook integration saved"
+- 1977: removed: "Generic webhook integration removed successfully" -> "Generic webhook integration removed"
+- 2017: saved: "Telegram integration saved successfully" -> "Telegram integration saved"
+- 2022: removed: "Telegram integration removed successfully" -> "Telegram integration removed"
+- 2067: exportSuccess: "Tasks exported successfully" -> "Tasks exported"
+- 2070: importSuccess: "Imported {{count}} tasks successfully" -> "Imported {{count}} tasks"
+- 2424: signedOutSuccess: "Signed out successfully" -> "Signed out"
+- 2587: content: "Your workspace \"{{workspaceName}}\" has been created successfully" -> "Your workspace \"{{workspaceName}}\" has been created"
+- 2940: deleteSuccess: "Task deleted successfully" -> "Task deleted"
+- 2969: success: "Task moved successfully" -> "Task moved"
+- 3106: success: "Task deleted successfully" -> "Task deleted"
+- 3111: success: "Task duplicated successfully" -> "Task duplicated"
+- 3156: copyLinkSuccess: "Task link copied!" -> "Task link copied."
+- 3331: acceptSuccess: "Invitation accepted! Welcome to the team." -> "Invitation accepted. Welcome to the team."
+- 3394: success: "Workspace created successfully" -> "Workspace created"
+- 3479: success: "Invitation sent successfully" -> "Invitation sent"
+- 3487: emptyDescription: "Invite your first team member to get started." -> "Invite your first team member."
+- 3505: removeSuccess: "Team member removed successfully" -> "Team member removed"
+- 3507: cancelInviteSuccess: "Invitation cancelled successfully" -> "Invitation cancelled"
+
+### Candidates not changed
+
+- 1 remaining em dash in en-US.json (pre-existing, not a tone hit; left).
+- Upstream marketing/SEO block (about lines 3573 to 3772) and the Left alone list: skipped by instruction.
+- Chatty but harmless, not changed: "Taking you to your dashboard..." (redirecting), "Please ..." prompts outside the grep hits.
