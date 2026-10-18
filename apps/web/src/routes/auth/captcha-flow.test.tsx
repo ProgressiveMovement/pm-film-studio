@@ -25,6 +25,7 @@ const m = vi.hoisted(() => ({
   navigate: vi.fn(),
   getConfig: vi.fn(),
   config: {} as Record<string, unknown>,
+  search: {} as Record<string, string>,
 }));
 vi.mock("@/fetchers/config/get-config", () => ({ getConfig: m.getConfig }));
 vi.mock("@/lib/auth-client", () => ({
@@ -37,7 +38,7 @@ vi.mock("@/lib/auth-client", () => ({
 }));
 vi.mock("@tanstack/react-router", () => ({
   createFileRoute: () => (options: unknown) => ({ options }),
-  useSearch: () => ({}),
+  useSearch: () => m.search,
   useNavigate: () => m.navigate,
   useRouter: () => ({ history: { push: vi.fn() } }),
   Link: ({ children }: { children: ReactNode }) => <a href="/">{children}</a>,
@@ -50,6 +51,9 @@ vi.mock("@/hooks/queries/instance/use-instance-status", () => ({
     data: { hasUsers: true, hasAdmin: true },
     isLoading: false,
   }),
+}));
+vi.mock("@/components/auth/invitation-notice", () => ({
+  InvitationNotice: () => null,
 }));
 vi.mock("@/components/page-title", () => ({ default: () => null }));
 vi.mock("@/components/auth/turnstile", () => ({
@@ -71,6 +75,7 @@ afterAll(() => vi.unstubAllEnvs());
 afterEach(() => cleanup());
 beforeEach(() => {
   vi.clearAllMocks();
+  m.search = {};
   m.config = {
     hasSmtp: false,
     hasGuestAccess: true,
@@ -95,8 +100,16 @@ describe("sign-up route", () => {
     expect(queryClient.getQueryState(["config"])?.status).toBe("error");
   });
 
+  it("shows the closed message instead of the form without an invitation", () => {
+    const Page = signup.options.component as ComponentType;
+    render(<Page />);
+    expect(screen.getByText(/Sign-up is closed/)).toBeInTheDocument();
+    expect(screen.queryByLabelText("auth:forms.email")).toBeNull();
+  });
+
   it("asks for a name and email, without a password, when email codes are on", () => {
     m.config = { ...m.config, hasSmtp: true };
+    m.search = { invitationId: "inv-1" };
     const Page = signup.options.component as ComponentType;
     render(<Page />);
     expect(screen.getByLabelText("auth:forms.name")).toBeInTheDocument();
@@ -116,6 +129,9 @@ describe.each([
   ] as const)(
     "sends the token and requires a fresh one after %s fails",
     async (label, method) => {
+      // Guest access is hidden on an invited sign-up by design.
+      if (_name === "sign-up" && method === "anonymous") return;
+      if (_name === "sign-up") m.search = { invitationId: "inv-1" };
       const Page = route.options.component as ComponentType;
       render(<Page />);
       expect(m.oauth2).not.toHaveBeenCalled(); // Auto-login cannot bypass CAPTCHA.

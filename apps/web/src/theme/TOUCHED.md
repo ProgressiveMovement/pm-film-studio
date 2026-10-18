@@ -127,3 +127,10 @@ Not touched: components/task/**, constants/label-colors.ts, integration logos.
 - notifications/workspaces/workspace-rule-projects.tsx: `dark:data-pressed:bg-input` dropped, `data-pressed:bg-input` for both themes.
 - Not changed: settings-shell.tsx (its `shadow-sm/5` is a utility, not an arbitrary value; inset frame left as is), integrations brand logos.
 - src/theme/overrides.css: danger-card override removed (SettingsCard carries data-tone and a neutral border itself).
+# Stage 4a, auth pages
+- components/auth/auth-page.tsx: shared shell for login, forgot/reset, check-email, invite accept. Favicon image replaced by `AuthWordmark` (7px glow dot + "Studio"); content sits in `<Card surface="opaque">`, max-w-sm.
+- components/auth/layout.tsx: unused AuthLayout; Logo replaced by `AuthWordmark`, Card opaque.
+- routes/auth/sign-up.tsx: closed message + link to sign-in unless an invitation or first-admin setup; registrationDisabledAlert branch removed.
+- routes/auth/captcha-flow.test.tsx: sign-up cases run with an invitationId; closed-message test added.
+- i18n wanted: "Sign-up is closed on this Studio. Ask Julian for an invitation." is hard-coded in sign-up.tsx (key e.g. auth:signUp.closed).
+- i18n/en-US.json: auth.signUp.closed.

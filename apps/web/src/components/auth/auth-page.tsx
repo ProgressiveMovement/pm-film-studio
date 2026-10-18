@@ -1,5 +1,17 @@
 import type { ReactNode } from "react";
+import { Card } from "../ui/card";
 import { AuthLegalFooter } from "./auth-legal-footer";
+
+export function AuthWordmark() {
+  return (
+    <div className="flex items-center justify-center gap-2">
+      <span className="size-[7px] rounded-full bg-primary [filter:var(--glow)]" />
+      <span className="font-semibold text-[17px] tracking-[-0.02em]">
+        Studio
+      </span>
+    </div>
+  );
+}
 
 type AuthPageProps = {
   title: string;
@@ -18,24 +30,24 @@ export function AuthPage({
     <main className="h-svh w-full overflow-y-auto bg-background">
       <div className="flex min-h-full flex-col items-center">
         <div className="flex w-full grow flex-col items-center justify-center px-4 py-12 sm:px-6">
-          <div className="flex w-full max-w-[360px] flex-col">
-            <div className="flex flex-col gap-5 pb-8">
-              <img
-                src="/favicon.svg"
-                alt=""
-                className="size-10 shrink-0 rounded-lg border border-border"
-              />
-              <div className="flex flex-col gap-1.5">
-                <h1 className="font-semibold text-[22px] text-foreground leading-7 tracking-[-0.02em]">
-                  {title}
-                </h1>
-                {description ? (
-                  <p className="text-muted-foreground text-sm">{description}</p>
-                ) : null}
+          <div className="flex w-full max-w-sm flex-col gap-4">
+            <AuthWordmark />
+            <Card surface="opaque" className="p-6 sm:p-9">
+              <div className="flex flex-col gap-5 pb-8">
+                <div className="flex flex-col gap-1.5">
+                  <h1 className="font-semibold text-[22px] text-foreground leading-7 tracking-[-0.02em]">
+                    {title}
+                  </h1>
+                  {description ? (
+                    <p className="text-muted-foreground text-sm">
+                      {description}
+                    </p>
+                  ) : null}
+                </div>
+                {notice}
               </div>
-              {notice}
-            </div>
-            {children}
+              {children}
+            </Card>
           </div>
         </div>
         <AuthLegalFooter />
