@@ -19,11 +19,6 @@
   background: var(--scrim);
 }
 
-/* Solid primary button: no inset glass highlight */
-[data-slot="button"].bg-primary {
-  box-shadow: none;
-}
-
 /* Settings danger-zone card: neutral border (red stays on text and button) */
 .border-destructive\/20 {
   border-color: var(--border);
