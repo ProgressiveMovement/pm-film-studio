@@ -53,7 +53,7 @@ function FieldDescription({
 function FieldError({ className, ...props }: FieldPrimitive.Error.Props) {
   return (
     <FieldPrimitive.Error
-      className={cn("text-destructive-foreground text-xs", className)}
+      className={cn("text-[12.5px] text-destructive", className)}
       data-slot="field-error"
       {...props}
     />
