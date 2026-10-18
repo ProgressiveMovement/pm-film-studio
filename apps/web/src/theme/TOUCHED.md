@@ -77,3 +77,11 @@ Not touched: components/task/**, constants/label-colors.ts, integration logos.
 - src/components/ui/dialog.tsx, sheet.tsx: header sm:px-9 sm:pt-9 so the panel's pb-3 wins at 640px and up.
 - src/theme/overrides.css: focus ring (2 px --ring) on input, textarea, number field and combobox chips wrappers.
 - apps/web/nginx.kaneo.conf: Cache-Control map (no-cache for index.html and fallback, immutable for /assets/).
+# Touched in p2
+- components/ui/select.tsx: scroll-arrow fade starts from var(--paper-fill)
+- components/ui/popover.tsx: tooltipStyle uses paper-sm, otherwise paper
+- components/ui/sidebar.tsx: --sidebar-width (15.5rem) now set after caller style
+- components/kanban-board/task-card/task-card-content.tsx: rounded-2xl removed, glass radius applies
+- theme/recipes.css: added .paper-sm
+- Open: common/layout.tsx and settings/settings-shell.tsx pass --sidebar-width: spacing*60 (240px); remove those to let the default apply.
+- src/components/common/layout.tsx, settings/settings-shell.tsx: dead --sidebar-width overrides removed (provider default 15.5 rem wins).

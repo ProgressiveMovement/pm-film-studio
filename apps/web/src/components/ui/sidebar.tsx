@@ -136,9 +136,10 @@ function SidebarProvider({
         data-slot="sidebar-wrapper"
         style={
           {
+            ...style,
+            // DECISION: the spec width wins over callers (they passed 15rem, rendering 240px).
             "--sidebar-width": SIDEBAR_WIDTH,
             "--sidebar-width-icon": SIDEBAR_WIDTH_ICON,
-            ...style,
           } as React.CSSProperties
         }
         {...props}

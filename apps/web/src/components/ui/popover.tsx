@@ -69,8 +69,8 @@ function PopoverPopup({
       >
         <PopoverPrimitive.Popup
           className={cn(
-            "paper relative flex h-(--popup-height,auto) w-(--popup-width,auto) origin-(--transform-origin) text-popover-foreground outline-none transition-[width,height,scale,opacity,translate] duration-320 ease-(--ease-out) data-ending-style:duration-200 data-starting-style:scale-[.985] data-starting-style:translate-y-3.5 data-starting-style:opacity-0 data-ending-style:scale-[.985] data-ending-style:translate-y-3.5 data-ending-style:opacity-0",
-            tooltipStyle && "w-fit text-balance text-xs",
+            "relative flex h-(--popup-height,auto) w-(--popup-width,auto) origin-(--transform-origin) text-popover-foreground outline-none transition-[width,height,scale,opacity,translate] duration-320 ease-(--ease-out) data-ending-style:duration-200 data-starting-style:scale-[.985] data-starting-style:translate-y-3.5 data-starting-style:opacity-0 data-ending-style:scale-[.985] data-ending-style:translate-y-3.5 data-ending-style:opacity-0",
+            tooltipStyle ? "paper-sm w-fit text-balance text-xs" : "paper",
             className,
           )}
           data-slot="popover-popup"

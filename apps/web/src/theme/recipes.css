@@ -32,6 +32,14 @@
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
   }
+  .paper-sm {
+    background: var(--paper-fill);
+    border: 0.5px solid var(--edge-soft);
+    border-radius: 10px;
+    box-shadow: var(--shadow-menu);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
   /* Distortion only here, only where backdrop-filter accepts url(). */
   @supports (backdrop-filter: url(#x)) {
     .paper {
