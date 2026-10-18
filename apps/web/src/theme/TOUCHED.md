@@ -76,3 +76,4 @@ Not touched: components/task/**, constants/label-colors.ts, integration logos.
 - src/components/editor/extensions.ts: shiki themes studio / studio-light (the shared editor named the removed github themes).
 - src/components/ui/dialog.tsx, sheet.tsx: header sm:px-9 sm:pt-9 so the panel's pb-3 wins at 640px and up.
 - src/theme/overrides.css: focus ring (2 px --ring) on input, textarea, number field and combobox chips wrappers.
+- apps/web/nginx.kaneo.conf: Cache-Control map (no-cache for index.html and fallback, immutable for /assets/).
