@@ -38,8 +38,9 @@ const InputOTPSlot = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        "relative flex h-10 w-10 items-center justify-center rounded-md border border-input bg-background text-sm shadow-xs/5 transition-[border-color,box-shadow]",
-        isActive && "z-10 ring-1 ring-ring",
+        "relative flex h-11 w-10 items-center justify-center rounded-lg border border-[var(--edge-soft)] bg-[var(--field-fill)] text-base tabular-nums text-foreground transition-colors",
+        isActive &&
+          "z-10 border-[var(--edge-strong)] bg-[var(--field-fill-focus)]",
         className,
       )}
       {...props}
@@ -64,7 +65,7 @@ const InputOTPSeparator = React.forwardRef<
     className={cn("flex items-center justify-center", className)}
     {...props}
   >
-    <div className="h-1 w-1 mx-2 rounded-full bg-muted-foreground" />
+    <div className="h-1 w-1 mx-2 rounded-full bg-[var(--color-faint)]" />
   </div>
 ));
 InputOTPSeparator.displayName = "InputOTPSeparator";

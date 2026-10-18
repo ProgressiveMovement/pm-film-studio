@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import type * as React from "react";
 import { useTranslation } from "react-i18next";
-import { type Button, buttonVariants } from "@/components/ui/button";
+import type { Button } from "@/components/ui/button";
 import { cn } from "@/lib/cn";
 
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
@@ -58,10 +58,11 @@ function PaginationLink({
     className: render
       ? className
       : cn(
-          buttonVariants({
-            size,
-            variant: isActive ? "outline" : "ghost",
-          }),
+          "inline-flex min-h-9 shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full text-[13px] font-medium outline-none transition-colors hover:bg-[var(--row-hover)] focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+          size === "icon" ? "min-w-9 px-0" : "px-3.5",
+          isActive
+            ? "bg-accent text-accent-foreground"
+            : "text-muted-foreground",
           className,
         ),
     "data-active": isActive,
