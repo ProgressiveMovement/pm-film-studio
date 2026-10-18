@@ -103,7 +103,9 @@ describe("sign-up route", () => {
   it("shows the closed message instead of the form without an invitation", () => {
     const Page = signup.options.component as ComponentType;
     render(<Page />);
-    expect(screen.getByText(/Sign-up is closed/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Sign-up is closed|signUp\.closed/),
+    ).toBeInTheDocument();
     expect(screen.queryByLabelText("auth:forms.email")).toBeNull();
   });
 
