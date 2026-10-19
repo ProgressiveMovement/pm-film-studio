@@ -71,7 +71,7 @@ export function MobileTabBar() {
   return (
     <div className="pointer-events-none fixed inset-x-3 bottom-0 z-40 pb-[env(safe-area-inset-bottom)] sm:hidden">
       <nav
-        aria-label="Primary"
+        aria-label={t("navigation:sidebar.primary")}
         className="paper pillnav pointer-events-auto mb-3 flex w-full justify-between rounded-full"
       >
         {entries.map(({ to, label, Icon, dot }) => {
