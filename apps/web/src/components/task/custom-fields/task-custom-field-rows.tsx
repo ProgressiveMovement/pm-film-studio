@@ -44,15 +44,18 @@ export function TaskCustomFieldRows({
           </Link>
         )}
       </div>
-      {fields.map((field) => (
-        <CustomFieldRow
-          key={field.id}
-          field={field}
-          value={values[field.id] ?? ""}
-          onChange={(value) => void save(field, value)}
-          disabled={!canEdit}
-        />
-      ))}
+      {/* PropertyRow renders dt/dd, so the rows need their own dl here */}
+      <dl className="m-0 flex flex-col gap-0.5">
+        {fields.map((field) => (
+          <CustomFieldRow
+            key={field.id}
+            field={field}
+            value={values[field.id] ?? ""}
+            onChange={(value) => void save(field, value)}
+            disabled={!canEdit}
+          />
+        ))}
+      </dl>
     </section>
   );
 }

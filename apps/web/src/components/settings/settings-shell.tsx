@@ -25,10 +25,14 @@ export function SettingsShell({ children }: SettingsShellProps) {
   useLeaveSettingsOnEscape(leave);
 
   return (
-    <div className="rise flex w-full bg-background">
+    <div className="flex w-full bg-background">
       <SidebarProvider
         defaultOpen={sidebarDefaultOpen}
-        style={{} as CSSProperties}
+        style={
+          {
+            "--sidebar-width": "calc(var(--spacing) * 60)",
+          } as CSSProperties
+        }
       >
         <SettingsSidebar nav={nav} onLeave={leave} />
         <SidebarInset className="m-2 flex flex-1 flex-col overflow-hidden rounded-xl border border-border/80 bg-background shadow-sm/5">

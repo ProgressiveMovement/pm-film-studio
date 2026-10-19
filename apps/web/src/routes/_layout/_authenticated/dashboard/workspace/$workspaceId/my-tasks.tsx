@@ -66,7 +66,7 @@ function RouteComponent() {
               {t("workspace:myWork.loadError")}
             </p>
           ) : !assigned?.tasks.length ? (
-            <Empty className="min-h-[40vh]">
+            <Empty className="min-h-[60vh]">
               <EmptyHeader>
                 <EmptyMedia variant="icon">
                   <CircleCheck />

@@ -5,6 +5,7 @@ import {
   useRouter,
   useSearch,
 } from "@tanstack/react-router";
+import { Info } from "lucide-react";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { z } from "zod/v4";
@@ -30,6 +31,7 @@ import {
   type VerifyOtpState,
 } from "@/components/auth/verify-otp-path";
 import PageTitle from "@/components/page-title";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { getConfig } from "@/fetchers/config/get-config";
 import useGetConfig from "@/hooks/queries/config/use-get-config";
 import useInstanceStatus from "@/hooks/queries/instance/use-instance-status";
@@ -59,7 +61,6 @@ function SignUp() {
   const { data: config, isLoading: isConfigLoading } = useGetConfig();
   const {
     data: instanceStatus,
-    isLoading: isInstanceStatusLoading,
     isError: isInstanceStatusError,
     error: instanceStatusError,
   } = useInstanceStatus();
@@ -111,32 +112,14 @@ function SignUp() {
       invitationId={invitationId}
       description={t("auth:signUp.invitation.description")}
     />
+  ) : config?.disableRegistration && !isInstanceAdminSetup ? (
+    <Alert role="note">
+      <Info />
+      <AlertDescription>
+        {t("auth:signUp.registrationDisabledAlert")}
+      </AlertDescription>
+    </Alert>
   ) : null;
-
-  // DECISION: registration is closed on this instance. Only an invitation or
-  // the first-admin setup opens the form. The server flag is untouched.
-  if (
-    !invitationId &&
-    !isInstanceAdminSetup &&
-    !isConfigLoading &&
-    !isInstanceStatusLoading
-  ) {
-    return (
-      <>
-        <PageTitle title={t("auth:signUp.pageTitle")} />
-        <AuthPage title={t("auth:signUp.heading")}>
-          <p className="text-muted-foreground text-sm">
-            {t("auth:signUp.closed")}
-          </p>
-          <p className="pt-6 text-sm">
-            <Link to="/auth/sign-in" className={authLinkClassName}>
-              {t("auth:signUp.toggleLink")}
-            </Link>
-          </p>
-        </AuthPage>
-      </>
-    );
-  }
 
   return (
     <>

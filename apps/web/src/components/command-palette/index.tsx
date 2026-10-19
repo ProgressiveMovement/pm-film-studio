@@ -2,7 +2,7 @@ import { ShortcutKeys } from "@/components/shortcuts/shortcut-keys";
 import { useShortcutsPanelStore } from "@/components/shortcuts/shortcuts-panel-store";
 import { useLocation, useNavigate } from "@tanstack/react-router";
 import { ArrowDownIcon, ArrowUpIcon, CornerDownLeftIcon } from "lucide-react";
-import { Fragment, useCallback, useMemo, useState } from "react";
+import { Fragment, useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import SearchCommandMenu from "@/components/search-command-menu";
 import CreateTaskModal from "@/components/shared/modals/create-task-modal";
@@ -60,6 +60,12 @@ function CommandPalette() {
   const [open, setOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isCreateTaskOpen, setIsCreateTaskOpen] = useState(false);
+  // The phone bar's New button asks the palette to open the create-task modal.
+  useEffect(() => {
+    const open = () => setIsCreateTaskOpen(true);
+    window.addEventListener("studio:create-task", open);
+    return () => window.removeEventListener("studio:create-task", open);
+  }, []);
   const [isCreateProjectOpen, setIsCreateProjectOpen] = useState(false);
   const [isCreateWorkspaceOpen, setIsCreateWorkspaceOpen] = useState(false);
   const projectIdFromRoute =
