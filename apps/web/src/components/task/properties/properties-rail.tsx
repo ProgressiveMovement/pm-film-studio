@@ -148,7 +148,10 @@ export function PropertiesRail({
           </div>
         </PropertyRow>
 
-        <PropertyRow label={t("tasks:properties.project")}>
+        <PropertyRow
+          label={t("tasks:properties.project")}
+          className="sm:col-span-2"
+        >
           {canMoveTask ? (
             <TaskMovePopover task={task} workspaceId={workspaceId}>
               <PropertyValue data-task-action="move" shortcutId="moveToProject">

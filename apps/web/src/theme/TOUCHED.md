@@ -14,6 +14,8 @@ Kaneo's geometry came back and the Dossier palette stayed. What 2.0 reverts or c
 - components/ui/button.tsx: only the primary keeps the 40px pill; outline, secondary and destructive are Kaneo's rounded-lg.
 - components/common/mobile-tab-bar.tsx: paper instead of glass (it floats over cards).
 - onboarding/preview/*: 1px lines, board-card tokens.
+- constants/label-colors.ts, components/task/task-labels-popover.tsx, components/shared/modals/create-task-modal.tsx, lib/label-color.ts (+ its test): the nine label colours are Dossier tokens (faint, muted, ink, ok, warn, bad and three deeper color-mix steps); stored values unchanged.
+- components/task/properties/properties-rail.tsx: the Project row spans both rail columns, like Dates.
 Everything else in the 1.0 list still applies.
 
 ## Studio 1.0 entries
