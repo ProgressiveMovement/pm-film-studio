@@ -54,7 +54,7 @@ export function PropertiesRail({
       aria-label={t("tasks:properties.title")}
       className={cn("flex flex-col gap-4 px-3 pt-4 pb-6", className)}
     >
-      <div className="flex flex-col gap-0.5">
+      <dl className="m-0 flex flex-col gap-0.5">
         <PropertyRow label={t("tasks:status.label")}>
           <TaskStatusPopover task={task}>
             <PropertyValue data-task-action="status" shortcutId="changeStatus">
@@ -112,7 +112,10 @@ export function PropertiesRail({
           </TaskLabelsPopover>
         </PropertyRow>
 
-        <PropertyRow label={t("tasks:properties.dates")}>
+        <PropertyRow
+          label={t("tasks:properties.dates")}
+          className="sm:col-span-2"
+        >
           <div className="flex min-w-0 items-center gap-0.5">
             <TaskStartDatePopover task={task}>
               <PropertyValue className="flex-none">
@@ -145,7 +148,10 @@ export function PropertiesRail({
           </div>
         </PropertyRow>
 
-        <PropertyRow label={t("tasks:properties.project")}>
+        <PropertyRow
+          label={t("tasks:properties.project")}
+          className="sm:col-span-2"
+        >
           {canMoveTask ? (
             <TaskMovePopover task={task} workspaceId={workspaceId}>
               <PropertyValue data-task-action="move" shortcutId="moveToProject">
@@ -158,7 +164,7 @@ export function PropertiesRail({
             </div>
           )}
         </PropertyRow>
-      </div>
+      </dl>
 
       <TaskCustomFieldRows taskId={taskId} projectId={projectId} />
     </aside>

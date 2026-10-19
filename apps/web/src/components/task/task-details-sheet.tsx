@@ -8,9 +8,9 @@ import {
 } from "react";
 import { AlertDialogCreateHandle } from "@/components/ui/alert-dialog";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { useIsPhone } from "@/hooks/use-is-mobile";
 import { TaskSheetHeader } from "./header/task-sheet-header";
 import { PropertiesRail } from "./properties/properties-rail";
-import { PropertyChips } from "./properties/property-chips";
 import TaskDeleteDialog from "./task-delete-dialog";
 import TaskDetailsContent from "./task-details-content";
 import { TaskShortcuts } from "./task-shortcuts";
@@ -29,6 +29,7 @@ export default function TaskDetailsSheet({
   onClose,
 }: TaskDetailsSheetProps) {
   const navigate = useNavigate();
+  const isPhone = useIsPhone();
   const [currentTaskId, setCurrentTaskId] = useState<string | undefined>(
     taskId,
   );
@@ -51,7 +52,7 @@ export default function TaskDetailsSheet({
     }
   }, [taskId]);
 
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const popupRef = useRef<HTMLDivElement>(null);
 
   const handleOpenFullPage = useCallback(() => {
     if (!shownTaskId) return;
@@ -68,13 +69,14 @@ export default function TaskDetailsSheet({
   return (
     <Sheet open={!!taskId} onOpenChange={(open) => !open && onClose()}>
       <SheetContent
-        side="right"
+        side={isPhone ? "bottom" : "right"}
         data-task-view
         data-shortcuts="allow"
-        className="w-full max-w-full gap-0 p-0 sm:max-w-lg md:max-w-2xl lg:max-w-4xl [&>button]:hidden"
-        // Focusing the first control would pop the "open in full page"
-        // tooltip over the actions every time the sheet opens on touch.
-        initialFocus={closeButtonRef}
+        ref={popupRef}
+        className="max-h-[90vh] gap-0 p-0"
+        // Focusing the first control would pop a tooltip over the actions
+        // every time the sheet opens on touch; focus the popup itself.
+        initialFocus={popupRef}
         finalFocus={() =>
           document.querySelector<HTMLElement>(
             `[data-task-id="${lastTaskIdRef.current}"]`,
@@ -88,8 +90,6 @@ export default function TaskDetailsSheet({
             workspaceId={workspaceId}
             deleteHandle={deleteHandle}
             onOpenFullPage={handleOpenFullPage}
-            onClose={onClose}
-            closeButtonRef={closeButtonRef}
           />
         )}
 
@@ -110,31 +110,20 @@ export default function TaskDetailsSheet({
           />
         )}
         {shownTaskId && (
-          <div
-            key={shownTaskId}
-            className="flex min-h-0 flex-1 flex-col overflow-y-auto lg:flex-row lg:overflow-hidden"
-          >
-            <div className="min-w-0 flex-1 lg:overflow-y-auto">
-              <TaskDetailsContent
-                taskId={shownTaskId}
-                projectId={projectId}
-                workspaceId={workspaceId}
-                className="px-5 pt-5 pb-10 lg:px-9 lg:pt-7"
-                properties={
-                  <PropertyChips
-                    taskId={shownTaskId}
-                    projectId={projectId}
-                    workspaceId={workspaceId}
-                    className="pb-5 lg:hidden"
-                  />
-                }
-              />
-            </div>
-            <PropertiesRail
+          <div key={shownTaskId} className="min-h-0 flex-1 overflow-y-auto">
+            <TaskDetailsContent
               taskId={shownTaskId}
               projectId={projectId}
               workspaceId={workspaceId}
-              className="hidden w-73 shrink-0 overflow-y-auto border-border border-l lg:flex"
+              className="px-5 pt-5 pb-10 sm:px-9"
+              properties={
+                <PropertiesRail
+                  taskId={shownTaskId}
+                  projectId={projectId}
+                  workspaceId={workspaceId}
+                  className="px-0 pt-0 pb-5 sm:[&_dl]:grid sm:[&_dl]:grid-cols-2 sm:[&_dl]:gap-x-4"
+                />
+              }
             />
           </div>
         )}

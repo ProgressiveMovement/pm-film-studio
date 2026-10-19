@@ -1,0 +1,95 @@
+name: Studio image
+
+on:
+  push:
+    branches: [theme/studio-3]
+  workflow_dispatch:
+
+concurrency:
+  group: studio-image
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Image tags
+        id: meta
+        uses: docker/metadata-action@c299e40c65443455700f0fdfc63efafe5b349051 # v5
+        with:
+          images: ghcr.io/${{ github.repository_owner }}/pm-film-studio
+          tags: |
+            type=sha,format=long,prefix=
+            type=raw,value=latest
+
+      - name: Build for smoke test
+        uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6
+        with:
+          context: .
+          file: ./Dockerfile.kaneo
+          platforms: linux/amd64
+          load: true
+          push: false
+          tags: studio-smoke:local
+          cache-from: type=gha,scope=studio
+          cache-to: type=gha,mode=max,scope=studio
+
+      - name: Smoke test
+        run: |
+          set -eu
+          cleanup() { docker rm -f studio-smoke studio-smoke-pg >/dev/null 2>&1 || true; docker network rm studio-smoke-net >/dev/null 2>&1 || true; }
+          trap cleanup EXIT
+          pw="$(openssl rand -hex 16)"
+          docker network create studio-smoke-net
+          docker run -d --name studio-smoke-pg --network studio-smoke-net --network-alias postgres \
+            -e POSTGRES_USER=kaneo -e POSTGRES_DB=kaneo -e POSTGRES_PASSWORD="$pw" postgres:16-alpine
+          for i in $(seq 1 30); do
+            docker exec studio-smoke-pg pg_isready -U kaneo -d kaneo >/dev/null 2>&1 && break
+            sleep 1
+          done
+          docker run -d --name studio-smoke --network studio-smoke-net -p 5173:5173 \
+            -e POSTGRES_HOST=postgres -e POSTGRES_USER=kaneo -e POSTGRES_DB=kaneo -e POSTGRES_PASSWORD="$pw" \
+            -e AUTH_SECRET="$(openssl rand -hex 32)" -e KANEO_CLIENT_URL=http://localhost:5173 \
+            studio-smoke:local
+          for i in $(seq 1 45); do
+            if curl -fsS http://localhost:5173/api/health >/dev/null 2>&1; then
+              echo "healthy after about $((i * 2)) s"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "::error::Studio image did not become healthy within 90 s"
+          docker logs --tail 50 studio-smoke || true
+          exit 1
+
+      - name: Build and push
+        uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6
+        with:
+          context: .
+          file: ./Dockerfile.kaneo
+          # amd64 only: the server pm-film-production is x86_64 (checked 18 Oct 2026)
+          platforms: linux/amd64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha,scope=studio
+          cache-to: type=gha,mode=max,scope=studio

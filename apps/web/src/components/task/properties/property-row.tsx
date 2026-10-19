@@ -4,12 +4,14 @@ import { cn } from "@/lib/cn";
 type PropertyRowProps = {
   label: string;
   align?: "center" | "start";
+  className?: string;
   children: ReactNode;
 };
 
 export function PropertyRow({
   label,
   align = "center",
+  className,
   children,
 }: PropertyRowProps) {
   return (
@@ -17,24 +19,25 @@ export function PropertyRow({
       className={cn(
         "flex min-h-8 min-w-0",
         align === "start" ? "items-start" : "items-center",
+        className,
       )}
     >
-      <span
+      <dt
         className={cn(
-          "w-21 shrink-0 truncate pl-2 text-muted-foreground text-xs",
+          "w-21 shrink-0 truncate pl-2 text-[10.5px] font-semibold uppercase tracking-[.09em] text-[var(--color-faint)]",
           align === "start" && "flex h-8 items-center",
         )}
       >
         {label}
-      </span>
-      <div
+      </dt>
+      <dd
         className={cn(
-          "flex min-w-0 flex-1 items-center",
+          "m-0 flex min-w-0 flex-1 items-center text-[13.5px]",
           align === "start" && "py-px",
         )}
       >
         {children}
-      </div>
+      </dd>
     </div>
   );
 }

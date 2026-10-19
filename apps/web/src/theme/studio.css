@@ -50,3 +50,67 @@
     backdrop-filter: blur(15px);
   }
 }
+
+/* Step 2 (19 Oct 2026): the task drawer, the phone bottom bar and the page
+   entrance, chosen after the side-by-side. These are the few tokens and
+   recipes those components read; values are Kaneo's own greys. */
+:root {
+  --color-faint: var(--muted-foreground);
+  --row-hover: rgba(0, 0, 0, 0.04);
+  --glow: drop-shadow(0 0 10px rgba(0, 0, 0, 0.18));
+}
+.dark {
+  --row-hover: rgba(255, 255, 255, 0.05);
+  --glow: drop-shadow(0 0 11px rgba(255, 255, 255, 0.45));
+}
+
+@layer components {
+  /* the phone bar: a pill row on paper */
+  .pillnav {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    border-radius: 9999px;
+    font-size: 13px;
+  }
+  .pillnav-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 36px;
+    padding: 0 14px;
+    border-radius: 9999px;
+    color: var(--muted-foreground);
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .pillnav-item:is([data-active], [aria-current], .is-active) {
+    background: var(--accent);
+    color: var(--foreground);
+  }
+
+  /* the page entrance: plays once per visit, see the script in index.html */
+  .rise,
+  .stagger > * {
+    animation: studio-enter 320ms var(--ease-out) backwards;
+  }
+  html[data-entered] :is(.rise, .stagger > *) {
+    animation: none;
+  }
+  .stagger > :nth-child(1) { animation-delay: 0ms; }
+  .stagger > :nth-child(2) { animation-delay: 40ms; }
+  .stagger > :nth-child(3) { animation-delay: 80ms; }
+  .stagger > :nth-child(4) { animation-delay: 120ms; }
+  .stagger > :nth-child(5) { animation-delay: 160ms; }
+  .stagger > :nth-child(6) { animation-delay: 200ms; }
+  .stagger > :nth-child(7) { animation-delay: 240ms; }
+  .stagger > :nth-child(8) { animation-delay: 280ms; }
+  @keyframes studio-enter {
+    from { opacity: 0; transform: translateY(14px) scale(0.985); }
+    to { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rise, .stagger > * { animation: none; }
+  }
+}

@@ -1,6 +1,6 @@
 {
 	"common": {
-		"appName": "Kaneo",
+		"appName": "PM Studio",
 		"actions": {
 			"cancel": "Cancel",
 			"close": "Close",
@@ -55,8 +55,8 @@
 			"description": "The page crashed unexpectedly. Refreshing usually fixes it.",
 			"troubleshooting": "Troubleshooting steps:",
 			"tryAgain": "Try again",
-			"viewDeploymentGuide": "View Deployment Guide",
-			"refreshPage": "Refresh Page",
+			"viewDeploymentGuide": "View deployment guide",
+			"refreshPage": "Refresh page",
 			"messages": {
 				"cors": "Unable to connect to the server. This might be due to CORS configuration issues.",
 				"network": "Network error. Please check your internet connection and try again.",
@@ -91,32 +91,32 @@
 				"projectName": "Project name",
 				"keyLabel": "Key:",
 				"keyHint": "Used for ticket IDs (e.g., {{example}}-123)",
-				"createButton": "Create Project",
-				"successToast": "Project created successfully",
+				"createButton": "Create project",
+				"successToast": "Project created",
 				"errorToast": "Failed to create project"
 			},
 			"createWorkspace": {
-				"breadcrumbKaneo": "KANEO",
+				"breadcrumbKaneo": "STUDIO",
 				"title": "Create a new workspace",
 				"description": "Create a new workspace by providing a name for your workspace.",
 				"namePlaceholder": "Workspace name",
 				"descriptionPlaceholder": "Add description...",
-				"createButton": "Create Workspace",
-				"successToast": "Workspace created successfully",
+				"createButton": "Create workspace",
+				"successToast": "Workspace created",
 				"errorToast": "Failed to create workspace"
 			},
 			"createTask": {
 				"breadcrumbTask": "TASK",
 				"selectProject": "Select project",
-				"title": "New Task",
+				"title": "New task",
 				"description": "Create a new task by providing a title, description, and other details.",
 				"statusLoadError": "Project statuses couldn’t be loaded.",
 				"taskTitlePlaceholder": "Task title",
 				"descriptionPlaceholder": "Add a description for your task...",
 				"chooseProjectForImages": "Choose a project before uploading images.",
 				"prepareTaskError": "Failed to prepare task",
-				"successCreated": "Task created successfully",
-				"successUpdated": "Task updated successfully",
+				"successCreated": "Task created",
+				"successUpdated": "Task updated",
 				"createError": "Failed to create task",
 				"priority": "Priority",
 				"statusFallback": "In Progress",
@@ -135,7 +135,7 @@
 				"labelCreated": "Label created",
 				"labelCreateError": "Failed to create label",
 				"createMore": "Create more",
-				"createButton": "Create Task",
+				"createButton": "Create task",
 				"discardTitle": "Discard task?",
 				"discardDescription": "Your unsaved task details will be lost.",
 				"discardButton": "Discard task",
@@ -182,7 +182,7 @@
 				"use_a_permanent_email_address_disposable_addresses_cannot_create_accounts_": "Use a permanent email address. Disposable addresses cannot create accounts."
 			},
 			"instanceStatusError": "Couldn't reach the server. Please retry in a moment.",
-			"heading": "Sign in to Kaneo",
+			"heading": "Sign in to PM Studio",
 			"submitPassword": "Sign in",
 			"invitation": {
 				"title": "{{inviterName}} invited you to {{workspaceName}}",
@@ -190,7 +190,7 @@
 				"description": "Sign in with the email that received the invitation. You'll join the workspace right after."
 			},
 			"footer": {
-				"newHere": "New to Kaneo?",
+				"newHere": "New to PM Studio?",
 				"createAccount": "Create an account",
 				"inviteOnly": "Accounts here are invite-only. Ask an admin for an invitation.",
 				"providerSignUp": "New here? Sign in with a provider above to create an account.",
@@ -239,20 +239,21 @@
 			"backToLogin": "Back to login"
 		},
 		"signUp": {
+			"closed": "Sign-up is closed on this PM Studio. Ask your administrator for an invitation.",
 			"pageTitle": "Create Account",
 			"registrationDisabledAlert": "Registration is currently disabled. If you were invited, enter the email address that received the invitation to create your account.",
 			"continueAsGuest": "Continue as guest",
 			"toggleMessage": "Already have an account?",
 			"toggleLink": "Sign in",
 			"instanceStatusError": "Couldn't reach the server. Please retry in a moment.",
-			"instanceAdminTitle": "Set up your Kaneo instance",
+			"instanceAdminTitle": "Set up your PM Studio instance",
 			"instanceAdminSubtitle": "This account becomes the instance administrator with full access.",
 			"heading": "Create your account",
 			"submitPassword": "Create account",
 			"failed": "Couldn't create your account. Try again.",
 			"subtitle": {
 				"email": "Start with your email. We'll send a code, no password needed.",
-				"password": "Add your name, email, and a password to get started.",
+				"password": "Add your name, email, and a password.",
 				"providers": "Use a connected account to create yours."
 			},
 			"invitation": {
@@ -268,7 +269,7 @@
 				"invalidCode": "Invalid verification code",
 				"verifyFailed": "Failed to verify code",
 				"resendFailed": "Failed to resend code",
-				"resendSuccess": "New verification code sent!"
+				"resendSuccess": "New verification code sent."
 			},
 			"heading": "Check your email",
 			"description": "We sent a 6-digit code to {{email}}. It expires in {{minutes}} minutes.",
@@ -295,9 +296,9 @@
 			"signIn": "Sign in",
 			"toast": {
 				"acceptFailed": "Failed to accept invitation",
-				"acceptSuccess": "Invitation accepted! Welcome to the team."
+				"acceptSuccess": "Invitation accepted. Welcome to the team."
 			},
-			"description": "{{inviterName}} invited you to this workspace on Kaneo.",
+			"description": "{{inviterName}} invited you to this workspace on PM Studio.",
 			"invitedBy": "Invited by",
 			"sentTo": "Sent to",
 			"signedInAs": "Signed in as",
@@ -305,7 +306,7 @@
 			"notNow": "Not now",
 			"join": "Join workspace",
 			"switchAccount": "Switch account",
-			"goToKaneo": "Go to Kaneo",
+			"goToKaneo": "Go to PM Studio",
 			"mismatch": {
 				"title": "Signed in with a different email",
 				"description": "This invitation was sent to {{invitedEmail}}. You're signed in as {{email}}."
@@ -324,7 +325,7 @@
 			}
 		},
 		"onboarding": {
-			"pageTitle": "Welcome to Kaneo",
+			"pageTitle": "Welcome to PM Studio",
 			"workspaceName": "Workspace name",
 			"workspaceNamePlaceholder": "e.g. Acme Inc, My Team",
 			"restrictedTitle": "You need an invitation",
@@ -372,7 +373,7 @@
 				},
 				"invite": {
 					"title": "Invite your team",
-					"description": "Kaneo works best with everyone in it. Open **Members** in the sidebar to invite people by email."
+					"description": "PM Studio works best with everyone in it. Open **Members** in the sidebar to invite people by email."
 				},
 				"integrations": {
 					"title": "Connect GitHub, GitLab or Gitea",
@@ -450,15 +451,15 @@
 		"profileSetup": {
 			"pageTitle": "Complete Profile",
 			"completeTitle": "Complete your profile",
-			"subtitle": "Please enter your name to get started",
+			"subtitle": "Enter your name to continue",
 			"yourName": "Your name",
 			"namePlaceholder": "e.g. John Doe",
 			"saving": "Saving...",
 			"continue": "Continue",
-			"welcome": "Welcome, {{name}}!",
+			"welcome": "Welcome, {{name}}.",
 			"redirecting": "Taking you to your dashboard...",
 			"toast": {
-				"updateSuccess": "Profile updated successfully",
+				"updateSuccess": "Profile updated",
 				"updateFailed": "Failed to update profile"
 			},
 			"validation": {
@@ -502,7 +503,7 @@
 		"device": {
 			"connect": {
 				"title": "Connect a device",
-				"description": "Enter the code shown in your terminal or app to link it to your Kaneo account.",
+				"description": "Enter the code shown in your terminal or app to link it to your PM Studio account.",
 				"label": "Device code",
 				"submit": "Continue",
 				"noCode": "No code yet? Start signing in from your app first.",
@@ -526,7 +527,7 @@
 				"title": "Request denied",
 				"description": "Nothing was connected. You can close this tab."
 			},
-			"openApp": "Open Kaneo",
+			"openApp": "Open PM Studio",
 			"missing": {
 				"title": "No device code",
 				"description": "Open this page from your device, or enter the code yourself.",
@@ -567,10 +568,10 @@
 		"syncRules": {
 			"title": "What syncs",
 			"sharedHint": "These rules apply to everyone using this project. Hiding advanced settings does not disable them.",
-			"outgoing": "Kaneo → repository",
-			"incoming": "Repository → Kaneo",
-			"outgoingHint": "Choose which Kaneo tasks can sync. Losing a matching label pauses both directions for an existing task.",
-			"incomingHint": "Choose which issues can be imported or create tasks. Use exact repository label names. Existing links follow the Kaneo task rule.",
+			"outgoing": "PM Studio → repository",
+			"incoming": "Repository → PM Studio",
+			"outgoingHint": "Choose which PM Studio tasks can sync. Losing a matching label pauses both directions for an existing task.",
+			"incomingHint": "Choose which issues can be imported or create tasks. Use exact repository label names. Existing links follow the PM Studio task rule.",
 			"all": "All tasks and issues",
 			"filtered": "Only matching labels",
 			"any": "Any selected label",
@@ -613,7 +614,7 @@
 			"closed": "Closed",
 			"noDescription": "No description",
 			"useRepository": "Keep repository values",
-			"useKaneo": "Keep Kaneo values",
+			"useKaneo": "Keep PM Studio values",
 			"exportPending": "Export matching tasks",
 			"inactiveHint": "This integration is paused. No tasks will be exported until it is reactivated.",
 			"allIssues": "All issues",
@@ -623,10 +624,10 @@
 			"issuesLabelled": "Issues labelled",
 			"joinAnd": "and",
 			"joinOr": "or",
-			"kaneoToProvider": "Kaneo to {{provider}}",
+			"kaneoToProvider": "PM Studio to {{provider}}",
 			"pausedSummary_one": "{{count}} task stopped syncing because it no longer matched the sync rules.",
 			"pausedSummary_other": "{{count}} tasks stopped syncing because they no longer matched the sync rules.",
-			"providerToKaneo": "{{provider}} to Kaneo",
+			"providerToKaneo": "{{provider}} to PM Studio",
 			"reviewPaused": "Review",
 			"tasksLabelled": "Tasks labelled"
 		},
@@ -639,7 +640,7 @@
 		"apiKeys": "API keys",
 		"adminUsers": {
 			"title": "Users",
-			"subtitle": "Everyone with an account on this Kaneo instance.",
+			"subtitle": "Everyone with an account on this PM Studio instance.",
 			"directoryTitle": "All users",
 			"searchCount_one": "{{count}} matching user",
 			"searchCount_other": "{{count}} matching users",
@@ -715,7 +716,7 @@
 		},
 		"adminWorkspaces": {
 			"title": "Workspaces",
-			"subtitle": "Every workspace on this Kaneo instance, including ones you don't belong to.",
+			"subtitle": "Every workspace on this PM Studio instance, including ones you don't belong to.",
 			"directoryTitle": "All workspaces",
 			"searchCount_one": "{{count}} matching workspace",
 			"searchCount_other": "{{count}} matching workspaces",
@@ -832,7 +833,7 @@
 		"notificationsPage": {
 			"pageTitle": "Notifications",
 			"title": "Notifications",
-			"subtitle": "What Kaneo tells you about, and where it reaches you.",
+			"subtitle": "What PM Studio tells you about, and where it reaches you.",
 			"statusConnected": "Connected",
 			"statusPaused": "Paused",
 			"emailTitle": "Email",
@@ -865,7 +866,7 @@
 			"webhookUrlPlaceholder": "https://example.com/webhooks/kaneo",
 			"webhookSecretPlaceholder": "Optional shared secret",
 			"webhookSecretHintConfigured": "A signing secret is already configured ({{masked}}). Enter a new one to replace it.",
-			"webhookSecretHintOptional": "Kaneo signs the request body when a secret is set.",
+			"webhookSecretHintOptional": "PM Studio signs the request body when a secret is set.",
 			"connectWebhook": "Connect webhook",
 			"eventPreferencesTitle": "Notify me about",
 			"eventPreferencesDescription": "Your own comments, mentions, and status changes never notify you.",
@@ -911,7 +912,7 @@
 			"reminderLeadTimeUnitDaysBefore_one": "day before",
 			"reminderLeadTimeUnitDaysBefore_other": "days before",
 			"channelsTitle": "Channels",
-			"channelsDescription": "Notifications always show in Kaneo. Connect a channel to get them somewhere else too.",
+			"channelsDescription": "Notifications always show in PM Studio. Connect a channel to get them somewhere else too.",
 			"statusOn": "On",
 			"emailToggleLabel": "Send notifications by email",
 			"connect": "Connect",
@@ -928,7 +929,7 @@
 			"workspacesTitle": "Workspaces",
 			"workspacesDescription": "Choose which workspaces and projects can use your channels.",
 			"statusSending": "Sending",
-			"onlyInKaneo": "Only in Kaneo",
+			"onlyInKaneo": "Only in PM Studio",
 			"projectCount_one": "{{count}} project",
 			"projectCount_other": "{{count}} projects",
 			"ruleSummary": "{{channels}} · {{projects}}",
@@ -947,12 +948,12 @@
 			"save": "Save",
 			"stopSending": "Stop sending",
 			"stopSendingTitle": "Stop sending from {{workspaceName}}?",
-			"stopSendingDescription": "Notifications from this workspace will only show in Kaneo.",
+			"stopSendingDescription": "Notifications from this workspace will only show in PM Studio.",
 			"stopping": "Stopping..."
 		},
 		"preferencesPage": {
 			"title": "Preferences",
-			"subtitle": "How Kaneo looks and works for you.",
+			"subtitle": "How PM Studio looks and works for you.",
 			"appearanceTitle": "General",
 			"theme": "Theme",
 			"selectTheme": "Select a theme",
@@ -989,7 +990,7 @@
 		"developerPage": {
 			"pageTitle": "API keys",
 			"title": "API keys",
-			"subtitle": "Let scripts, the CLI, and MCP clients use Kaneo as you.",
+			"subtitle": "Let scripts, the CLI, and MCP clients use PM Studio as you.",
 			"unnamedKey": "Unnamed",
 			"newKey": "New key",
 			"keysTitle": "Keys",
@@ -1060,7 +1061,7 @@
 			"deleteModalDescription": "This permanently deletes {{name}} and all of its projects and tasks. You can't undo this.",
 			"deleteModalConfirm": "Delete workspace",
 			"toastUpdateError": "Failed to update workspace",
-			"toastDeleted": "Workspace deleted successfully",
+			"toastDeleted": "Workspace deleted",
 			"toastDeleteError": "Failed to delete workspace",
 			"validation": {
 				"nameRequired": "Workspace name is required",
@@ -1202,7 +1203,7 @@
 						"description": "Can delete workspace"
 					},
 					"manage_settings": {
-						"label": "Manage Settings",
+						"label": "Manage settings",
 						"description": "Can manage workspace settings"
 					}
 				},
@@ -1331,7 +1332,7 @@
 		"workspaceImport": {
 			"pageTitle": "Import",
 			"title": "Import",
-			"subtitle": "Bring your projects from another tool into {{workspace}}. Kaneo only reads from the source.",
+			"subtitle": "Bring your projects from another tool into {{workspace}}. PM Studio only reads from the source.",
 			"opensInNewTab": "(opens in a new tab)",
 			"retry": "Try again",
 			"notAllowed": {
@@ -1398,7 +1399,7 @@
 			"connect": {
 				"title": "Import from {{source}}",
 				"sectionTitle": "Connect",
-				"sectionDescription": "Kaneo only reads from {{source}}. The key is used for this import and never stored.",
+				"sectionDescription": "PM Studio only reads from {{source}}. The key is used for this import and never stored.",
 				"cancel": "Cancel",
 				"continue": "Continue",
 				"whereToFind": "Where to find it",
@@ -1625,7 +1626,7 @@
 			"deleteModalDescription": "This permanently deletes {{name}} and all of its tasks. You can't undo this.",
 			"deleteModalConfirm": "Delete project",
 			"toastUpdateError": "Failed to update project",
-			"toastDeleted": "Project deleted successfully",
+			"toastDeleted": "Project deleted",
 			"toastDeleteError": "Failed to delete project",
 			"validation": {
 				"nameRequired": "Project name is required",
@@ -1639,8 +1640,8 @@
 			"moveTargetsError": "Couldn't check which workspaces you can move this project to. Reload to try again.",
 			"moveProjectAction": "Move",
 			"moveModalConfirm": "Move project",
-			"toastMoved": "Project moved successfully",
-			"toastMovedWithUnassigned": "Project moved successfully. {{taskCount}} task(s) were unassigned.",
+			"toastMoved": "Project moved",
+			"toastMovedWithUnassigned": "Project moved. {{taskCount}} task(s) were unassigned.",
 			"toastMoveError": "Failed to move project",
 			"tasksTitle": "Tasks",
 			"moveTargetLabel": "Workspace",
@@ -1800,17 +1801,17 @@
 				"verifyError": "Failed to verify GitHub installation",
 				"installAppFirst": "Please install the GitHub App on this repository first",
 				"missingPermsDetail": "GitHub App is missing required permissions: {{list}}. Please update the app permissions.",
-				"updated": "GitHub integration updated successfully",
+				"updated": "GitHub integration updated",
 				"updateError": "Failed to update GitHub integration",
-				"removed": "GitHub integration removed successfully",
+				"removed": "GitHub integration removed",
 				"removeError": "Failed to remove GitHub integration",
-				"issuesImported": "Issues imported successfully",
+				"issuesImported": "Issues imported",
 				"importError": "Failed to import issues",
-				"commentOnEnabled": "Kaneo will comment with a task link on new issues",
+				"commentOnEnabled": "PM Studio will comment with a task link on new issues",
 				"commentOnDisabled": "Task link comments on new issues are turned off",
 				"settingsUpdateError": "Failed to update GitHub integration"
 			},
-			"commentTaskLinkTitle": "Comment a Kaneo link on new issues",
+			"commentTaskLinkTitle": "Comment a PM Studio link on new issues",
 			"commentTaskLinkHint": "So people on GitHub can jump to the task.",
 			"updatePermissions": "Update permissions",
 			"installGithubApp": "Install GitHub App",
@@ -1845,15 +1846,15 @@
 				"updateError": "Failed to save Gitea integration",
 				"removed": "Gitea integration removed",
 				"removeError": "Failed to remove Gitea integration",
-				"issuesImported": "Issues imported successfully",
+				"issuesImported": "Issues imported",
 				"importError": "Failed to import issues",
-				"commentOnEnabled": "Kaneo will comment with a task link on new issues",
+				"commentOnEnabled": "PM Studio will comment with a task link on new issues",
 				"commentOnDisabled": "Task link comments on new issues are turned off",
 				"settingsUpdateError": "Failed to update Gitea integration"
 			},
-			"commentTaskLinkTitle": "Comment a Kaneo link on new issues",
+			"commentTaskLinkTitle": "Comment a PM Studio link on new issues",
 			"commentTaskLinkHint": "So people on Gitea can jump to the task.",
-			"webhookHint": "Add this webhook in the repository settings so changes come back to Kaneo.",
+			"webhookHint": "Add this webhook in the repository settings so changes come back to PM Studio.",
 			"baseUrlLabel": "Gitea URL",
 			"tokenLabel": "Personal access token",
 			"tokenPlaceholder": "Paste token",
@@ -1879,15 +1880,15 @@
 				"updateError": "Failed to save GitLab integration",
 				"removed": "GitLab integration removed",
 				"removeError": "Failed to remove GitLab integration",
-				"issuesImported": "Issues imported successfully",
+				"issuesImported": "Issues imported",
 				"importError": "Failed to import issues",
-				"commentOnEnabled": "Kaneo will comment with a task link on issues opened in GitLab",
+				"commentOnEnabled": "PM Studio will comment with a task link on issues opened in GitLab",
 				"commentOnDisabled": "Task link comments on issues opened in GitLab are turned off",
 				"settingsUpdateError": "Failed to update GitLab integration"
 			},
-			"commentTaskLinkTitle": "Comment a Kaneo link on issues opened in GitLab",
+			"commentTaskLinkTitle": "Comment a PM Studio link on issues opened in GitLab",
 			"commentTaskLinkHint": "So people on GitLab can jump to the task.",
-			"webhookHint": "Add this webhook in the project settings so changes come back to Kaneo.",
+			"webhookHint": "Add this webhook in the project settings so changes come back to PM Studio.",
 			"baseUrlLabel": "GitLab URL",
 			"tokenTypeLabel": "Token type",
 			"tokenTypePrivate": "Personal, project or group access token",
@@ -1914,12 +1915,12 @@
 				"webhookInvalid": "Enter a valid Slack webhook URL"
 			},
 			"toast": {
-				"saved": "Slack integration saved successfully",
+				"saved": "Slack integration saved",
 				"saveError": "Failed to save Slack integration",
 				"enabled": "Slack notifications enabled",
 				"disabled": "Slack notifications paused",
 				"updateError": "Failed to update Slack integration",
-				"removed": "Slack integration removed successfully",
+				"removed": "Slack integration removed",
 				"removeError": "Failed to remove Slack integration"
 			},
 			"webhookPlaceholder": "https://hooks.slack.com/services/...",
@@ -1932,12 +1933,12 @@
 				"webhookInvalid": "Enter a valid Discord webhook URL"
 			},
 			"toast": {
-				"saved": "Discord integration saved successfully",
+				"saved": "Discord integration saved",
 				"saveError": "Failed to save Discord integration",
 				"enabled": "Discord notifications enabled",
 				"disabled": "Discord notifications paused",
 				"updateError": "Failed to update Discord integration",
-				"removed": "Discord integration removed successfully",
+				"removed": "Discord integration removed",
 				"removeError": "Failed to remove Discord integration"
 			},
 			"webhookPlaceholder": "https://discord.com/api/webhooks/...",
@@ -1950,12 +1951,12 @@
 				"webhookInvalid": "Enter a valid Mattermost webhook URL"
 			},
 			"toast": {
-				"saved": "Mattermost integration saved successfully",
+				"saved": "Mattermost integration saved",
 				"saveError": "Failed to save Mattermost integration",
 				"enabled": "Mattermost notifications enabled",
 				"disabled": "Mattermost notifications paused",
 				"updateError": "Failed to update Mattermost integration",
-				"removed": "Mattermost integration removed successfully",
+				"removed": "Mattermost integration removed",
 				"removeError": "Failed to remove Mattermost integration"
 			},
 			"webhookPlaceholder": "https://your-mattermost-server.com/hooks/...",
@@ -1969,20 +1970,20 @@
 				"leadTimeRange": "Choose a time between 5 minutes and 720 hours."
 			},
 			"toast": {
-				"saved": "Generic webhook integration saved successfully",
+				"saved": "Generic webhook integration saved",
 				"saveError": "Failed to save generic webhook integration",
 				"enabled": "Generic webhook notifications enabled",
 				"disabled": "Generic webhook notifications paused",
 				"updateError": "Failed to update generic webhook integration",
-				"removed": "Generic webhook integration removed successfully",
+				"removed": "Generic webhook integration removed",
 				"removeError": "Failed to remove generic webhook integration"
 			},
 			"webhookLabel": "Endpoint URL",
 			"webhookPlaceholder": "https://example.com/webhooks/kaneo",
-			"webhookHint": "Kaneo sends POST requests with a JSON payload for each enabled event.",
+			"webhookHint": "PM Studio sends POST requests with a JSON payload for each enabled event.",
 			"secretLabel": "Signing secret",
 			"secretPlaceholder": "Shared secret",
-			"secretHint": "Kaneo signs each request with it and sends the digest in the X-Kaneo-Signature header.",
+			"secretHint": "PM Studio signs each request with it and sends the digest in the X-Kaneo-Signature header.",
 			"secretHintConfigured": "Current secret: {{secret}}. Paste a new one to replace it.",
 			"eventsTitle": "Send when",
 			"events": {
@@ -2005,7 +2006,7 @@
 			"reminderLeadTimeBefore": "Send reminders",
 			"reminderLeadTimeAfter": "hours before a task is due",
 			"disconnectTitle": "Disconnect webhook?",
-			"disconnectDescription": "Kaneo stops sending events and removes the saved endpoint and secret."
+			"disconnectDescription": "PM Studio stops sending events and removes the saved endpoint and secret."
 		},
 		"telegramIntegration": {
 			"validation": {
@@ -2014,12 +2015,12 @@
 				"threadIdInvalid": "Enter a valid topic ID"
 			},
 			"toast": {
-				"saved": "Telegram integration saved successfully",
+				"saved": "Telegram integration saved",
 				"saveError": "Failed to save Telegram integration",
 				"enabled": "Telegram notifications enabled",
 				"disabled": "Telegram notifications paused",
 				"updateError": "Failed to update Telegram integration",
-				"removed": "Telegram integration removed successfully",
+				"removed": "Telegram integration removed",
 				"removeError": "Failed to remove Telegram integration"
 			},
 			"botTokenLabel": "Bot token",
@@ -2064,10 +2065,10 @@
 			"dropHint": "Drag and drop your JSON file here",
 			"selectFile": "Select file",
 			"exporting": "Exporting tasks...",
-			"exportSuccess": "Tasks exported successfully",
+			"exportSuccess": "Tasks exported",
 			"exportError": "Failed to export tasks",
 			"importing": "Importing tasks...",
-			"importSuccess": "Imported {{count}} tasks successfully",
+			"importSuccess": "Imported {{count}} tasks",
 			"importPartialError": "Failed to import {{count}} tasks",
 			"importError": "Failed to import tasks",
 			"invalidFormat": "Invalid import file format",
@@ -2113,7 +2114,7 @@
 		"securityPage": {
 			"pageTitle": "Security",
 			"title": "Security",
-			"subtitle": "How you sign in to Kaneo.",
+			"subtitle": "How you sign in to PM Studio.",
 			"sectionTitle": "Sign-in",
 			"currentPassword": "Current password",
 			"newPassword": "New password",
@@ -2182,7 +2183,7 @@
 		"billing": {
 			"pageTitle": "Billing",
 			"subtitle": "Your plan for {{workspace}}.",
-			"disabled": "Billing isn't enabled on this instance. Self-hosted Kaneo includes every feature, free forever.",
+			"disabled": "Billing isn't enabled on this instance.",
 			"currentPlan": {
 				"title": "Current plan"
 			},
@@ -2302,7 +2303,7 @@
 			"disconnect": "Disconnect",
 			"disconnecting": "Disconnecting…",
 			"disconnectTitle": "Disconnect {{provider}}?",
-			"disconnectDescription": "Kaneo stops posting to {{provider}} and removes the saved settings.",
+			"disconnectDescription": "PM Studio stops posting to {{provider}} and removes the saved settings.",
 			"retry": "Retry"
 		},
 		"codeHosting": {
@@ -2388,13 +2389,14 @@
 			"more": "More",
 			"backToBoard": "Back to board",
 			"home": "Home",
+			"calendar": "Calendar",
 			"inbox": "Inbox",
 			"myTasks": "My tasks",
 			"invitePeople": "Invite people"
 		},
 		"projectList": {
-			"viewProject": "View Project",
-			"shareProject": "Share Project",
+			"viewProject": "View project",
+			"shareProject": "Share project",
 			"projectSettings": "Project settings",
 			"linkCopied": "Project link copied to clipboard",
 			"addProject": "Add project",
@@ -2421,7 +2423,7 @@
 			"back": "Back"
 		},
 		"userMenu": {
-			"signedOutSuccess": "Signed out successfully",
+			"signedOutSuccess": "Signed out",
 			"signOutFailed": "Failed to sign out",
 			"unnamedUser": "User",
 			"settings": "Settings",
@@ -2437,7 +2439,7 @@
 		"page": {
 			"projectsTitle": "Projects",
 			"settingsTitle": "Settings",
-			"backToWorkspace": "Back to Workspace",
+			"backToWorkspace": "Back to workspace",
 			"settingsWorkspaceTab": "Workspace"
 		},
 		"projectSettings": {
@@ -2584,7 +2586,7 @@
 			},
 			"workspace_created": {
 				"title": "Workspace created",
-				"content": "Your workspace \"{{workspaceName}}\" has been created successfully"
+				"content": "Your workspace \"{{workspaceName}}\" has been created"
 			},
 			"task_status_changed": {
 				"title": "Task status changed",
@@ -2937,7 +2939,7 @@
 			"addAction": "Add",
 			"empty": "No subtasks yet",
 			"createError": "Failed to create subtask",
-			"deleteSuccess": "Task deleted successfully",
+			"deleteSuccess": "Task deleted",
 			"deleteError": "Failed to delete task",
 			"deleteDialogTitle": "Delete Task?",
 			"deleteDialogDescription": "This will permanently remove the task and all its data. You can't undo this action.",
@@ -2966,7 +2968,7 @@
 			"statusHintKeep": "This project's workflow already supports the current status.",
 			"statusHintAdjust": "Choose the status to use in the destination project.",
 			"action": "Move task",
-			"success": "Task moved successfully",
+			"success": "Task moved",
 			"error": "Failed to move task"
 		},
 		"popover": {
@@ -3066,7 +3068,7 @@
 			}
 		},
 		"calendar": {
-			"pageTitle": "{{name}} – Calendar",
+			"pageTitle": "{{name}} · Calendar",
 			"title": "Calendar",
 			"previousMonth": "Previous month",
 			"nextMonth": "Next month",
@@ -3081,7 +3083,7 @@
 		},
 		"gantt": {
 			"searchPlaceholder": "Search scheduled tickets...",
-			"pageTitle": "{{name}} – Gantt",
+			"pageTitle": "{{name}} · Gantt",
 			"title": "Gantt Timeline",
 			"jumpToToday": "Jump to today",
 			"hideTasks": "Hide tasks",
@@ -3103,12 +3105,12 @@
 			"title": "Delete Task?",
 			"description": "This will permanently remove the task and all its data. You can't undo this action.",
 			"action": "Delete Task",
-			"success": "Task deleted successfully",
+			"success": "Task deleted",
 			"error": "Failed to delete task"
 		},
 		"duplicate": {
 			"titleSuffix": "{{title}} (copy)",
-			"success": "Task duplicated successfully",
+			"success": "Task duplicated",
 			"error": "Failed to duplicate task"
 		},
 		"archive": {
@@ -3153,7 +3155,7 @@
 		},
 		"contextMenu": {
 			"copyLink": "Copy link",
-			"copyLinkSuccess": "Task link copied!"
+			"copyLinkSuccess": "Task link copied."
 		},
 		"actions": {
 			"duplicate": "Duplicate",
@@ -3298,14 +3300,14 @@
 	},
 	"invitations": {
 		"email": {
-			"subject": "{{inviterName}} invited you to join {{workspaceName}} on Kaneo",
-			"preview": "You're invited to {{workspaceName}} on Kaneo",
+			"subject": "{{inviterName}} invited you to join {{workspaceName}} on PM Studio",
+			"preview": "You're invited to {{workspaceName}} on PM Studio",
 			"title": "Join {{workspaceName}}",
-			"subtitle": "{{inviterName}} ({{inviterEmail}}) invited you to collaborate in Kaneo.",
+			"subtitle": "{{inviterName}} ({{inviterEmail}}) invited you to collaborate in PM Studio.",
 			"cta": "Accept invitation",
 			"sameEmail": "You can accept with the same email that received this message.",
 			"ignore": "If this wasn't expected, you can safely ignore this email.",
-			"footer": "Kaneo workspace invitation",
+			"footer": "PM Studio workspace invitation",
 			"details": {
 				"title": "Invitation details",
 				"sentTo": "Sent to",
@@ -3328,7 +3330,7 @@
 		},
 		"toast": {
 			"acceptError": "Failed to accept invitation",
-			"acceptSuccess": "Invitation accepted! Welcome to the team.",
+			"acceptSuccess": "Invitation accepted. Welcome to the team.",
 			"rejectError": "Failed to reject invitation",
 			"rejectSuccess": "Invitation rejected"
 		}
@@ -3391,7 +3393,7 @@
 			"required": "Required",
 			"creating": "Creating...",
 			"submit": "Create workspace",
-			"success": "Workspace created successfully",
+			"success": "Workspace created",
 			"error": "Failed to create workspace"
 		},
 		"home": {
@@ -3476,7 +3478,7 @@
 			"emailLabel": "Email",
 			"emailPlaceholder": "colleague@company.com",
 			"sendInvitation": "Send Invitation",
-			"success": "Invitation sent successfully",
+			"success": "Invitation sent",
 			"error": "Failed to invite team member",
 			"createdTitle": "Invitation created",
 			"shareLinkDescription": "Share this link with {{email}} so they can join the workspace.",
@@ -3484,7 +3486,7 @@
 		},
 		"membersTable": {
 			"emptyTitle": "No team members yet",
-			"emptyDescription": "Invite your first team member to get started.",
+			"emptyDescription": "Invite your first team member.",
 			"columns": {
 				"name": "Name",
 				"role": "Role",
@@ -3502,9 +3504,9 @@
 			"cancelDialogDescription": "Are you sure you want to cancel the invitation for {{email}}? This action cannot be undone.",
 			"removeMember": "Remove Member",
 			"cancelInvitation": "Cancel Invitation",
-			"removeSuccess": "Team member removed successfully",
+			"removeSuccess": "Team member removed",
 			"removeError": "Failed to remove team member",
-			"cancelInviteSuccess": "Invitation cancelled successfully",
+			"cancelInviteSuccess": "Invitation cancelled",
 			"cancelInviteError": "Failed to cancel invitation",
 			"roleUpdateSuccess": "Role updated",
 			"roleUpdateError": "Failed to update role"
@@ -3797,8 +3799,8 @@
 			"tooManyRequests": "Too many requests. Please wait a moment.",
 			"serverProblem": "The server had a problem ({{status}}).",
 			"requestFailed": "Request failed ({{status}}).",
-			"notKaneo": "{{url}} doesn't look like a Kaneo server.",
-			"noInstance": "No Kaneo instance found at {{url}} (HTTP {{status}}).",
+			"notKaneo": "{{url}} doesn't look like a PM Studio server.",
+			"noInstance": "No PM Studio instance found at {{url}} (HTTP {{status}}).",
 			"noSession": "The server didn't return a session. Try signing in through the browser.",
 			"deviceFailed": "Device sign-in failed (HTTP {{status}}).",
 			"apiKeyRejected": "That API key was rejected.",
@@ -3812,7 +3814,7 @@
 			"captcha": "This server requires a browser check for this step. Use “Continue in browser” instead.",
 			"invalidClient": "This server doesn’t allow device sign-in. Ask its admin to add “kaneo-cli” to DEVICE_AUTH_CLIENT_IDS, or sign in with a password or API key.",
 			"serverAddress": "Server address",
-			"serverAddressHint": "The address you open Kaneo at. Use http:// for servers without TLS. If the API runs on another host, enter the API address.",
+			"serverAddressHint": "The address you open PM Studio at. Use http:// for servers without TLS. If the API runs on another host, enter the API address.",
 			"connect": "Connect",
 			"recent": "Recent",
 			"change": "Change",
@@ -3827,7 +3829,7 @@
 			"sendTo": "Send to {{email}}",
 			"noPassword": "No password needed",
 			"useApiKey": "Use an API key",
-			"newToKaneo": "New to Kaneo?",
+			"newToKaneo": "New to PM Studio?",
 			"createAccount": "Create account",
 			"code": {
 				"title": "Sign in with a code",
@@ -3843,7 +3845,7 @@
 				"denied": "Sign-in was denied in the browser.",
 				"expired": "The sign-in code expired. Start again to get a new one.",
 				"openFailed": "Couldn’t open a browser. Copy the link instead.",
-				"message": "Approve this device from the Kaneo website. GitHub, Google, Discord and SSO all work there.",
+				"message": "Approve this device from the PM Studio website. GitHub, Google, Discord and SSO all work there.",
 				"yourCode": "Your code",
 				"copyCode": "Copy code",
 				"codeCopied": "Code copied",
@@ -4314,7 +4316,7 @@
 		"background": {
 			"summary_one": "{{count}} more new notification",
 			"summary_other": "{{count}} more new notifications",
-			"channelName": "Kaneo activity",
+			"channelName": "PM Studio activity",
 			"channelDescription": "Assignments, comments and mentions from your workspaces"
 		},
 		"ui": {
@@ -4404,7 +4406,7 @@
 				"delivery": "Delivery and events",
 				"deliveryHint": "Email, ntfy, Gotify, webhooks",
 				"invitations": "Invitations",
-				"permissionDenied": "Allow notifications for Kaneo in system settings first."
+				"permissionDenied": "Allow notifications for PM Studio in system settings first."
 			},
 			"connection": {
 				"title": "Connection",
@@ -4441,7 +4443,7 @@
 		},
 		"notificationSettings": {
 			"title": "Notifications",
-			"description": "Where Kaneo reaches you, and about what.",
+			"description": "Where PM Studio reaches you, and about what.",
 			"on": "On",
 			"off": "Off",
 			"notSet": "Not set",
@@ -4599,7 +4601,10 @@
 			}
 		},
 		"permissions": {
-			"photos": "Kaneo uses your photos to attach images to tasks and comments, and for your profile photo."
+			"photos": "PM Studio uses your photos to attach images to tasks and comments, and for your profile photo."
 		}
+	},
+	"comment": {
+		"post": "Post"
 	}
 }

@@ -1,6 +1,7 @@
 import type React from "react";
 import type { ReactNode } from "react";
 import { AppSidebar } from "@/components/app-sidebar";
+import { MobileTabBar } from "@/components/common/mobile-tab-bar";
 import { DemoAlert } from "@/components/demo-alert";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { isDemoMode } from "@/constants/urls";
@@ -57,7 +58,6 @@ function Layout({ children, className }: LayoutProps) {
         defaultOpen={sidebarDefaultOpen}
         style={
           {
-            "--sidebar-width": "calc(var(--spacing) * 60)",
             "--header-height": "calc(var(--spacing) * 12)",
           } as React.CSSProperties
         }
@@ -65,7 +65,7 @@ function Layout({ children, className }: LayoutProps) {
         <AppSidebar />
         <SidebarInset
           className={cn(
-            "m-2 flex flex-1 flex-col overflow-auto rounded-xl border border-border/80 bg-background shadow-sm/5",
+            "rise m-2 flex flex-1 flex-col overflow-auto max-sm:pb-[calc(5rem+env(safe-area-inset-bottom))] rounded-xl border border-border/80 bg-background shadow-sm/5",
             {
               "before:content-[''] before:absolute before:inset-0 before:bg-cover before:bg-center before:bg-(image:--bg) before:pointer-events-none":
                 background,
@@ -80,6 +80,7 @@ function Layout({ children, className }: LayoutProps) {
           {isDemoMode && <DemoAlert />}
           {children}
         </SidebarInset>
+        <MobileTabBar />
       </SidebarProvider>
     </div>
   );
