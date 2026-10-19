@@ -1,6 +1,6 @@
 import labelColors from "@/constants/label-colors";
 
-const FALLBACK_LABEL_COLOR = "var(--color-neutral-400)";
+const FALLBACK_LABEL_COLOR = "var(--muted-foreground)";
 const HEX_COLOR = /^#(?:[\da-f]{3,4}|[\da-f]{6}|[\da-f]{8})$/i;
 
 export function resolveLabelColor(value: string): string {

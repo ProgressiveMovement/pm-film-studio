@@ -172,11 +172,7 @@ input:-webkit-autofill:active {
 }
 
 :root {
-  --font-sans:
-    "Geist Variable",
-    ui-sans-serif,
-    system-ui,
-    sans-serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Kaneo-Helvetica variant: the only change */
   --font-heading: var(--font-sans);
   --font-mono:
     "Geist Mono Variable",
@@ -361,6 +357,8 @@ input:-webkit-autofill:active {
   --avatar-unassigned: #262626;
   --avatar-unassigned-foreground: #8a8a8a;
 }
+
+@import "./theme/studio.css";
 
 @layer base {
   * {

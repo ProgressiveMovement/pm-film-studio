@@ -148,47 +148,48 @@ function CreateTaskModalContent({
         {
           value: "gray" as LabelColor,
           labelKey: "stone" as const,
-          color: "var(--color-stone-500)",
+          color: "var(--color-faint, var(--muted-foreground))",
         },
         {
           value: "dark-gray" as LabelColor,
           labelKey: "slate" as const,
-          color: "var(--color-slate-500)",
+          color: "var(--muted-foreground)",
         },
         {
           value: "purple" as LabelColor,
           labelKey: "lavender" as const,
-          color: "var(--color-violet-500)",
+          color: "var(--foreground)",
         },
         {
           value: "teal" as LabelColor,
           labelKey: "sage" as const,
-          color: "var(--color-emerald-600)",
+          color: "var(--success)",
         },
         {
           value: "green" as LabelColor,
           labelKey: "forest" as const,
-          color: "var(--color-green-600)",
+          color: "color-mix(in srgb, var(--success) 70%, var(--foreground))",
         },
         {
           value: "yellow" as LabelColor,
           labelKey: "amber" as const,
-          color: "var(--color-amber-600)",
+          color: "var(--warning)",
         },
         {
           value: "orange" as LabelColor,
           labelKey: "terracotta" as const,
-          color: "var(--color-orange-600)",
+          color: "color-mix(in srgb, var(--warning) 70%, var(--foreground))",
         },
         {
           value: "pink" as LabelColor,
           labelKey: "rose" as const,
-          color: "var(--color-rose-600)",
+          color:
+            "color-mix(in srgb, var(--destructive) 70%, var(--foreground))",
         },
         {
           value: "red" as LabelColor,
           labelKey: "crimson" as const,
-          color: "var(--color-red-600)",
+          color: "var(--destructive)",
         },
       ].map(({ labelKey, ...rest }) => ({
         ...rest,
@@ -1159,7 +1160,7 @@ function CreateTaskModalContent({
                                 backgroundColor:
                                   labelColors.find(
                                     (c) => c.value === selectedColor,
-                                  )?.color || "var(--color-neutral-400)",
+                                  )?.color || "var(--muted-foreground)",
                               }}
                             />
                             <span className="truncate">

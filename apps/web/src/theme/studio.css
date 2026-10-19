@@ -1,0 +1,52 @@
+/* Studio 3 (19 Oct 2026): three additions on top of Kaneo, nothing else.
+   1. Helvetica Neue (the --font-sans line in index.css).
+   2. Dossier's signal colours for status, priority, due dates and labels.
+      Kaneo's blacks, whites and greys stay as they are.
+   3. Glass menus: dropdowns, popovers, selects and the command palette are
+      translucent paper with a blur. Cards and panels stay solid.
+   Imported after Kaneo's own variable blocks in index.css, so these win. */
+
+:root {
+  --success: #26744a;
+  --success-foreground: #26744a;
+  --warning: #a65100;
+  --warning-foreground: #a65100;
+  --destructive: #d70015;
+  --destructive-foreground: #d70015;
+  --info: #575756;
+  --info-foreground: #575756;
+  --priority-urgent: #d70015;
+  --due-overdue: #d70015;
+  --paper-fill: rgba(255, 255, 255, 0.78);
+  --paper-shadow:
+    inset -1.06px -1.06px 1.06px rgba(0, 0, 0, 0.04),
+    inset 1.06px 1.06px 1.06px rgba(255, 255, 255, 0.8),
+    0 2px 10px 6px rgba(0, 0, 0, 0.06);
+}
+
+.dark {
+  --success: #72d19c;
+  --success-foreground: #72d19c;
+  --warning: #ff9f43;
+  --warning-foreground: #ff9f43;
+  --destructive: #ff6961;
+  --destructive-foreground: #ff6961;
+  --info: #a3a3a3;
+  --info-foreground: #a3a3a3;
+  --priority-urgent: #ff6961;
+  --due-overdue: #ff6961;
+  --paper-fill: rgba(25, 25, 25, 0.72);
+  --paper-shadow:
+    inset -1.06px -1.06px 1.06px rgba(255, 255, 255, 0.04),
+    inset 1.06px 1.06px 1.06px rgba(255, 255, 255, 0.12),
+    0 2px 10px 6px rgba(0, 0, 0, 0.3);
+}
+
+@layer components {
+  .paper {
+    background: var(--paper-fill);
+    box-shadow: var(--paper-shadow);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+  }
+}
