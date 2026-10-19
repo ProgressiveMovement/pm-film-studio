@@ -6,7 +6,7 @@ function Frame({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       className={cn(
-        "relative flex flex-col rounded-[25px] border border-[var(--edge-soft)] bg-card p-1",
+        "relative flex flex-col rounded-xl border border-border bg-card p-1",
         "*:[[data-slot=frame-panel]+[data-slot=frame-panel]]:mt-1",
         className,
       )}

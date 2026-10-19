@@ -17,7 +17,7 @@ type SettingsNavGroupProps = {
 export function SettingsNavGroup({ group, pathname }: SettingsNavGroupProps) {
   return (
     <SidebarGroup className="gap-0.5 px-2 py-1.5">
-      <SidebarGroupLabel className="h-7 truncate font-semibold text-[10.5px] text-[var(--color-faint)] uppercase tracking-[.09em]">
+      <SidebarGroupLabel className="h-7 truncate">
         {group.label}
       </SidebarGroupLabel>
       <SidebarGroupContent>

@@ -1,12 +1,5 @@
 /* Selector-level fixes that tokens cannot reach. Unlayered, so it beats utilities. */
 
-/* Inset main panel: the Bar inset highlight (shadow-sm mapping) drew a light
-   hairline on its left/top edge in dark. One hairline, --sidebar-border. */
-[data-slot="sidebar-inset"] {
-  border-color: var(--sidebar-border);
-  box-shadow: none;
-}
-
 /* Command palette footer hints */
 [data-slot="command-footer"],
 [data-slot="command-footer"] span,

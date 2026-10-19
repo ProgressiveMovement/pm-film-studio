@@ -59,6 +59,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import icons from "@/constants/project-icons";
 import useDeleteProject from "@/hooks/mutations/project/use-delete-project";
 import useReorderProjects from "@/hooks/mutations/project/use-reorder-projects";
 import useGetProjects from "@/hooks/queries/project/use-get-projects";
@@ -227,7 +228,7 @@ export function NavProjects() {
           <CollapsibleTrigger
             className="data-panel-open:[&_svg]:rotate-90"
             render={
-              <SidebarGroupLabel className="h-7 cursor-pointer justify-start gap-1 px-0 text-[10.5px] text-[var(--color-faint)] uppercase tracking-[.09em]" />
+              <SidebarGroupLabel className="h-7 cursor-pointer justify-start gap-1 px-0 text-sidebar-accent-foreground" />
             }
           >
             <span>{t("navigation:sidebar.projects")}</span>
@@ -264,6 +265,10 @@ export function NavProjects() {
                     strategy={verticalListSortingStrategy}
                   >
                     {projects?.map((project) => {
+                      const ProjectIcon =
+                        icons[project.icon as keyof typeof icons] ||
+                        icons.Layout;
+
                       return (
                         <SortableProjectItem
                           key={project.id}
@@ -273,13 +278,10 @@ export function NavProjects() {
                           <SidebarMenuButton
                             isActive={isCurrentProject(project.id)}
                             size="default"
-                            className="min-h-9"
+                            className="h-8 text-sm"
                             onClick={() => handleProjectClick(project)}
                           >
-                            <span
-                              aria-hidden="true"
-                              className="size-1.5 shrink-0 rounded-full bg-current"
-                            />
+                            <ProjectIcon aria-hidden="true" />
                             <span className="min-w-0 flex-1 truncate">
                               {project.name}
                             </span>

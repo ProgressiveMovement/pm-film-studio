@@ -23,7 +23,7 @@ export function NavSecondary() {
           <SidebarMenuItem>
             <SidebarMenuButton
               size="default"
-              className="min-h-9"
+              className="h-8 text-sm"
               onClick={() => setIsInviteOpen(true)}
             >
               <UserPlus aria-hidden="true" />
@@ -34,7 +34,7 @@ export function NavSecondary() {
         <SidebarMenuItem>
           <SidebarMenuButton
             size="default"
-            className="min-h-9"
+            className="h-8 text-sm"
             onClick={() =>
               navigate({ to: "/dashboard/settings/account/information" })
             }

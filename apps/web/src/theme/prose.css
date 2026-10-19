@@ -175,7 +175,7 @@
       .kaneo-mention-list
     ) {
     background: var(--paper-fill);
-    border: 0.5px solid var(--edge-soft);
+    border: 1px solid var(--border);
     border-radius: 16px;
     box-shadow: var(--shadow-menu);
     backdrop-filter: blur(15px);

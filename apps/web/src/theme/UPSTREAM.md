@@ -1,7 +1,7 @@
 # Staying in step with upstream Kaneo
 
 This repo is a fork of github.com/usekaneo/kaneo (remote `upstream`).
-Our branch is `theme/studio` on github.com/ProgressiveMovement/pm-film-studio (remote `origin`).
+Our branch is `theme/studio` on github.com/ProgressiveMovement/pm-film-studio (remote `origin`); Studio 2.0 lives on `theme/studio-2` on top of it until it is merged.
 Kaneo ships fast, about 140 commits in a week. The API security fixes only reach us through a rebase, so do not let this slide.
 
 ## What is ours

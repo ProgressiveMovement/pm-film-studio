@@ -23,7 +23,7 @@ export function SettingsNavProjects({
 
   return (
     <SidebarGroup className="gap-0.5 px-2 py-1.5">
-      <SidebarGroupLabel className="h-7 font-semibold text-[10.5px] text-[var(--color-faint)] uppercase tracking-[.09em]">
+      <SidebarGroupLabel className="h-7">
         {t("navigation:sidebar.projects")}
       </SidebarGroupLabel>
       <SidebarGroupContent>

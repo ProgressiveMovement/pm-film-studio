@@ -2,7 +2,7 @@ name: Studio image
 
 on:
   push:
-    branches: [theme/studio]
+    branches: [theme/studio, theme/studio-2]
   workflow_dispatch:
 
 concurrency:

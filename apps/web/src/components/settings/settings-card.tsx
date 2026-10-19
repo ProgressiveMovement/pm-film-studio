@@ -14,7 +14,7 @@ export function SettingsCard({
     <div
       data-tone={tone}
       className={cn(
-        "divide-y divide-border overflow-hidden rounded-[25px] border border-[var(--edge-soft)] bg-card",
+        "divide-y divide-border overflow-hidden rounded-xl border border-border bg-card",
         className,
       )}
       {...props}

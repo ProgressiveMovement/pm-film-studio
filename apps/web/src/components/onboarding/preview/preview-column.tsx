@@ -15,7 +15,7 @@ export function PreviewColumn({
 }: PreviewColumnProps) {
   return (
     <div className="flex w-64 shrink-0 flex-col glass rounded-2xl">
-      <div className="flex items-center gap-2 border-[var(--edge-soft)] border-b-[0.5px] px-3 py-2 text-muted-foreground">
+      <div className="flex items-center gap-2 border-border border-b px-3 py-2 text-muted-foreground">
         {icon}
         <span className="font-medium text-[13px] text-foreground">{name}</span>
         <span className="rounded-md bg-muted px-1.5 py-0.5 font-medium text-[11px]">

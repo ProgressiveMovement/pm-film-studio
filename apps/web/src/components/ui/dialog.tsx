@@ -115,9 +115,9 @@ function DialogPopup({
       >
         <DialogPrimitive.Popup
           className={cn(
-            "relative row-start-2 flex max-h-full min-h-0 w-full min-w-0 max-w-lg flex-col rounded-[25px] border-[0.5px] border-[var(--edge-strong)] bg-card text-card-foreground shadow-lg/5 transition-[scale,opacity,translate] duration-[320ms] ease-[var(--ease-out)] will-change-transform data-ending-style:duration-200 data-ending-style:translate-y-3.5 data-starting-style:translate-y-3.5 data-ending-style:scale-[.985] data-starting-style:scale-[.985] data-ending-style:opacity-0 data-starting-style:opacity-0",
+            "relative row-start-2 flex max-h-full min-h-0 w-full min-w-0 max-w-lg flex-col rounded-2xl border border-border bg-card text-card-foreground shadow-lg/5 transition-[scale,opacity,translate] duration-[320ms] ease-[var(--ease-out)] will-change-transform data-ending-style:duration-200 data-ending-style:translate-y-3.5 data-starting-style:translate-y-3.5 data-ending-style:scale-[.985] data-starting-style:scale-[.985] data-ending-style:opacity-0 data-starting-style:opacity-0",
             bottomStickOnMobile &&
-              "max-sm:max-w-none max-sm:rounded-b-none max-sm:rounded-t-[25px] max-sm:border-b-0",
+              "max-sm:max-w-none max-sm:rounded-b-none max-sm:rounded-t-2xl max-sm:border-b-0",
             instant &&
               "transition-none data-starting-style:translate-y-0 data-starting-style:scale-100 data-starting-style:opacity-100 data-ending-style:translate-y-0 data-ending-style:scale-100 data-ending-style:opacity-100",
             className,
@@ -145,7 +145,7 @@ function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       className={cn(
-        "flex flex-col gap-2 p-6 sm:p-9 in-[[data-slot=dialog-popup]:has([data-slot=dialog-panel])]:pb-3 max-sm:pb-4",
+        "flex flex-col gap-2 p-6 in-[[data-slot=dialog-popup]:has([data-slot=dialog-panel])]:pb-3 max-sm:pb-4",
         className,
       )}
       data-slot="dialog-header"
@@ -164,10 +164,10 @@ function DialogFooter({
   return (
     <div
       className={cn(
-        "flex flex-col-reverse gap-2 px-6 sm:flex-row sm:justify-end sm:px-9 sm:rounded-b-[25px]",
+        "flex flex-col-reverse gap-2 px-6 sm:flex-row sm:justify-end sm:rounded-b-2xl",
         variant === "default" && "border-t bg-muted/72 py-4",
         variant === "bare" &&
-          "in-[[data-slot=dialog-popup]:has([data-slot=dialog-panel])]:pt-3 pt-4 pb-6 sm:pb-9",
+          "in-[[data-slot=dialog-popup]:has([data-slot=dialog-panel])]:pt-3 pt-4 pb-6",
         className,
       )}
       data-slot="dialog-footer"
@@ -223,7 +223,7 @@ function DialogPanel({
     <ScrollArea scrollFade={scrollFade}>
       <div
         className={cn(
-          "p-6 sm:px-9 in-[[data-slot=dialog-popup]:has([data-slot=dialog-header])]:pt-1 in-[[data-slot=dialog-popup]:has([data-slot=dialog-footer]:not(.border-t))]:pb-1",
+          "p-6 in-[[data-slot=dialog-popup]:has([data-slot=dialog-header])]:pt-1 in-[[data-slot=dialog-popup]:has([data-slot=dialog-footer]:not(.border-t))]:pb-1",
           className,
         )}
         data-slot="dialog-panel"

@@ -1,5 +1,22 @@
 # Files touched from upstream Kaneo (for cheap rebases)
 
+## Studio 2.0 (19 Oct 2026, branch theme/studio-2)
+Kaneo's geometry came back and the Dossier palette stayed. What 2.0 reverts or changes against the 1.0 entries below:
+- theme/tokens.css: rewritten. --radius 10px (Kaneo's), opaque surfaces (dark page #0d0d0d, panel #121212, card #1c1c1c; light page #f4f4f2, panel and card #fff), 1px --border (#262626 dark, 10% black light), Kaneo's board-lane and card tokens on the Dossier neutrals, --shadow-card instead of the inset glass highlights. No --glass-fill, --shadow-glass, --shadow-bar any more.
+- theme/recipes.css: .glass is now the flat panel (bg card, 1px border, radius 12, flat shadow); the class name stays so no component moved. .paper keeps its blur, 1px border, radius 12.
+- theme/overrides.css: the sidebar-inset rule is gone; Kaneo's inset panel renders as Kaneo draws it.
+- theme/prose.css: table borders 1px.
+- components/ui/sidebar.tsx: width 16rem, Kaneo's group label (text-xs, sidebar-foreground) and menu button geometry (h-8, rounded-lg, p-2, text-sm, sidebar-accent hover), opaque phone sheet, no border-r.
+- components/nav-projects.tsx: project icons back (constants/project-icons), Kaneo's group label; nav-main.tsx and nav-secondary.tsx: h-8 text-sm; settings/nav/*: Kaneo's labels.
+- components/kanban-board/column/index.tsx: bg-board-lane back. task-card/task-card-content.tsx: rounded-[10px] border p-3, board-card fill and shadow, 13px/500 title.
+- components/ui/dialog.tsx, alert-dialog.tsx, sheet.tsx: rounded-2xl, 1px border-border, p-6 (no sm:p-9).
+- components/ui/card.tsx (opaque variant), frame.tsx, settings/settings-card.tsx: rounded-xl, border-border.
+- components/ui/button.tsx: only the primary keeps the 40px pill; outline, secondary and destructive are Kaneo's rounded-lg.
+- components/common/mobile-tab-bar.tsx: paper instead of glass (it floats over cards).
+- onboarding/preview/*: 1px lines, board-card tokens.
+Everything else in the 1.0 list still applies.
+
+## Studio 1.0 entries
 - src/theme/tokens.css: Stage 2 token layer; Stage 3 polish: light `--scrim` .35, dark `--board-card-shadow` without inset highlight.
 - src/theme/overrides.css: selector fixes: sidebar-inset hairline/no shadow, command-footer text colour, `[data-slot$="-backdrop"]` uses `--scrim`, `.border-destructive/20` (settings danger card) uses `--border`.
 - src/theme/recipes.css: `@layer components` recipes (.glass, .glass-hero, .paper, .pillnav, .btn-light, .btn-ghost, .field, .row-hover, .shimmer-line, .pulse-dot, .u-reveal, .rise, .stagger, reduced-motion).

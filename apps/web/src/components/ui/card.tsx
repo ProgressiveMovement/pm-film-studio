@@ -14,9 +14,7 @@ function Card({
   const defaultProps = {
     className: cn(
       "relative flex flex-col text-card-foreground",
-      surface === "glass"
-        ? "glass"
-        : "rounded-[25px] border border-[var(--edge-soft)] bg-card",
+      surface === "glass" ? "glass" : "rounded-xl border border-border bg-card",
       className,
     ),
     "data-slot": "card",

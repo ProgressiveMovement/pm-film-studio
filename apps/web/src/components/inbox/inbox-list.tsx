@@ -83,7 +83,7 @@ export function InboxList({
   return (
     <div className="flex h-full min-h-0 flex-col">
       <div className="flex h-12 shrink-0 items-center justify-between gap-2 border-border/60 border-b px-3">
-        <fieldset className="inline-flex items-center gap-0.5 rounded-lg bg-muted/70 p-0.5">
+        <fieldset className="inline-flex items-center gap-0.5 rounded-lg bg-muted/70 p-0.5 max-sm:rounded-xl">
           <legend className="sr-only">
             {t("notifications:inbox.filters.label")}
           </legend>
@@ -94,7 +94,7 @@ export function InboxList({
               aria-pressed={filter === option.value}
               onClick={() => setFilter(option.value)}
               className={cn(
-                "flex h-6.5 cursor-pointer items-center gap-1.5 rounded-md px-2.5 font-medium text-[13px] outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring",
+                "flex h-6.5 max-sm:h-10 max-sm:min-w-10 max-sm:justify-center cursor-pointer items-center gap-1.5 rounded-md px-2.5 font-medium text-[13px] outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring",
                 filter === option.value
                   ? "bg-background text-foreground shadow-xs"
                   : "text-muted-foreground hover:text-foreground",

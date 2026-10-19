@@ -129,12 +129,12 @@ function TaskCardContent({
             onPointerLeave={() => setIsPressed(false)}
             onPointerCancel={() => setIsPressed(false)}
             className={cn(
-              "glass group relative flex flex-col p-[14px_16px] transition-[background-color,border-color,opacity,scale] duration-150 ease-out",
+              "group relative flex flex-col rounded-[10px] border p-3 transition-[background-color,border-color,box-shadow,scale] duration-150 ease-out",
               isPressed && "scale-[0.98]",
               disableDragDrop ? "cursor-default" : "cursor-move",
               taskIsCompleted
-                ? "border-[var(--board-card-done-border)] opacity-50"
-                : "border-[var(--board-card-border)]",
+                ? "border-[var(--board-card-done-border)] bg-[var(--board-card-done)]"
+                : "border-[var(--board-card-border)] bg-[var(--board-card)] shadow-[var(--board-card-shadow)]",
               isDragging
                 ? "border-[var(--board-card-border-hover)]"
                 : !isTaskFocused &&
@@ -184,11 +184,11 @@ function TaskCardContent({
 
             <div
               className={cn(
-                "line-clamp-3 break-words text-sm font-semibold leading-[1.35]",
+                "line-clamp-3 break-words text-[13px] leading-[18px]",
                 showIdRow && "mt-1",
                 taskIsCompleted
                   ? "text-[var(--board-title-done)]"
-                  : "text-[var(--board-title)]",
+                  : "font-medium text-[var(--board-title)]",
               )}
             >
               {task.title}

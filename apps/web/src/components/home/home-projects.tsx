@@ -33,7 +33,7 @@ export function HomeProjects({
           <Link
             to="/dashboard/workspace/$workspaceId/projects"
             params={{ workspaceId }}
-            className="shrink-0 font-medium text-[13px] text-muted-foreground hover:text-foreground"
+            className="flex shrink-0 items-center font-medium text-[13px] text-muted-foreground hover:text-foreground max-sm:min-h-10"
           >
             {t("workspace:home.projects.all")}
           </Link>

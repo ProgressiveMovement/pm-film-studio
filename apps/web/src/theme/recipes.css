@@ -5,37 +5,30 @@
    utilities), so on equal specificity Kaneo's component rules come later
    and win; utilities beat both. Recipes are opt-in classes, so no clash. */
 @layer components {
+  /* Studio 2.0: .glass is the flat panel (Kaneo's card logic). The name
+     stays so no component changes; only menus and the phone bar blur. */
   .glass {
-    background: var(--glass-fill);
-    border: 0.5px solid var(--edge-soft);
-    border-radius: 25px;
-    box-shadow: var(--shadow-glass);
-    -webkit-backdrop-filter: blur(3px);
-    backdrop-filter: blur(3px);
-  }
-  @media (pointer: coarse) {
-    .glass {
-      -webkit-backdrop-filter: none;
-      backdrop-filter: none;
-    }
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
   }
   .glass-hero {
-    background: var(--glass-hero-fill);
     border-color: var(--edge-strong);
   }
 
   .paper {
     background: var(--paper-fill);
-    border: 0.5px solid var(--edge-soft);
-    border-radius: 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
     box-shadow: var(--shadow-menu);
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
   }
   .paper-sm {
     background: var(--paper-fill);
-    border: 0.5px solid var(--edge-soft);
-    border-radius: 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
     box-shadow: var(--shadow-menu);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
@@ -92,7 +85,7 @@
   .btn-ghost {
     background: var(--secondary);
     color: var(--muted-foreground);
-    border: 0.5px solid var(--edge-soft);
+    border: 1px solid var(--border);
     font-weight: 500;
   }
 
