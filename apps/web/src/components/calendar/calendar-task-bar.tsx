@@ -12,13 +12,15 @@ export type CalendarTask = PackableTask & {
 
 // Status in the Dossier tones (Studio 3): to do grey, in progress ink,
 // in review orange, done green. Fills are the tone at 15%, edges at 35%.
-const tone = (v: string) =>
-  `border-[color-mix(in_srgb,${v}_35%,transparent)] bg-[color-mix(in_srgb,${v}_15%,transparent)] hover:border-[color-mix(in_srgb,${v}_50%,transparent)] hover:bg-[color-mix(in_srgb,${v}_20%,transparent)]`;
+// Written out in full: Tailwind only emits classes it can read in the source.
 const STATUS_CLASSES: Record<string, string> = {
-  "to-do": tone("var(--muted-foreground)"),
-  "in-progress": tone("var(--primary)"),
-  "in-review": tone("var(--warning)"),
-  done: tone("var(--success)"),
+  "to-do":
+    "border-[color-mix(in_srgb,var(--muted-foreground)_35%,transparent)] bg-[color-mix(in_srgb,var(--muted-foreground)_15%,transparent)] hover:border-[color-mix(in_srgb,var(--muted-foreground)_50%,transparent)] hover:bg-[color-mix(in_srgb,var(--muted-foreground)_20%,transparent)]",
+  "in-progress":
+    "border-[color-mix(in_srgb,var(--primary)_35%,transparent)] bg-[color-mix(in_srgb,var(--primary)_15%,transparent)] hover:border-[color-mix(in_srgb,var(--primary)_50%,transparent)] hover:bg-[color-mix(in_srgb,var(--primary)_20%,transparent)]",
+  "in-review":
+    "border-[color-mix(in_srgb,var(--warning)_35%,transparent)] bg-[color-mix(in_srgb,var(--warning)_15%,transparent)] hover:border-[color-mix(in_srgb,var(--warning)_50%,transparent)] hover:bg-[color-mix(in_srgb,var(--warning)_20%,transparent)]",
+  done: "border-[color-mix(in_srgb,var(--success)_35%,transparent)] bg-[color-mix(in_srgb,var(--success)_15%,transparent)] hover:border-[color-mix(in_srgb,var(--success)_50%,transparent)] hover:bg-[color-mix(in_srgb,var(--success)_20%,transparent)]",
 };
 
 export function getCalendarTaskStatusClass(status: string): string {

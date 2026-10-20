@@ -114,5 +114,12 @@ describe("CalendarTaskBar", () => {
     const taskBar = screen.getByRole("button");
     expect(taskBar).toHaveAttribute("data-task-status", status);
     expect(taskBar).toHaveClass(expectedClass);
+    // the edge follows the fill; a class built at runtime would not reach Tailwind
+    expect(taskBar).toHaveClass(
+      expectedClass
+        .replace(/^bg-/, "border-")
+        .replace("_15%", "_35%")
+        .replace("bg-primary/12", "border-primary/25"),
+    );
   });
 });
