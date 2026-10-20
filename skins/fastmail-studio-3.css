@@ -1,0 +1,358 @@
+/* ==UserStyle==
+@name         Fastmail, PM Studio look
+@description  Fastmail web app in the Studio 3 vocabulary: Helvetica Neue, Kaneo's blacks, whites and greys, Dossier's three tones, glass menus.
+@version      1.0.0
+@match        https://app.fastmail.com/*
+@match        https://*.fastmail.com/*
+==/UserStyle== */
+
+/* Fastmail paints everything from the variables in :root.t-light and
+   :root.t-dark, so most of the skin is a second definition of those.
+   Written 20 Oct 2026 against the page as it was that day. If Fastmail
+   renames a variable, that one piece falls back to Fastmail's colour and
+   nothing breaks. */
+
+/* 1. Helvetica Neue */
+html, body, button, input, select, textarea, .v-Root, .u-font-system {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+/* 2. Kaneo's neutrals, Dossier's tones. Light. */
+:root.t-light {
+  --theme-color-header: #fafafa;
+  --theme-color-header-fg: #262626;
+  --theme-color-sidebar: #fafafa;
+  --theme-color-accent-10: rgba(0, 0, 0, 0.05);
+  --theme-color-accent-60: #a3a3a3;
+  --theme-color-accent-100: #262626;
+  --theme-color-accent-110: #171717;
+  --theme-color-accent-120: #0a0a0a;
+
+  --ui-page-color-bg-backdrop: #fafafa;
+  --ui-page-color-bg: #ffffff;
+  --ui-page-color-bg-hover: #f5f5f5;
+  --ui-page-color-bg-active: #ebebeb;
+  --ui-page-color-bg-focused: #f0f0f0;
+  --ui-page-color-border: rgba(0, 0, 0, 0.12);
+  --ui-page-color-border-medium: rgba(0, 0, 0, 0.08);
+  --ui-page-color-border-subtle: rgba(0, 0, 0, 0.06);
+  --ui-page-color-fg: #262626;
+  --ui-page-color-fg-subtle: #686868;
+  --ui-page-color-fg-vsubtle: #8a8a8a;
+  --ui-page-color-fg-inverse: #fafafa;
+  --ui-page-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  --ui-page-main-shadow: none;
+
+  --ui-critical-color-bg: color-mix(in srgb, #d70015 8%, #fff);
+  --ui-critical-color-border: color-mix(in srgb, #d70015 35%, #fff);
+  --ui-critical-color-fg: #d70015;
+  --ui-critical-color-fg-strong: #a80011;
+  --ui-warning-color-bg: color-mix(in srgb, #a65100 8%, #fff);
+  --ui-warning-color-border: color-mix(in srgb, #a65100 35%, #fff);
+  --ui-warning-color-fg: #a65100;
+  --ui-warning-color-fg-strong: #7a3c00;
+  --ui-success-color-bg: color-mix(in srgb, #26744a 8%, #fff);
+  --ui-success-color-border: color-mix(in srgb, #26744a 35%, #fff);
+  --ui-success-color-fg: #26744a;
+  --ui-success-color-fg-strong: #1c5636;
+  --ui-informative-color-bg: #f5f5f5;
+  --ui-informative-color-bg-selected: #ebebeb;
+  --ui-informative-color-border: rgba(0, 0, 0, 0.12);
+  --ui-informative-color-fg: #575756;
+  --ui-informative-color-fg-strong: #262626;
+
+  --ui-icon-color-stroke: #262626;
+  --ui-icon-unread-color-fill-isread: #c9c9c9;
+  --ui-icon-unread-color-fill-isunread: #262626;
+  --ui-icon-star-color-fill-on: #a65100;
+  --ui-icon-star-color-stroke-on: #a65100;
+  --ui-icon-star-color-stroke-off: #c9c9c9;
+  --ui-icon-pin-color-fill: #d70015;
+  --ui-icon-pin-color-stroke: #d70015;
+
+  --ui-button-cta-color-fg: #fafafa;
+  --ui-button-cta-color-bg-disabled: #c9c9c9;
+  --ui-button-cta-color-border-focus: #a3a3a3;
+  --ui-button-cta-color-outline-focus: rgba(0, 0, 0, 0.15);
+  --ui-button-cta-color-shadow: none;
+  --ui-button-cta-color-danger-bg: #d70015;
+  --ui-button-cta-color-danger-bg-hover: #b80012;
+  --ui-button-cta-color-danger-bg-active: #a0000f;
+  --ui-button-subtle-color-fg: #686868;
+  --ui-button-subtle-color-fg-hover: #262626;
+  --ui-button-subtle-color-bg-hover: rgba(0, 0, 0, 0.04);
+  --ui-button-subtle-color-bg-active: rgba(0, 0, 0, 0.08);
+  --ui-button-subtle-color-border-focus: #a3a3a3;
+  --ui-button-subtle-color-outline-focus: rgba(0, 0, 0, 0.15);
+  --ui-button-simple-color-fg: #262626;
+  --ui-button-simple-color-bg: #ffffff;
+  --ui-button-simple-color-bg-hover: #f5f5f5;
+  --ui-button-simple-color-bg-active: #ebebeb;
+  --ui-button-simple-color-border: rgba(0, 0, 0, 0.1);
+  --ui-button-simple-color-border-focus: #a3a3a3;
+  --ui-button-simple-color-outline-focus: rgba(0, 0, 0, 0.15);
+  --ui-button-simple-shadow: none;
+  --ui-button-selected-color-border: #262626;
+  --ui-button-danger-color-fg: #d70015;
+
+  --ui-input-color-bg: #ffffff;
+  --ui-input-color-bg-active: #ffffff;
+  --ui-input-color-border: rgba(0, 0, 0, 0.1);
+  --ui-input-color-border-hover: rgba(0, 0, 0, 0.2);
+  --ui-input-color-border-error: #d70015;
+  --ui-input-focused-color-border: #a3a3a3;
+  --ui-input-focused-color-outline: rgba(0, 0, 0, 0.1);
+  --ui-input-focused-color-outline-fade40: rgba(0, 0, 0, 0.06);
+  --ui-input-activated-color-fg: #fafafa;
+  --ui-toggle-color-bg: #686868;
+  --ui-toggle-color-bg-hover: #262626;
+
+  --ui-altsurface-color-bg: #f5f5f5;
+  --ui-altsurface-color-bg-focused: #ebebeb;
+  --ui-badge-color-bg: #ebebeb;
+  --ui-highlight-color-bg: color-mix(in srgb, #a65100 18%, #fff);
+  --ui-splash-color-stop1: #f5f5f5;
+  --ui-splash-color-stop2: #ffffff;
+  --ui-sidebar-color-fg: #262626;
+  --ui-sidebar-color-bg-focused: rgba(0, 0, 0, 0.05);
+  --ui-snooze-color-bg: color-mix(in srgb, #a65100 8%, #fff);
+  --ui-snooze-color-border: color-mix(in srgb, #a65100 35%, #fff);
+  --ui-snooze-color-fg: #a65100;
+  --ui-verified-color-fg: #26744a;
+  --ui-today-color-bg: #f5f5f5;
+  --ui-today-color-fg: #262626;
+  --ui-today-color-border: rgba(0, 0, 0, 0.2);
+  --ui-loading-color-fg: #262626;
+  --ui-kbfocus-color-fg: #a3a3a3;
+  --ui-card-color-border: rgba(0, 0, 0, 0.08);
+  --ui-card-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  --ui-notification-color-bg: #262626;
+
+  --ui-layer-color-bg: rgba(255, 255, 255, 0.78);
+  --ui-layer-color-bg-withblur: rgba(255, 255, 255, 0.78);
+  --ui-layer-color-border: rgba(0, 0, 0, 0.08);
+  --ui-layer-color-border-divider: rgba(0, 0, 0, 0.08);
+  --ui-pageheader-search-color-border: rgba(0, 0, 0, 0.1);
+  --ui-pageheader-search-color-border-hover: rgba(0, 0, 0, 0.2);
+
+  --ui-memo-color-bg-stop1: color-mix(in srgb, #a65100 12%, #fff);
+  --ui-memo-color-bg-stop2: color-mix(in srgb, #a65100 8%, #fff);
+  --ui-memo-color-fg: #262626;
+  --ui-memo-shadow: none;
+  --ui-diff-color-bg: color-mix(in srgb, #a65100 18%, #fff);
+  --ui-newicon-bg: #262626;
+  --ui-newicon-fg: #fafafa;
+
+  --ui-avatar-color-fg-1: #8a8a8a; --ui-avatar-color-fg-2: #8a8a8a; --ui-avatar-color-fg-3: #8a8a8a;
+  --ui-avatar-color-fg-4: #8a8a8a; --ui-avatar-color-fg-5: #8a8a8a; --ui-avatar-color-fg-6: #8a8a8a;
+  --ui-avatar-color-fg-7: #8a8a8a; --ui-avatar-color-fg-8: #8a8a8a; --ui-avatar-color-fg-9: #8a8a8a;
+  --ui-avatar-color-fg-10: #8a8a8a; --ui-avatar-color-fg-11: #8a8a8a; --ui-avatar-color-fg-12: #8a8a8a;
+  --ui-avatar-color-fg-13: #8a8a8a; --ui-avatar-color-fg-14: #8a8a8a; --ui-avatar-color-fg-15: #8a8a8a;
+  --ui-avatar-color-bg-more: #ebebeb;
+}
+
+/* Dark. Kaneo's dark neutrals: page #141414, sidebar #111111, paper #171717. */
+:root.t-dark {
+  --theme-color-header: #111111;
+  --theme-color-header-fg: #f5f5f5;
+  --theme-color-sidebar: #111111;
+  --theme-color-accent-10: rgba(255, 255, 255, 0.06);
+  --theme-color-accent-60: #737373;
+  --theme-color-accent-100: #f5f5f5;
+  --theme-color-accent-110: #ffffff;
+  --theme-color-accent-120: #e5e5e5;
+
+  --ui-page-color-bg-backdrop: #111111;
+  --ui-page-color-bg: #141414;
+  --ui-page-color-bg-fade0: rgba(20, 20, 20, 0);
+  --ui-page-color-bg-fade20: rgba(20, 20, 20, 0.2);
+  --ui-page-color-bg-fade40: rgba(20, 20, 20, 0.4);
+  --ui-page-color-bg-fade60: rgba(20, 20, 20, 0.6);
+  --ui-page-color-bg-fade80: rgba(20, 20, 20, 0.8);
+  --ui-page-color-bg-fade90: rgba(20, 20, 20, 0.9);
+  --ui-page-color-bg-fade100: #141414;
+  --ui-page-color-bg-hover: #1c1c1c;
+  --ui-page-color-bg-active: #242424;
+  --ui-page-color-bg-focused: #1f1f1f;
+  --ui-page-color-border: rgba(255, 255, 255, 0.1);
+  --ui-page-color-border-medium: rgba(255, 255, 255, 0.07);
+  --ui-page-color-border-subtle: rgba(255, 255, 255, 0.05);
+  --ui-page-color-fg: #f5f5f5;
+  --ui-page-color-fg-subtle: #a3a3a3;
+  --ui-page-color-fg-vsubtle: #737373;
+  --ui-page-color-fg-inverse: #141414;
+  --ui-page-shadow: 0 3px 12px rgba(0, 0, 0, 0.6);
+  --ui-page-main-shadow: none;
+
+  --ui-critical-color-bg: color-mix(in srgb, #ff6961 12%, #141414);
+  --ui-critical-color-border: color-mix(in srgb, #ff6961 40%, #141414);
+  --ui-critical-color-fg: #ff6961;
+  --ui-critical-color-fg-strong: #ff8a84;
+  --ui-warning-color-bg: color-mix(in srgb, #ff9f43 12%, #141414);
+  --ui-warning-color-border: color-mix(in srgb, #ff9f43 40%, #141414);
+  --ui-warning-color-fg: #ff9f43;
+  --ui-warning-color-fg-strong: #ffb66e;
+  --ui-success-color-bg: color-mix(in srgb, #72d19c 12%, #141414);
+  --ui-success-color-border: color-mix(in srgb, #72d19c 40%, #141414);
+  --ui-success-color-fg: #72d19c;
+  --ui-success-color-fg-strong: #95ddb4;
+  --ui-informative-color-bg: #1c1c1c;
+  --ui-informative-color-bg-selected: #262626;
+  --ui-informative-color-border: rgba(255, 255, 255, 0.12);
+  --ui-informative-color-fg: #a3a3a3;
+  --ui-informative-color-fg-strong: #f5f5f5;
+
+  --ui-icon-color-stroke: #f5f5f5;
+  --ui-icon-unread-color-fill-isread: #3d3d3d;
+  --ui-icon-unread-color-fill-isunread: #f5f5f5;
+  --ui-icon-star-color-fill-on: #ff9f43;
+  --ui-icon-star-color-stroke-on: #ff9f43;
+  --ui-icon-star-color-stroke-off: #4a4a4a;
+  --ui-icon-pin-color-fill: #ff6961;
+  --ui-icon-pin-color-stroke: #ff6961;
+
+  --ui-button-cta-color-fg: #171717;
+  --ui-button-cta-color-bg-disabled: #3d3d3d;
+  --ui-button-cta-color-border-focus: #737373;
+  --ui-button-cta-color-outline-focus: rgba(255, 255, 255, 0.15);
+  --ui-button-cta-color-shadow: none;
+  --ui-button-cta-color-danger-bg: #ff6961;
+  --ui-button-cta-color-danger-bg-hover: #ff8a84;
+  --ui-button-cta-color-danger-bg-active: #ffa39e;
+  --ui-button-subtle-color-fg: #a3a3a3;
+  --ui-button-subtle-color-fg-hover: #f5f5f5;
+  --ui-button-subtle-color-bg-hover: rgba(255, 255, 255, 0.05);
+  --ui-button-subtle-color-bg-active: rgba(255, 255, 255, 0.08);
+  --ui-button-subtle-color-border-focus: #737373;
+  --ui-button-subtle-color-outline-focus: rgba(255, 255, 255, 0.15);
+  --ui-button-simple-color-fg: #f5f5f5;
+  --ui-button-simple-color-bg: #1c1c1c;
+  --ui-button-simple-color-bg-hover: #242424;
+  --ui-button-simple-color-bg-active: #2a2a2a;
+  --ui-button-simple-color-border: rgba(255, 255, 255, 0.08);
+  --ui-button-simple-color-border-focus: #737373;
+  --ui-button-simple-color-outline-focus: rgba(255, 255, 255, 0.15);
+  --ui-button-simple-shadow: none;
+  --ui-button-selected-color-border: #f5f5f5;
+  --ui-button-danger-color-fg: #ff6961;
+
+  --ui-input-color-bg: #141414;
+  --ui-input-color-bg-active: #171717;
+  --ui-input-color-border: rgba(255, 255, 255, 0.1);
+  --ui-input-color-border-hover: rgba(255, 255, 255, 0.2);
+  --ui-input-color-border-error: #ff6961;
+  --ui-input-focused-color-border: #737373;
+  --ui-input-focused-color-outline: rgba(255, 255, 255, 0.1);
+  --ui-input-focused-color-outline-fade40: rgba(255, 255, 255, 0.06);
+  --ui-input-activated-color-fg: #171717;
+  --ui-toggle-color-bg: #737373;
+  --ui-toggle-color-bg-hover: #a3a3a3;
+
+  --ui-altsurface-color-bg: #1c1c1c;
+  --ui-altsurface-color-bg-focused: #242424;
+  --ui-badge-color-bg: #262626;
+  --ui-highlight-color-fg: #ff9f43;
+  --ui-splash-color-stop1: #1c1c1c;
+  --ui-splash-color-stop2: #141414;
+  --ui-sidebar-color-fg: #f5f5f5;
+  --ui-sidebar-color-bg-focused: rgba(255, 255, 255, 0.06);
+  --ui-snooze-color-bg: color-mix(in srgb, #ff9f43 12%, #141414);
+  --ui-snooze-color-border: color-mix(in srgb, #ff9f43 40%, #141414);
+  --ui-snooze-color-fg: #ff9f43;
+  --ui-verified-color-fg: #72d19c;
+  --ui-today-color-bg: #1c1c1c;
+  --ui-today-color-fg: #f5f5f5;
+  --ui-today-color-border: rgba(255, 255, 255, 0.2);
+  --ui-loading-color-fg: #f5f5f5;
+  --ui-kbfocus-color-fg: #737373;
+  --ui-card-color-border: rgba(255, 255, 255, 0.08);
+  --ui-card-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  --ui-notification-color-bg: #262626;
+
+  --ui-layer-color-bg: rgba(25, 25, 25, 0.72);
+  --ui-layer-color-bg-withblur: rgba(25, 25, 25, 0.72);
+  --ui-layer-color-border: rgba(255, 255, 255, 0.1);
+  --ui-layer-color-border-divider: rgba(255, 255, 255, 0.08);
+  --ui-pageheader-search-color-border: rgba(255, 255, 255, 0.1);
+  --ui-pageheader-search-color-border-hover: rgba(255, 255, 255, 0.18);
+
+  --ui-memo-color-bg-stop1: color-mix(in srgb, #ff9f43 20%, #141414);
+  --ui-memo-color-bg-stop2: color-mix(in srgb, #ff9f43 14%, #141414);
+  --ui-memo-color-fg: #f5f5f5;
+  --ui-memo-shadow: none;
+  --ui-diff-color-bg: color-mix(in srgb, #ff9f43 25%, #141414);
+  --ui-newicon-bg: #f5f5f5;
+  --ui-newicon-fg: #171717;
+
+  --ui-avatar-color-fg-1: #4a4a4a; --ui-avatar-color-fg-2: #4a4a4a; --ui-avatar-color-fg-3: #4a4a4a;
+  --ui-avatar-color-fg-4: #4a4a4a; --ui-avatar-color-fg-5: #4a4a4a; --ui-avatar-color-fg-6: #4a4a4a;
+  --ui-avatar-color-fg-7: #4a4a4a; --ui-avatar-color-fg-8: #4a4a4a; --ui-avatar-color-fg-9: #4a4a4a;
+  --ui-avatar-color-fg-10: #4a4a4a; --ui-avatar-color-fg-11: #4a4a4a; --ui-avatar-color-fg-12: #4a4a4a;
+  --ui-avatar-color-fg-13: #4a4a4a; --ui-avatar-color-fg-14: #4a4a4a; --ui-avatar-color-fg-15: #4a4a4a;
+  --ui-avatar-color-bg-more: #262626;
+}
+
+/* The top bar is a light panel now, not a coloured band: give it Kaneo's hairline. */
+.v-PageHeader {
+  border-bottom: 1px solid var(--ui-page-color-border-subtle);
+}
+
+/* 3. Glass menus: popovers, menus and the search dropdown on translucent paper. */
+.v-PopOver,
+.v-MainMenu,
+.v-Menu {
+  background: var(--ui-layer-color-bg) !important;
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  box-shadow:
+    inset -1.06px -1.06px 1.06px rgba(0, 0, 0, 0.04),
+    inset 1.06px 1.06px 1.06px rgba(255, 255, 255, 0.8),
+    0 2px 10px 6px rgba(0, 0, 0, 0.06) !important;
+  border: 1px solid var(--ui-layer-color-border) !important;
+  border-radius: 10px;
+}
+:root.t-dark .v-PopOver,
+:root.t-dark .v-MainMenu,
+:root.t-dark .v-Menu {
+  box-shadow:
+    inset -1.06px -1.06px 1.06px rgba(255, 255, 255, 0.04),
+    inset 1.06px 1.06px 1.06px rgba(255, 255, 255, 0.12),
+    0 2px 10px 6px rgba(0, 0, 0, 0.3) !important;
+}
+/* The callout triangle under a menu cannot be glass; hide it, Kaneo menus have none. */
+.v-PopOver-callout,
+.v-PopOver-triangle {
+  display: none !important;
+}
+
+/* 4. Things Fastmail hard-codes instead of reading from a variable. */
+
+/* The top bar and the app rail decide "dark band, white text" once at load,
+   from Fastmail's own header colour. The band is Kaneo's panel now. */
+:root.t-light .v-PageHeader--dark,
+:root.t-light .v-AppSwitcher {
+  color: #262626;
+}
+:root.t-light .v-PageHeader--dark .v-MainNavToolbar:active:not(.is-disabled) > .label,
+:root.t-light .v-PageHeader--dark .v-Button.v-Button--subtle.is-active {
+  background: rgba(0, 0, 0, 0.06);
+}
+:root.t-light {
+  --theme-color-sidebar-accent: rgba(0, 0, 0, 0.06);
+}
+:root.t-dark {
+  --theme-color-sidebar-accent: rgba(255, 255, 255, 0.08);
+}
+
+/* Avatars: fifteen colours per sender, each hard-coded. One Kaneo grey. */
+.v-Avatar-blank[class*="u-color-"] {
+  color: #8a8a8a !important;
+}
+:root.t-dark .v-Avatar-blank[class*="u-color-"] {
+  color: #4a4a4a !important;
+}
+
+/* The page inside a popover paints its own opaque background; let the glass through. */
+.v-PopOver > .v-Page {
+  background: transparent;
+}
