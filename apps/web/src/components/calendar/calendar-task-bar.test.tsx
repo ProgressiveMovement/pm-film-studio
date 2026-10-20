@@ -91,10 +91,13 @@ describe("CalendarTaskBar", () => {
   });
 
   it.each([
-    ["to-do", "bg-slate-500/15"],
-    ["in-progress", "bg-blue-500/15"],
-    ["in-review", "bg-amber-500/15"],
-    ["done", "bg-emerald-500/15"],
+    [
+      "to-do",
+      "bg-[color-mix(in_srgb,var(--muted-foreground)_15%,transparent)]",
+    ],
+    ["in-progress", "bg-[color-mix(in_srgb,var(--primary)_15%,transparent)]"],
+    ["in-review", "bg-[color-mix(in_srgb,var(--warning)_15%,transparent)]"],
+    ["done", "bg-[color-mix(in_srgb,var(--success)_15%,transparent)]"],
     ["custom-status", "bg-primary/12"],
   ])("uses the %s status color", (status, expectedClass) => {
     render(

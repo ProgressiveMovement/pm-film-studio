@@ -10,14 +10,15 @@ export type CalendarTask = PackableTask & {
   status: string;
 };
 
+// Status in the Dossier tones (Studio 3): to do grey, in progress ink,
+// in review orange, done green. Fills are the tone at 15%, edges at 35%.
+const tone = (v: string) =>
+  `border-[color-mix(in_srgb,${v}_35%,transparent)] bg-[color-mix(in_srgb,${v}_15%,transparent)] hover:border-[color-mix(in_srgb,${v}_50%,transparent)] hover:bg-[color-mix(in_srgb,${v}_20%,transparent)]`;
 const STATUS_CLASSES: Record<string, string> = {
-  "to-do":
-    "border-slate-500/35 bg-slate-500/15 hover:border-slate-500/50 hover:bg-slate-500/20",
-  "in-progress":
-    "border-blue-500/35 bg-blue-500/15 hover:border-blue-500/50 hover:bg-blue-500/20",
-  "in-review":
-    "border-amber-500/40 bg-amber-500/15 hover:border-amber-500/55 hover:bg-amber-500/20",
-  done: "border-emerald-500/35 bg-emerald-500/15 hover:border-emerald-500/50 hover:bg-emerald-500/20",
+  "to-do": tone("var(--muted-foreground)"),
+  "in-progress": tone("var(--primary)"),
+  "in-review": tone("var(--warning)"),
+  done: tone("var(--success)"),
 };
 
 export function getCalendarTaskStatusClass(status: string): string {

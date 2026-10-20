@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useUpdateTask } from "@/hooks/mutations/task/use-update-task";
 import { cn } from "@/lib/cn";
+import { resolveLabelColor } from "@/lib/label-color";
 import { toast } from "@/lib/toast";
 import type Task from "@/types/task";
 
@@ -310,8 +311,15 @@ export function GanttTaskBar({
       }}
     >
       <div
-        style={{ gridColumn: `${lineStart} / ${lineEnd}` }}
-        className="group pointer-events-auto relative mx-1 flex min-h-[44px] min-w-0 items-stretch overflow-hidden rounded-md border border-primary/25 bg-background text-left text-sm font-medium leading-none text-foreground shadow-sm transition-colors hover:border-primary/40 sm:h-11 sm:min-h-0"
+        style={{
+          gridColumn: `${lineStart} / ${lineEnd}`,
+          // Studio 3: the bar takes the colour of the task's first label, one of
+          // the Dossier tones; without a label it stays the text colour.
+          ...(task.labels?.[0]?.color
+            ? { "--bar-c": resolveLabelColor(task.labels[0].color) }
+            : {}),
+        }}
+        className="group pointer-events-auto relative mx-1 flex min-h-[44px] min-w-0 items-stretch overflow-hidden rounded-md border border-[color-mix(in_srgb,var(--bar-c,var(--primary))_35%,transparent)] bg-background text-left text-sm font-medium leading-none text-foreground shadow-sm transition-colors hover:border-[color-mix(in_srgb,var(--bar-c,var(--primary))_55%,transparent)] sm:h-11 sm:min-h-0"
       >
         {showResizeHandles && (
           <button
@@ -320,7 +328,7 @@ export function GanttTaskBar({
             disabled={!startIsVisible}
             onPointerDown={handleResizeLeftPointerDown}
             className={cn(
-              "relative z-20 shrink-0 cursor-ew-resize touch-none border-r border-primary/15 bg-primary/8 hover:bg-primary/18",
+              "relative z-20 shrink-0 cursor-ew-resize touch-none border-r border-[color-mix(in_srgb,var(--bar-c,var(--primary))_20%,transparent)] bg-[color-mix(in_srgb,var(--bar-c,var(--primary))_10%,transparent)] hover:bg-[color-mix(in_srgb,var(--bar-c,var(--primary))_22%,transparent)]",
               "min-h-[44px] w-6 sm:min-h-0 sm:w-2",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1",
             )}
@@ -338,7 +346,7 @@ export function GanttTaskBar({
             }
           }}
         >
-          <div className="absolute inset-0 z-0 bg-primary/12 transition-colors group-hover:bg-primary/18" />
+          <div className="absolute inset-0 z-0 bg-[color-mix(in_srgb,var(--bar-c,var(--primary))_16%,transparent)] transition-colors group-hover:bg-[color-mix(in_srgb,var(--bar-c,var(--primary))_24%,transparent)]" />
           <span
             className={cn(
               "relative z-10 block truncate",
@@ -355,7 +363,7 @@ export function GanttTaskBar({
             disabled={!endIsVisible}
             onPointerDown={handleResizeRightPointerDown}
             className={cn(
-              "relative z-20 shrink-0 cursor-ew-resize touch-none border-l border-primary/15 bg-primary/8 hover:bg-primary/18",
+              "relative z-20 shrink-0 cursor-ew-resize touch-none border-l border-[color-mix(in_srgb,var(--bar-c,var(--primary))_20%,transparent)] bg-[color-mix(in_srgb,var(--bar-c,var(--primary))_10%,transparent)] hover:bg-[color-mix(in_srgb,var(--bar-c,var(--primary))_22%,transparent)]",
               "min-h-[44px] w-6 sm:min-h-0 sm:w-2",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1",
             )}
