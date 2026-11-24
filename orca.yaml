@@ -1,0 +1,3 @@
+# Orca runs this in every new worktree. No env files are copied: this repo is public.
+scripts:
+  setup: pnpm install --frozen-lockfile
